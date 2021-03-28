@@ -29,13 +29,21 @@ public class Battle {
         Move move = moves[0];
         if(moves.length > 1){
             for(int i = 1; i < moves.length; i++) {
-                if(moves[i].getDamage() > move.getDamage() && moves[i].getAmountLeft() > 0) {
-                    move = moves[i];
+                if(moves[i] != null) {
+                    if(moves[i].getDamage() > move.getDamage() && moves[i].getAmountLeft() > 0) {
+                        move = moves[i];
+                    }
                 }
+                
             }
         }
         //move is set to highest damage move that the opponent animal has left
-        int dmg = move.getDamage() + oppAnimal.getAD(); //amount to apply
+        if(move != null) {
+            int dmg = move.getDamage() + oppAnimal.getAD(); //amount to apply
+        } else {
+            int dmg = oppAnimal.getAD(); //amount to apply
+        }
+       
         
     }
 }
