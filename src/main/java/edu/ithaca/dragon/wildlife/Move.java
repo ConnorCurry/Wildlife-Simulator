@@ -8,4 +8,8 @@ public class Move {
         this.title = title;
         this.damage = dmg;
     }
+
+    public int getDamage() {
+        return(this.damage);
+    }
 }
