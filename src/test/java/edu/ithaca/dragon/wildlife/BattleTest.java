@@ -41,7 +41,7 @@ class BattleTest {
 
 
         b.opponentAttack();
-        assertEquals(40, pa.getCurrentHP()); //Don't have more of better attack, should only deal 20 + 10
+        assertEquals(30, pa.getCurrentHP()); //Don't have more of better attack, should only deal 20 + 10
 
         Animal oa2 = new Animal(100, 100, 10);
         Animal[] oas2 = new Animal[1];

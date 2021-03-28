@@ -48,6 +48,7 @@ public class Battle {
 
         //apply damage
         this.playerAnimal.receiveDamage(dmg); //apply damage
+        this.oppAnimal
 
        
         

@@ -11,6 +11,10 @@ public class Move {
         this.amountLeft = amt;
     }
 
+    public void decrementAmountLeft() {
+        this.amountLeft -= 1;
+    }
+
     public int getDamage() {
         return(this.damage);
     }
