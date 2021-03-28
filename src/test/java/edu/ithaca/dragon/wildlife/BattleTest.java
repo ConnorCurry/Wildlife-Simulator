@@ -14,6 +14,7 @@ class BattleTest {
         pas[0] = pa; //Player animals set to one animal
         Move[] pms = new Move[4];
         pms[0] = pm; 
+        pa.setMoves(pms);
 
         Animal oa = new Animal(100,100,10);
         Move om1 = new Move("Opponent Move 1", 30, 1);
@@ -23,6 +24,7 @@ class BattleTest {
         Move[] oms = new Move[4];
         oms[0] = om1;
         oms[1] = om2;
+        oa.setMoves(oms);
 
         Player p = new Player();
         p.setAnimals(pas);
@@ -49,6 +51,14 @@ class BattleTest {
         Move om4 = new Move("Opponent Move 2", 30, 1);
         oms2[0] = om3;
         oms2[1] = om4;
+        oa2.setMoves(oms2);
+
+        b.opponentAttack();
+        assertEquals(60, pa.getCurrentHP()); //Chose better move when better move is not first
+
+
+        b.opponentAttack();
+        assertEquals(40, pa.getCurrentHP()); //Don't have more of better attack, should only deal 20 + 10
 
 
     }

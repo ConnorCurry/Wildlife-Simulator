@@ -13,7 +13,12 @@ public class Animal {
         this.ad = ad;
     }
 
+    public void receiveDamage(int dmg) {
+        this.currentHP -= dmg;
+    }
 
+
+    //getters
     public int getAD() {
         return(this.ad);
     }
@@ -26,6 +31,7 @@ public class Animal {
         return(this.currentHP);
     }
 
+    //setters
     public void setMoves(Move[] ms) {
         this.moves = ms;
     }
