@@ -28,17 +28,23 @@ public class Battle {
     public void opponentAttack() {
         //decide on best move
         Move[] moves = oppAnimal.getMoves();
-        Move move = moves[0];
-        if(moves.length > 1){
-            for(int i = 1; i < moves.length; i++) {
-                if(moves[i] != null) {
-                    if(moves[i].getDamage() > move.getDamage() && moves[i].getAmountLeft() > 0) {
+        Move move = null;
+        for(int i = 0; i < moves.length; i++) { //for all animal moves
+            if(moves[i] != null) { //if the move at index i of moves isn't null
+                if(moves[i].getAmountLeft() > 0) { //If still can use move at index i
+                    if(move == null) { //first valid move gets caught here
                         move = moves[i];
+                    } else { 
+                        if(moves[i].getDamage() > move.getDamage() && moves[i].getAmountLeft() > 0) { //test if this move is better than move
+                            move = moves[i];
+                        } //if not better do nothing
                     }
                 }
-                
             }
         }
+        
+        
+        
         //move is set to highest damage move that the opponent animal has left
         int dmg;
         if(move != null) {

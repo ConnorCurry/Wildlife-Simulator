@@ -7,8 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class BattleTest {
 
     @Test
-    void opponentAttackGetBestMoveTest() {
-        Animal pa = new Animal(100, 100, 10); //Player Animal
+    void opponentAttackTest() {
+        Animal pa = new Animal(200, 200, 10); //Player Animal
         Move pm = new Move("Player Move", 20, 2);
         Animal[] pas = new Animal[1]; 
         pas[0] = pa; //Player animals set to one animal
@@ -35,13 +35,13 @@ class BattleTest {
 
         Battle b = new Battle(p, t, c);
 
-        //2/4 moves are null
+        //Equivalence Class: x moves are null where 0<x<=4
         b.opponentAttack();
-        assertEquals(60, pa.getCurrentHP()); //Chose better move when better move is first
+        assertEquals(160, pa.getCurrentHP()); //Chose better move when better move is first
 
 
         b.opponentAttack();
-        assertEquals(30, pa.getCurrentHP()); //Don't have more of better attack, should only deal 20 + 10
+        assertEquals(130, pa.getCurrentHP()); //Don't have more of better attack, should only deal 20 + 10
 
         Animal oa2 = new Animal(100, 100, 10);
         Animal[] oas2 = new Animal[1];
@@ -52,15 +52,26 @@ class BattleTest {
         oms2[0] = om3;
         oms2[1] = om4;
         oa2.setMoves(oms2);
+        t.setAnimals(oas2);
 
-        b.opponentAttack();
-        assertEquals(60, pa.getCurrentHP()); //Chose better move when better move is not first
+        Battle b2 = new Battle(p, t, c);
+
+        b2.opponentAttack();
+        assertEquals(90, pa.getCurrentHP()); //Chose better move when better move is not first
 
 
-        b.opponentAttack();
-        assertEquals(40, pa.getCurrentHP()); //Don't have more of better attack, should only deal 20 + 10
+        b2.opponentAttack();
+        assertEquals(60, pa.getCurrentHP()); //Don't have more of better attack, should only deal 20 + 10
 
+        Animal oa3 = new Animal(100,100,10);
+        Animal[] oas3 = new Animal[4];
+        oas3[0] = oa3;
+        t.setAnimals(oas3);
 
+        Battle b3 = new Battle(p, t, c);
+        b3.opponentAttack();
+        
+        assertEquals(50, pa.getCurrentHP()); //Equivalence Class: Opponents Animal has no moves
     }
     
 }
