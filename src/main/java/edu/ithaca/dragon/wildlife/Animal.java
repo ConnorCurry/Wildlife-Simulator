@@ -18,4 +18,8 @@ public class Animal {
         return(this.ad);
     }
 
+    public Move[] getMoves() {
+        return(this.moves);
+    }
+
 }
