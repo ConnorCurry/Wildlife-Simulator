@@ -7,6 +7,7 @@ public class Battle {
     private Climate climate;
     private Animal playerAnimal;
     private Animal oppAnimal;
+    private Trainer winner; //only set when battle is won
 
     public Battle(Player player, Trainer trainer, Climate climate) {
         currPlayer = player;
@@ -21,6 +22,14 @@ public class Battle {
         int dmg = selectedMove.getDamage() + playerAnimal.getAD(); //amount to apply
         selectedMove.decrementAmountLeft(); //move gets -1 amtLeft
         this.oppAnimal.receiveDamage(dmg); //apply damage
+        if(this.oppAnimal.getCurrentHP() <= 0){ //deadly attack
+            Animal newOA = this.currOpponent.getNextAnimal();
+            if(newOA == null) { //no more valid animals
+                this.winner = this.currPlayer;
+            } else {
+                this.oppAnimal = newOA;
+            }
+        }
 
     }
 
@@ -56,6 +65,14 @@ public class Battle {
 
         //apply damage
         this.playerAnimal.receiveDamage(dmg); //apply damage
+        if(this.playerAnimal.getCurrentHP() <= 0) { //Deadly attack
+            Animal newPA = this.currPlayer.getNextAnimal();
+            if(newPA == null) { //No more animals in party
+                this.winner = this.currOpponent; //game over
+            } else {
+                this.playerAnimal = newPA; //set to next animal
+            }
+        }
         
 
        
