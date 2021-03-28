@@ -18,7 +18,8 @@ public class Battle {
 
     // takes move input from player and attacks opponent
     public void playerAttack(Move selectedMove) {
-        int dmg = selectedMove.getDamage() + playerAnimal.getAD();
+        int dmg = selectedMove.getDamage() + playerAnimal.getAD(); //amount to apply
+        
     }
 
     // program selects a move from the opponent's moveset and attacks player
