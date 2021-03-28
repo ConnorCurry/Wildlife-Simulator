@@ -19,6 +19,7 @@ public class Battle {
     // takes move input from player and attacks opponent
     public void playerAttack(Move selectedMove) {
         int dmg = selectedMove.getDamage() + playerAnimal.getAD(); //amount to apply
+        this.oppAnimal.receiveDamage(dmg); //apply damage
 
     }
 
@@ -38,11 +39,16 @@ public class Battle {
             }
         }
         //move is set to highest damage move that the opponent animal has left
+        int dmg;
         if(move != null) {
-            int dmg = move.getDamage() + oppAnimal.getAD(); //amount to apply
+            dmg = move.getDamage() + oppAnimal.getAD(); //amount to apply
         } else {
-            int dmg = oppAnimal.getAD(); //amount to apply
+            dmg = oppAnimal.getAD(); //amount to apply
         }
+
+        //apply damage
+        this.playerAnimal.receiveDamage(dmg); //apply damage
+
        
         
     }
