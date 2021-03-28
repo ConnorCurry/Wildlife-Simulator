@@ -78,4 +78,8 @@ public class Battle {
        
         
     }
+
+    public Trainer getWinner() {
+        return(this.winner);
+    }
 }

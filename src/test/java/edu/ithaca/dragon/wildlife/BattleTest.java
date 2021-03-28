@@ -73,5 +73,36 @@ class BattleTest {
         
         assertEquals(50, pa.getCurrentHP()); //Equivalence Class: Opponents Animal has no moves
     }
+
+    @Test
+    void deadlyOpponentAttackTest() {
+        Animal pa = new Animal(100, 200, 10); //Player Animal
+        Move pm = new Move("Player Move", 20, 2);
+        Animal[] pas = new Animal[1]; 
+        pas[0] = pa; //Player animals set to one animal
+        Move[] pms = new Move[4];
+        pms[0] = pm; 
+        pa.setMoves(pms);
+
+        Animal oa = new Animal(100,100,10);
+        Move om1 = new Move("Opponent Move 1", 90, 1);
+        Animal[] oas = new Animal[1];
+        oas[0] = oa;
+        Move[] oms = new Move[4];
+        oms[0] = om1;
+        oa.setMoves(oms);
+
+        Player p = new Player();
+        p.setAnimals(pas);
+        Trainer t = new Trainer();
+        t.setAnimals(oas);
+
+        Climate c = Climate.DESERT;
+
+        Battle b = new Battle(p, t, c);
+
+        b.opponentAttack();
+        assertEquals(t, );
+    }
     
 }
