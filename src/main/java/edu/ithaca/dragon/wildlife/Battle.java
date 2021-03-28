@@ -19,6 +19,7 @@ public class Battle {
     // takes move input from player and attacks opponent
     public void playerAttack(Move selectedMove) {
         int dmg = selectedMove.getDamage() + playerAnimal.getAD(); //amount to apply
+        selectedMove.decrementAmountLeft(); //move gets -1 amtLeft
         this.oppAnimal.receiveDamage(dmg); //apply damage
 
     }
@@ -42,13 +43,14 @@ public class Battle {
         int dmg;
         if(move != null) {
             dmg = move.getDamage() + oppAnimal.getAD(); //amount to apply
+            move.decrementAmountLeft(); //move gets 1 less amtLeft
         } else {
             dmg = oppAnimal.getAD(); //amount to apply
         }
 
         //apply damage
         this.playerAnimal.receiveDamage(dmg); //apply damage
-        this.oppAnimal
+        
 
        
         
