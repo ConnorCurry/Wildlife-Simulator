@@ -22,4 +22,8 @@ public class Animal {
         return(this.moves);
     }
 
+    public void setMoves(Move[] ms) {
+        this.moves = ms;
+    }
+
 }
