@@ -22,6 +22,10 @@ public class Animal {
         return(this.moves);
     }
 
+    public int getCurrentHP() {
+        return(this.currentHP);
+    }
+
     public void setMoves(Move[] ms) {
         this.moves = ms;
     }
