@@ -14,4 +14,8 @@ public class Move {
     public int getDamage() {
         return(this.damage);
     }
+
+    public int getAmountLeft() {
+        return(this.amountLeft);
+    }
 }
