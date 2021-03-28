@@ -7,11 +7,15 @@ public class Animal {
     private int ad; //ad = Attack Damage
 
     //Constructor
-    public Animal(int hp, int ad) {
+    public Animal(int hp,int chp, int ad) {
         this.maxHP = hp;
-        this.currentHP = hp;
+        this.currentHP = chp;
         this.ad = ad;
     }
 
+
+    public int getAD() {
+        return(this.ad);
+    }
 
 }
