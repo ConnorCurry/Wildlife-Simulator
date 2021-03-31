@@ -29,6 +29,11 @@ public class WildlifeSimulatorTest {
         assertEquals(move4, WildlifeSimulator.getMoveFromTitle(animal1, "slash")); // full moveset test
 
         moves[3] = null;
-        assertThrows(NullPointerException.class, () -> {WildlifeSimulator.getMoveFromTitle(animal1, "slash");}); // move doesnt exist
+        assertThrows(IllegalArgumentException.class, () -> {WildlifeSimulator.getMoveFromTitle(animal1, "slash");}); // move doesnt exist
+
+        moves[3] = move4;
+        moves[2] = null;
+        assertEquals(move4, WildlifeSimulator.getMoveFromTitle(animal1, "slash")); // if earlier move is null, can stil retrieve later move
+        assertThrows(IllegalArgumentException.class, () -> {WildlifeSimulator.getMoveFromTitle(animal1, "bite");}); // move shouldn't exist
     }
 }
