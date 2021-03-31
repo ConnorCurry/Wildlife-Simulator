@@ -1,5 +1,8 @@
 package edu.ithaca.dragon.wildlife;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Trainer {
     private Animal[] animals = new Animal[6];
 
@@ -29,5 +32,18 @@ public class Trainer {
 
     public void setAnimals(Animal [] as) {
         this.animals = as;
+    }
+
+    /**
+     * @return the animals that are able to be swapped to and from
+     */
+    public Animal[] swappableAnimals() {
+        List<Animal> swappable = new ArrayList<Animal>();
+        for (Animal animal : animals) {
+            if (animal.getCurrentHP() > 0) {
+                swappable.add(animal);
+            }
+        }
+        return swappable.toArray(new Animal[0]);
     }
 }

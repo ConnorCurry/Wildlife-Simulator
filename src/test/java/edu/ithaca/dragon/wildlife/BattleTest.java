@@ -188,4 +188,31 @@ class BattleTest {
         assertNull(testAnimal.getMoves()[1]);
     }
     
+    @Test
+    void playerSwapAnimalTest() {
+        Player p = new Player();
+        Animal a1, a2, a3, a4;
+        a1 = new Animal(1, 1, 100);
+        a2 = new Animal(2, 2, 200);
+        a3 = new Animal(3, 3, 300);
+        a4 = new Animal(4, 0, 400);  // fainted
+
+        Animal[] as = {a1, a2, a3, a4};
+        p.setAnimals(as);
+
+        assertArrayEquals(new Animal[]{a1, a2, a3}, p.swappableAnimals());
+
+        Trainer o = new Trainer();
+        o.setAnimals(new Animal[]{new Animal(1, 1, 1)});
+
+        Battle battle = new Battle(p, o, Climate.PLAINS);
+        assertEquals(a1, battle.getPlayerAnimal());
+
+        assertThrows(IllegalArgumentException.class, () -> battle.playerSwapAnimal(a1));  // animal already out
+        assertThrows(IllegalArgumentException.class, () -> battle.playerSwapAnimal(a4));  // animal fainted
+
+        battle.playerSwapAnimal(a2);
+
+        assertEquals(a2, battle.getPlayerAnimal());
+    }
 }
