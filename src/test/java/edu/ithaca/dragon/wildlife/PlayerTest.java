@@ -45,7 +45,7 @@ public class PlayerTest {
 
         p = new Player();
         a1 = new Animal(1, 0, 100);  // fainted
-        a2 = new Animal(2, 2, 200);  // fainted
+        a2 = new Animal(2, 0, 200);  // fainted
         a3 = new Animal(3, 0, 300);  // fainted
         a4 = new Animal(4, 0, 400);  // fainted
 
