@@ -30,4 +30,9 @@ public class Trainer {
     public void setAnimals(Animal [] as) {
         this.animals = as;
     }
+
+    public Animal[] swappableAnimals() {
+        // TODO
+        return null;
+    }
 }
