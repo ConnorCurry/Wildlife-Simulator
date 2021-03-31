@@ -22,7 +22,11 @@ public class WildlifeSimulator {
         // in future we need to add a speed stat to animals to check who goes first
         Scanner scan = new Scanner(System.in);
         do {
-            String selectedMove;
+            System.out.println("Player animal health: " + currBattle.getPlayerAnimal().getCurrentHP());
+            System.out.println("Opponent animal health: " + currBattle.getOpponentAnimal().getCurrentHP());
+
+            String selectedMoveString;
+            Move selectedMove;
             Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
             do{
                 System.out.println("Choose a move: " + "/n" + 
@@ -31,10 +35,13 @@ public class WildlifeSimulator {
                 pMoves[2].getTitle() + "/n" + 
                 pMoves[3].getTitle());
                 
-                selectedMove = scan.nextLine().toLowerCase();
-            } while (!pMoves[0].getTitle().toLowerCase().equals(selectedMove) && !pMoves[1].getTitle().toLowerCase().equals(selectedMove) && !pMoves[2].getTitle().toLowerCase().equals(selectedMove) && !pMoves[3].getTitle().toLowerCase().equals(selectedMove));
-            
-            // currBattle.playerAttack(selectedMove);
+                selectedMoveString = scan.nextLine().toLowerCase();
+            } while (!pMoves[0].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[1].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[2].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[3].getTitle().toLowerCase().equals(selectedMoveString));
+            selectedMove = WildlifeSimulator.getMoveFromTitle(currBattle.getPlayerAnimal(), selectedMoveString);
+            currBattle.playerAttack(selectedMove);
+
+            currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
+
         
         } while (currBattle.getWinner() == null);
         scan.close();

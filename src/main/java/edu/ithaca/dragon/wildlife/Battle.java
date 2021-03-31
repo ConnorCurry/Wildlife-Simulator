@@ -99,4 +99,8 @@ public class Battle {
         return playerAnimal;
     }
 
+    public Animal getOpponentAnimal() {
+        return oppAnimal;
+    }
+
 }
