@@ -41,7 +41,18 @@ public class WildlifeSimulator {
         return null;
     }
     
+    /*
+    * @param animal is the animal that the move belongs to
+    * @param title is the name of the move
+    * @returns the move object
+    */
     static Move getMoveFromTitle(Animal animal, String title) {
-        return null;
+        Move[] moves = animal.getMoves();
+        for (int i = 0; i < 4; i++) {
+            if (moves[i] != null && moves[i].getTitle().toLowerCase().equals(title)) {
+                return moves[i];
+            }
+        }
+        throw new IllegalArgumentException();
     }
 }
