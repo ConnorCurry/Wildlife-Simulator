@@ -167,7 +167,7 @@ class BattleTest {
         wb.playerAttack(pm);
         assertEquals(40, oa.getCurrentHP());
         wb.run();
-        
+        //here it will set a boolean isBattle to false, which will bring player to main demo menu
     }
     
 }
