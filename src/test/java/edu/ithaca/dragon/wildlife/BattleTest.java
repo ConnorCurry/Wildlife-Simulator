@@ -169,5 +169,14 @@ class BattleTest {
         wb.run();
         //here it will set a boolean isBattle to false, which will bring player to main demo menu
     }
+
+    @Test
+    /*Animals are able to forget moves. All animals must have at least 1 move.
+    given an animal with 2 moves, view the animal's moves, select to remove a move, choose move, view updated animal moves
+    given an animal with 1 move, view the animals moves, observe that select to remove is visible but not accessible. */
+
+    void forgetTest(){
+        
+    }
     
 }

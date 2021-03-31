@@ -22,4 +22,8 @@ public class Move {
     public int getAmountLeft() {
         return(this.amountLeft);
     }
+
+    public String getTitle(){
+        return title;
+    }
 }
