@@ -33,7 +33,7 @@ class BattleTest {
 
         Climate c = Climate.DESERT;
 
-        Battle b = new Battle(p, t, c);
+        Battle b = new WildBattle(p, t, c);
 
         //Equivalence Class: x moves are null where 0<x<=4
         b.opponentAttack();
@@ -135,6 +135,11 @@ class BattleTest {
         b.playerAttack(pm);
         assertEquals(0, oa.getCurrentHP());
         assertEquals(p, b.getWinner());
+    }
+
+    @Test
+    void runTest(){
+        
     }
     
 }
