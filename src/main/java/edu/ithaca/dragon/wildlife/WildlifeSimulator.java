@@ -45,7 +45,7 @@ public class WildlifeSimulator {
         
         } while (currBattle.getWinner() == null);
         scan.close();
-        return null;
+        return currBattle.getWinner();
     }
     
     /*
