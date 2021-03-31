@@ -174,9 +174,18 @@ class BattleTest {
     /*Animals are able to forget moves. All animals must have at least 1 move.
     given an animal with 2 moves, view the animal's moves, select to remove a move, choose move, view updated animal moves
     given an animal with 1 move, view the animals moves, observe that select to remove is visible but not accessible. */
-
     void forgetTest(){
-        
+        Animal testAnimal = new Animal(100,100,10);
+        Move testMoveOne = new Move("Move 1", 50, 1);
+        Move testMoveTwo = new Move("Move 2", 50, 1);
+        Move[] testMoveSet = new Move[4];
+        testMoveSet[0] = testMoveOne;
+        testMoveSet[1] = testMoveTwo;
+        testAnimal.setMoves(testMoveSet);
+        assertNotNull(testAnimal.getMoves()[1]);
+        assertNotNull(testAnimal.getMoves()[0]);
+        testAnimal.forgetMove(1);
+        assertNull(testAnimal.getMoves()[1]);
     }
     
 }

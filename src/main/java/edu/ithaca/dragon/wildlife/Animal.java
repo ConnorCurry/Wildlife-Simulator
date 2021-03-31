@@ -36,8 +36,8 @@ public class Animal {
         this.moves = ms;
     }
 
-    public void forgetMove(Move moveToForget){
-        
+    public void forgetMove(int moveIndex){
+    
     }
 
 }
