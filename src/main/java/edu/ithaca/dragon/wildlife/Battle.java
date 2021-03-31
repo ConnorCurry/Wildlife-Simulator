@@ -1,5 +1,8 @@
 package edu.ithaca.dragon.wildlife;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Battle {
 
     private Player currPlayer;
@@ -15,6 +18,19 @@ public class Battle {
         this.climate = climate;
         playerAnimal = player.getFirstAnimal();
         oppAnimal = trainer.getFirstAnimal();
+    }
+
+    /**
+     * swaps current player animal to animal if swappable and not out
+     * @param animal to swap to
+     */
+    public void playerSwapAnimal(Animal animal) {
+        List<Animal> swappable = Arrays.asList(currPlayer.swappableAnimals());
+        if (!(animal.equals(playerAnimal)) && swappable.contains(animal)) {
+            playerAnimal = animal;
+        } else {
+            throw new IllegalArgumentException("Cannot swap to that Animal");
+        }
     }
 
     // takes move input from player and attacks opponent
@@ -81,5 +97,9 @@ public class Battle {
 
     public Trainer getWinner() {
         return(this.winner);
+    }
+
+    public Object getPlayerAnimal() {
+        return playerAnimal;
     }
 }
