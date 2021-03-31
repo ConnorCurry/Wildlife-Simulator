@@ -39,5 +39,4 @@ public class Animal {
     public void forgetMove(int moveIndex){
         moves[moveIndex] = null;
     }
-
 }
