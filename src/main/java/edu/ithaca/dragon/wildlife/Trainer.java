@@ -34,6 +34,9 @@ public class Trainer {
         this.animals = as;
     }
 
+    /**
+     * @return the animals that are able to be swapped to and from
+     */
     public Animal[] swappableAnimals() {
         List<Animal> swappable = new ArrayList<Animal>();
         for (Animal animal : animals) {
