@@ -215,12 +215,12 @@ class BattleTest {
 
         assertEquals(a2, battle.getPlayerAnimal());
     }
-
+    @Test
     void captureTest(){
-        boolean boolArray[] = new boolean[100];
+        boolean boolArray[] = new boolean[1000];
         int worstNumber = 0;
         int bestNumber = 0;
-        for(int i=0; i<100; i++){
+        for(int i=0; i<1000; i++){
             Animal pa = new Animal(200, 200, 10); //Best possible chance to capture, 1% health, min level 1
             Move pm = new Move("Player Move", 20, 2);
             Animal[] pas = new Animal[1]; 
@@ -251,13 +251,13 @@ class BattleTest {
             boolean captureCheck = b.captureAnimal();
             boolArray[i] = captureCheck;
      }
-        for (int i=0; i<100; i++){
+        for (int i=0; i<1000; i++){
             if (boolArray[i] == true){
                 bestNumber+=1;
             }
         }
-        assertEquals(58, bestNumber, 7);
-        for(int i=0; i<100; i++){ //Worst possible chance to capture, 100% health, max level 99
+        assertEquals(580, bestNumber, 90);
+        for(int i=0; i<1000; i++){ //Worst possible chance to capture, 100% health, max level 99
             Animal pa = new Animal(200, 200, 10); //Player Animal
             Move pm = new Move("Player Move", 20, 2);
             Animal[] pas = new Animal[1]; 
@@ -289,12 +289,12 @@ class BattleTest {
             boolean captureCheck = b.captureAnimal();
             boolArray[i] = captureCheck;
      }
-     for (int i=0; i<100; i++){
+     for (int i=0; i<1000; i++){
         if (boolArray[i] == true){
             worstNumber+=1;
         }
     }
-    assertEquals(20, worstNumber, 7);
+    assertEquals(350, worstNumber, 90);
 
     }
 }
