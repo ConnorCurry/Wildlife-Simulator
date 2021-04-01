@@ -9,7 +9,7 @@ public class Battle {
     private Trainer currOpponent;
     private Climate climate;
     private Animal playerAnimal;
-    private Animal oppAnimal;
+    protected Animal oppAnimal;
     private Trainer winner; //only set when battle is won
 
     public Battle(Player player, Trainer trainer, Climate climate) {
@@ -102,5 +102,6 @@ public class Battle {
     public Animal getOpponentAnimal() {
         return oppAnimal;
     }
+
 
 }
