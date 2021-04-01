@@ -103,4 +103,8 @@ public class Battle {
         return oppAnimal;
     }
 
+    public Animal[] getPlayerAnimalsArray() {
+        return currPlayer.getAnimalsArray();
+    }
+
 }

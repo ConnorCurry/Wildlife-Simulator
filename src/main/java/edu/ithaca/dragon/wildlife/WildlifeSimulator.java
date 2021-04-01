@@ -25,6 +25,55 @@ public class WildlifeSimulator {
             System.out.println("Player animal health: " + currBattle.getPlayerAnimal().getCurrentHP());
             System.out.println("Opponent animal health: " + currBattle.getOpponentAnimal().getCurrentHP());
 
+            String selectedActionString;
+            System.out.println("Will you: /nAttack/nSwap");
+            selectedActionString = scan.nextLine().toLowerCase();
+
+            if (selectedActionString.equals("attack")){
+                String selectedMoveString;
+                Move selectedMove;
+                Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
+                do{
+                    System.out.println("Choose a move: " + "/n" + 
+                    pMoves[0].getTitle() + "/n" + 
+                    pMoves[1].getTitle() + "/n" + 
+                    pMoves[2].getTitle() + "/n" + 
+                    pMoves[3].getTitle());
+                    
+                    selectedMoveString = scan.nextLine().toLowerCase();
+                } while (!pMoves[0].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[1].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[2].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[3].getTitle().toLowerCase().equals(selectedMoveString));
+                selectedMove = WildlifeSimulator.getMoveFromTitle(currBattle.getPlayerAnimal(), selectedMoveString);
+                currBattle.playerAttack(selectedMove);
+            }
+            else if (selectedActionString.equals("swap")) {
+                System.out.println("Which animal will you swap to?");
+                for (Animal animal : currBattle.getPlayerAnimalsArray()) {
+                    System.out.println(animal.getName());
+                }
+                //TODO take user input and compare it to names
+            }
+
+
+            
+
+            currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
+
+        
+        } while (currBattle.getWinner() == null);
+        scan.close();
+        return currBattle.getWinner();
+    }
+
+    public Trainer startWildBattle(){
+        currBattle = new WildBattle(player, currArea.getTrainers()[0], currArea.getClimate());
+        // while no winner exists, run turns
+        // in future we need to add a speed stat to animals to check who goes first
+        // if user runs, battle ends and returns null as winner
+        Scanner scan = new Scanner(System.in);
+        do {
+            System.out.println("Player animal health: " + currBattle.getPlayerAnimal().getCurrentHP());
+            System.out.println("Opponent animal health: " + currBattle.getOpponentAnimal().getCurrentHP());
+
             String selectedMoveString;
             Move selectedMove;
             Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
@@ -43,7 +92,7 @@ public class WildlifeSimulator {
             currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
 
         
-        } while (currBattle.getWinner() == null);
+        } while (currBattle.getWinner() == null && ((WildBattle)currBattle).hasRun == false);
         scan.close();
         return currBattle.getWinner();
     }

@@ -46,4 +46,8 @@ public class Trainer {
         }
         return swappable.toArray(new Animal[0]);
     }
+
+    public Animal[] getAnimalsArray() {
+        return animals;
+    }
 }

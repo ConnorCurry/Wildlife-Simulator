@@ -5,12 +5,20 @@ public class Animal {
     private int maxHP; // HP = Health Points
     private int currentHP;
     private int ad; //ad = Attack Damage
+    private String name;
 
     //Constructor
     public Animal(int hp,int chp, int ad) {
         this.maxHP = hp;
         this.currentHP = chp;
         this.ad = ad;
+    }
+
+    public Animal(int hp,int chp, int ad, String name) {
+        this.maxHP = hp;
+        this.currentHP = chp;
+        this.ad = ad;
+        this.name = name;
     }
 
     public void receiveDamage(int dmg) {
@@ -38,5 +46,9 @@ public class Animal {
 
     public void forgetMove(int moveIndex){
         moves[moveIndex] = null;
+    }
+
+    public String getName(){
+        return name;
     }
 }
