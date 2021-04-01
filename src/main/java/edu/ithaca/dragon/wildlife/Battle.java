@@ -102,4 +102,5 @@ public class Battle {
     public Object getPlayerAnimal() {
         return playerAnimal;
     }
+
 }
