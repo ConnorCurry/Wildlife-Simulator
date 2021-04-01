@@ -17,6 +17,10 @@ public class Animal {
         this.currentHP -= dmg;
     }
 
+    public void healMove(int healAmt){
+        
+    }
+
 
     //getters
     public int getAD() {
@@ -39,4 +43,5 @@ public class Animal {
     public void forgetMove(int moveIndex){
         moves[moveIndex] = null;
     }
+
 }
