@@ -89,17 +89,18 @@ public class Battle {
                 this.playerAnimal = newPA; //set to next animal
             }
         }
-        
-
-       
-        
     }
 
     public Trainer getWinner() {
         return(this.winner);
     }
 
-    public Object getPlayerAnimal() {
+    public Animal getPlayerAnimal() {
         return playerAnimal;
     }
+
+    public Animal getOpponentAnimal() {
+        return oppAnimal;
+    }
+
 }
