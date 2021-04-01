@@ -218,6 +218,12 @@ class BattleTest {
 
     @Test
     void healTest(){
-        
+        Animal a1 = new Animal(100, 20, 100);
+        assertEquals(20, a1.getCurrentHP());
+        a1.healMove(20);
+        assertEquals(40, a1.getCurrentHP());
+        Animal a2 = new Animal(100, 100, 100);
+        a2.healMove(20);
+        assertEquals(100, a2.getCurrentHP());
     }
 }
