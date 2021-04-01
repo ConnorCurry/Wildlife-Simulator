@@ -14,4 +14,8 @@ public class WildBattle extends Battle {
         hasRun = true;
         System.out.println("You ran away!");
     }
+
+    public boolean captureAnimal() {
+        return false;
+    }
 }
