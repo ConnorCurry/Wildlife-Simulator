@@ -215,4 +215,5 @@ class BattleTest {
 
         assertEquals(a2, battle.getPlayerAnimal());
     }
+
 }
