@@ -1,5 +1,6 @@
 package edu.ithaca.dragon.wildlife;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -29,7 +30,7 @@ public class WildlifeSimulator {
             System.out.println("Will you: /nAttack/nSwap");
             selectedActionString = scan.nextLine().toLowerCase();
 
-            if (selectedActionString.equals("attack")){
+            if (selectedActionString.equals("attack")){ //TODO check for invalid input
                 String selectedMoveString;
                 Move selectedMove;
                 Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
@@ -50,15 +51,22 @@ public class WildlifeSimulator {
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
                     System.out.println(animal.getName());
                 }
-                //TODO take user input and compare it to names
+                String swapString;
+                ArrayList<String> namesList = new ArrayList<>();
+                for (Animal animal : currBattle.getPlayerAnimalsArray()) {
+                    namesList.add(animal.getName().toLowerCase());
+                }
+                do {
+                    swapString = scan.nextLine().toLowerCase();
+                } while (!namesList.contains(swapString)); // not sure contains will work here
+
+                for (Animal animal : currBattle.getPlayerAnimalsArray()) {
+                    if (animal.getName().toLowerCase().equals(swapString)) {
+                        currBattle.playerSwapAnimal(animal);
+                    }
+                }
             }
-
-
-            
-
             currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
-
-        
         } while (currBattle.getWinner() == null);
         scan.close();
         return currBattle.getWinner();
