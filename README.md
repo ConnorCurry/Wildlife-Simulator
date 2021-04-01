@@ -9,3 +9,5 @@
 **Sprint 1:**
 
 *Sprint Goal:* A functioning demo battle with a set party for the player and a set wild animal opponent
+
+*Sprint Review Agenda:* https://docs.google.com/document/d/1c3rBAAjL5qnm_hDxxMj3Jkc_VihEhTwjAJqgKxkVMEU/edit?usp=sharing

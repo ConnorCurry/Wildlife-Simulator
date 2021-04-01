@@ -19,6 +19,15 @@ public class Animal {
         this.currentHP -= dmg;
     }
 
+    public void healMove(int healAmt){
+        if(currentHP >= maxHP){
+            System.out.println("You are already full health!");
+        }
+        else{
+            currentHP+=healAmt;
+        }
+    }
+
 
     //getters
     public int getAD() {
@@ -51,4 +60,5 @@ public class Animal {
     public void forgetMove(int moveIndex){
         moves[moveIndex] = null;
     }
+
 }
