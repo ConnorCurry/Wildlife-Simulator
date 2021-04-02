@@ -6,23 +6,35 @@ public class Animal {
     private int currentHP;
     private int ad; //ad = Attack Damage
     private String name;
+    private int level;
 
     //Constructor
     public Animal(int hp,int chp, int ad) {
         this.maxHP = hp;
         this.currentHP = chp;
         this.ad = ad;
+        this.level = 1;
     }
 
     public Animal(int hp,int chp, int ad, String name) {
         this.maxHP = hp;
         this.currentHP = chp;
         this.ad = ad;
+        this.level = 1;
         this.name = name;
     }
 
     public void receiveDamage(int dmg) {
         this.currentHP -= dmg;
+    }
+
+    public void healMove(int healAmt){
+        if(currentHP >= maxHP){
+            System.out.println("You are already full health!");
+        }
+        else{
+            currentHP+=healAmt;
+        }
     }
 
 
@@ -38,10 +50,20 @@ public class Animal {
     public int getCurrentHP() {
         return(this.currentHP);
     }
+    public int getMaxHP(){
+        return(this.maxHP);
+    }
+    public int getLevel(){
+        return(this.level);
+    }
 
     //setters
     public void setMoves(Move[] ms) {
         this.moves = ms;
+    }
+
+    public void setLevel(int levelToBe){
+        this.level = levelToBe;
     }
 
     public void forgetMove(int moveIndex){

@@ -1,4 +1,5 @@
 package edu.ithaca.dragon.wildlife;
+import java.util.Random;
 
 public class WildBattle extends Battle {
     Boolean hasRun;
@@ -15,7 +16,19 @@ public class WildBattle extends Battle {
         System.out.println("You ran away!");
     }
 
-    public boolean captureAnimal() {
-        return false;
+    public boolean captureAnimal(){
+        //~10% of chance determined from health
+        //25% chance determined from level
+        Random rand = new Random();
+        int odds = 60;
+        odds -= (this.oppAnimal.getCurrentHP()/this.oppAnimal.getMaxHP())*10;
+        odds -= (this.oppAnimal.getLevel()/4);
+        int selection = rand.nextInt(100);
+        if (selection > odds){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }

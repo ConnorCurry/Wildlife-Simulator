@@ -216,4 +216,98 @@ class BattleTest {
         assertEquals(a2, battle.getPlayerAnimal());
     }
 
+    @Test
+    void captureTest(){
+        boolean boolArray[] = new boolean[1000];
+        int worstNumber = 0;
+        int bestNumber = 0;
+        for(int i=0; i<1000; i++){
+            Animal pa = new Animal(200, 200, 10); //Best possible chance to capture, 1% health, min level 1
+            Move pm = new Move("Player Move", 20, 2);
+            Animal[] pas = new Animal[1]; 
+            pas[0] = pa; //Player animals set to one animal
+            Move[] pms = new Move[4];
+            pms[0] = pm; 
+            pa.setMoves(pms);
+
+            Animal oa = new Animal(100,1,10);
+            Move om1 = new Move("Opponent Move 1", 30, 1);
+            Move om2 = new Move("Opponent Move 2", 20, 1);
+            Animal[] oas = new Animal[1];
+            oas[0] = oa;
+            Move[] oms = new Move[4];
+            oms[0] = om1;
+            oms[1] = om2;
+            oa.setMoves(oms);
+
+            Player p = new Player();
+            p.setAnimals(pas);
+            Trainer t = new Trainer();
+            t.setAnimals(oas);
+
+            Climate c = Climate.DESERT;
+
+            WildBattle b = new WildBattle(p, t, c);
+            
+            boolean captureCheck = b.captureAnimal();
+            boolArray[i] = captureCheck;
+     }
+        for (int i=0; i<1000; i++){
+            if (boolArray[i] == true){
+                bestNumber+=1;
+            }
+        }
+        assertEquals(580, bestNumber, 90);
+        for(int i=0; i<1000; i++){ //Worst possible chance to capture, 100% health, max level 99
+            Animal pa = new Animal(200, 200, 10); //Player Animal
+            Move pm = new Move("Player Move", 20, 2);
+            Animal[] pas = new Animal[1]; 
+            pas[0] = pa; //Player animals set to one animal
+            Move[] pms = new Move[4];
+            pms[0] = pm; 
+            pa.setMoves(pms);
+
+            Animal oa = new Animal(100,100,10);
+            Move om1 = new Move("Opponent Move 1", 30, 1);
+            Move om2 = new Move("Opponent Move 2", 20, 1);
+            Animal[] oas = new Animal[1];
+            oas[0] = oa;
+            Move[] oms = new Move[4];
+            oms[0] = om1;
+            oms[1] = om2;
+            oa.setMoves(oms);
+            oa.setLevel(99);
+
+            Player p = new Player();
+            p.setAnimals(pas);
+            Trainer t = new Trainer();
+            t.setAnimals(oas);
+
+            Climate c = Climate.DESERT;
+
+            WildBattle b = new WildBattle(p, t, c);
+            
+            boolean captureCheck = b.captureAnimal();
+            boolArray[i] = captureCheck;
+     }
+     for (int i=0; i<1000; i++){
+        if (boolArray[i] == true){
+            worstNumber+=1;
+        }
+    }
+    assertEquals(350, worstNumber, 90);
+    }
+
+
+
+    @Test
+    void healTest(){
+        Animal a1 = new Animal(100, 20, 100);
+        assertEquals(20, a1.getCurrentHP());
+        a1.healMove(20);
+        assertEquals(40, a1.getCurrentHP());
+        Animal a2 = new Animal(100, 100, 100);
+        a2.healMove(20);
+        assertEquals(100, a2.getCurrentHP());
+    }
 }
