@@ -143,7 +143,7 @@ public class WildlifeSimulator {
 
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
                     if (animal != null && animal.getName().toLowerCase().equals(swapString)) {
-                        currBattle.playerSwapAnimal(animal); // TODO fix, will throw exception if false animal is picked
+                        currBattle.playerSwapAnimal(animal); // TODO fix, will throw exception if invalid animal is picked
                     }
                 }
             }
