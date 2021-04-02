@@ -48,19 +48,23 @@ public class WildlifeSimulator {
             else if (selectedActionString.equals("swap")) {
                 System.out.println("Which animal will you swap to?");
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    System.out.println(animal.getName());
+                    if (animal != null) {
+                        System.out.println(animal.getName());
+                    }
                 }
                 String swapString;
                 ArrayList<String> namesList = new ArrayList<>();
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    namesList.add(animal.getName().toLowerCase());
+                    if (animal != null) {
+                        namesList.add(animal.getName().toLowerCase());
+                    }
                 }
                 do {
                     swapString = scan.nextLine().toLowerCase();
                 } while (!namesList.contains(swapString)); // not sure contains will work here
 
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    if (animal.getName().toLowerCase().equals(swapString)) {
+                    if (animal != null && animal.getName().toLowerCase().equals(swapString)) {
                         currBattle.playerSwapAnimal(animal);
                     }
                 }
