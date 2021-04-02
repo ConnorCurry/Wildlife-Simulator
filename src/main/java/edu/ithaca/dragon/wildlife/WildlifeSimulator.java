@@ -98,17 +98,19 @@ public class WildlifeSimulator {
                 String selectedMoveString;
                 Move selectedMove;
                 Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
+                ArrayList<String> moveList = new ArrayList<>();
                 do{
                     System.out.println("Choose a move: " + "\n");
                     
                     for (Move move : pMoves) {
                         if (move != null){
+                            moveList.add(move.getTitle().toLowerCase());
                             System.out.println(move.getTitle());
                         }
                     }
                     
                     selectedMoveString = scan.nextLine().toLowerCase();
-                } while (!pMoves[0].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[1].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[2].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[3].getTitle().toLowerCase().equals(selectedMoveString));
+                } while (!moveList.contains(selectedMoveString));
                 selectedMove = WildlifeSimulator.getMoveFromTitle(currBattle.getPlayerAnimal(), selectedMoveString);
                 currBattle.playerAttack(selectedMove);
             }
