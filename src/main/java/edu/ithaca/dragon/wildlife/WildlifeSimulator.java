@@ -10,11 +10,10 @@ public class WildlifeSimulator {
     private Battle currBattle;
     private Player player;
     
-    public WildlifeSimulator() {
-        Trainer[] trainers = {new Trainer()};
-        Area area1 = new Area(trainers, Climate.PLAINS);
-        areas.put(1, area1);
-        this.currArea = areas.get(1);
+    public WildlifeSimulator(HashMap<Integer, Area> areas, Player player) {
+        this.areas = areas;
+        this.player = player;
+        this.currArea = this.areas.get(1);
     }
 
     public Trainer startBattle(){
@@ -27,41 +26,51 @@ public class WildlifeSimulator {
             System.out.println("Opponent animal health: " + currBattle.getOpponentAnimal().getCurrentHP());
 
             String selectedActionString;
-            System.out.println("Will you: /nAttack/nSwap");
-            selectedActionString = scan.nextLine().toLowerCase();
+            do{
+                System.out.println("Will you: \nAttack\nSwap");
+                selectedActionString = scan.nextLine().toLowerCase();
+            } while (!selectedActionString.equals("attack") && !selectedActionString.equals("swap"));
 
-            if (selectedActionString.equals("attack")){ //TODO check for invalid input
+            if (selectedActionString.equals("attack")){
                 String selectedMoveString;
                 Move selectedMove;
                 Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
+                ArrayList<String> moveList = new ArrayList<>();
                 do{
-                    System.out.println("Choose a move: " + "/n" + 
-                    pMoves[0].getTitle() + "/n" + 
-                    pMoves[1].getTitle() + "/n" + 
-                    pMoves[2].getTitle() + "/n" + 
-                    pMoves[3].getTitle());
+                    System.out.println("Choose a move: " + "\n");
+                    
+                    for (Move move : pMoves) {
+                        if (move != null){
+                            moveList.add(move.getTitle().toLowerCase());
+                            System.out.println(move.getTitle());
+                        }
+                    }
                     
                     selectedMoveString = scan.nextLine().toLowerCase();
-                } while (!pMoves[0].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[1].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[2].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[3].getTitle().toLowerCase().equals(selectedMoveString));
+                } while (!moveList.contains(selectedMoveString));
                 selectedMove = WildlifeSimulator.getMoveFromTitle(currBattle.getPlayerAnimal(), selectedMoveString);
                 currBattle.playerAttack(selectedMove);
             }
             else if (selectedActionString.equals("swap")) {
                 System.out.println("Which animal will you swap to?");
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    System.out.println(animal.getName());
+                    if (animal != null) {
+                        System.out.println(animal.getName());
+                    }
                 }
                 String swapString;
                 ArrayList<String> namesList = new ArrayList<>();
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    namesList.add(animal.getName().toLowerCase());
+                    if (animal != null) {
+                        namesList.add(animal.getName().toLowerCase());
+                    }
                 }
                 do {
                     swapString = scan.nextLine().toLowerCase();
                 } while (!namesList.contains(swapString)); // not sure contains will work here
 
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    if (animal.getName().toLowerCase().equals(swapString)) {
+                    if (animal != null && animal.getName().toLowerCase().equals(swapString)) {
                         currBattle.playerSwapAnimal(animal);
                     }
                 }
@@ -69,8 +78,14 @@ public class WildlifeSimulator {
             currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
         } while (currBattle.getWinner() == null);
         scan.close();
+        if (currBattle.getWinner() == player) {
+            System.out.println("Player Wins!");
+        }
+        else System.out.println("Player lost");
         return currBattle.getWinner();
     }
+
+
 
     public Trainer startWildBattle(){
         currBattle = new WildBattle(player, currArea.getTrainers()[0], currArea.getClimate());
@@ -82,22 +97,28 @@ public class WildlifeSimulator {
             System.out.println("Opponent animal health: " + currBattle.getOpponentAnimal().getCurrentHP());
 
             String selectedActionString;
-            System.out.println("Will you: /nAttack/nSwap");
-            selectedActionString = scan.nextLine().toLowerCase();
+            do {
+                System.out.println("Will you: \nAttack\nSwap\nRun\nCatch");
+                selectedActionString = scan.nextLine().toLowerCase();
+            } while (!selectedActionString.equals("attack") && !selectedActionString.equals("swap") && !selectedActionString.equals("run") && !selectedActionString.equals("catch"));
 
-            if (selectedActionString.equals("attack")){ //TODO check for invalid input
+            if (selectedActionString.equals("attack")){
                 String selectedMoveString;
                 Move selectedMove;
                 Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
+                ArrayList<String> moveList = new ArrayList<>();
                 do{
-                    System.out.println("Choose a move: " + "/n" + 
-                    pMoves[0].getTitle() + "/n" + 
-                    pMoves[1].getTitle() + "/n" + 
-                    pMoves[2].getTitle() + "/n" + 
-                    pMoves[3].getTitle());
+                    System.out.println("Choose a move: " + "\n");
+                    
+                    for (Move move : pMoves) {
+                        if (move != null){
+                            moveList.add(move.getTitle().toLowerCase());
+                            System.out.println(move.getTitle());
+                        }
+                    }
                     
                     selectedMoveString = scan.nextLine().toLowerCase();
-                } while (!pMoves[0].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[1].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[2].getTitle().toLowerCase().equals(selectedMoveString) && !pMoves[3].getTitle().toLowerCase().equals(selectedMoveString));
+                } while (!moveList.contains(selectedMoveString));
                 selectedMove = WildlifeSimulator.getMoveFromTitle(currBattle.getPlayerAnimal(), selectedMoveString);
                 currBattle.playerAttack(selectedMove);
             }
@@ -105,20 +126,24 @@ public class WildlifeSimulator {
             else if (selectedActionString.equals("swap")) {
                 System.out.println("Which animal will you swap to?");
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    System.out.println(animal.getName());
+                    if (animal != null){
+                        System.out.println(animal.getName());
+                    }
                 }
                 String swapString;
                 ArrayList<String> namesList = new ArrayList<>();
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    namesList.add(animal.getName().toLowerCase());
+                    if (animal != null){
+                        namesList.add(animal.getName().toLowerCase());
+                    }
                 }
                 do {
                     swapString = scan.nextLine().toLowerCase();
                 } while (!namesList.contains(swapString)); // not sure contains will work here
 
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    if (animal.getName().toLowerCase().equals(swapString)) {
-                        currBattle.playerSwapAnimal(animal);
+                    if (animal != null && animal.getName().toLowerCase().equals(swapString)) {
+                        currBattle.playerSwapAnimal(animal); // TODO fix, will throw exception if invalid animal is picked
                     }
                 }
             }
@@ -134,6 +159,10 @@ public class WildlifeSimulator {
             currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
         } while (currBattle.getWinner() == null);
         scan.close();
+        if (currBattle.getWinner() == player) {
+            System.out.println("Player Wins!");
+        }
+        else System.out.println("Player lost");
         return currBattle.getWinner();
     }
     

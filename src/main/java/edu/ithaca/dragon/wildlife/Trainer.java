@@ -40,7 +40,7 @@ public class Trainer {
     public Animal[] swappableAnimals() {
         List<Animal> swappable = new ArrayList<Animal>();
         for (Animal animal : animals) {
-            if (animal.getCurrentHP() > 0) {
+            if (animal != null && animal.getCurrentHP() > 0) {
                 swappable.add(animal);
             }
         }
