@@ -14,6 +14,7 @@ public class WildBattle extends Battle {
     public void run() {
         hasRun = true;
         System.out.println("You ran away!");
+        winner = currOpponent;
     }
 
     public boolean captureAnimal(){
@@ -25,9 +26,12 @@ public class WildBattle extends Battle {
         odds -= (this.oppAnimal.getLevel()/4);
         int selection = rand.nextInt(100);
         if (selection > odds){
+            System.out.println("The animal was not successfully captured");
             return false;
         }
         else{
+            System.out.println("You successfully caught the " + oppAnimal.getName() + ".");
+            winner = currPlayer;
             return true;
         }
     }

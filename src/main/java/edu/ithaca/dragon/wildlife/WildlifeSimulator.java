@@ -10,11 +10,10 @@ public class WildlifeSimulator {
     private Battle currBattle;
     private Player player;
     
-    public WildlifeSimulator() {
-        Trainer[] trainers = {new Trainer()};
-        Area area1 = new Area(trainers, Climate.PLAINS);
-        areas.put(1, area1);
-        this.currArea = areas.get(1);
+    public WildlifeSimulator(HashMap<Integer, Area> areas, Player player) {
+        this.areas = areas;
+        this.player = player;
+        this.currArea = this.areas.get(1);
     }
 
     public Trainer startBattle(){
@@ -27,7 +26,7 @@ public class WildlifeSimulator {
             System.out.println("Opponent animal health: " + currBattle.getOpponentAnimal().getCurrentHP());
 
             String selectedActionString;
-            System.out.println("Will you: /nAttack/nSwap");
+            System.out.println("Will you: \nAttack\nSwap");
             selectedActionString = scan.nextLine().toLowerCase();
 
             if (selectedActionString.equals("attack")){ //TODO check for invalid input
@@ -35,10 +34,10 @@ public class WildlifeSimulator {
                 Move selectedMove;
                 Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
                 do{
-                    System.out.println("Choose a move: " + "/n" + 
-                    pMoves[0].getTitle() + "/n" + 
-                    pMoves[1].getTitle() + "/n" + 
-                    pMoves[2].getTitle() + "/n" + 
+                    System.out.println("Choose a move: " + "\n" + 
+                    pMoves[0].getTitle() + "\n" + 
+                    pMoves[1].getTitle() + "\n" + 
+                    pMoves[2].getTitle() + "\n" + 
                     pMoves[3].getTitle());
                     
                     selectedMoveString = scan.nextLine().toLowerCase();
@@ -82,7 +81,7 @@ public class WildlifeSimulator {
             System.out.println("Opponent animal health: " + currBattle.getOpponentAnimal().getCurrentHP());
 
             String selectedActionString;
-            System.out.println("Will you: /nAttack/nSwap");
+            System.out.println("Will you: \nAttack\nSwap\nRun\nCatch");
             selectedActionString = scan.nextLine().toLowerCase();
 
             if (selectedActionString.equals("attack")){ //TODO check for invalid input
@@ -90,10 +89,10 @@ public class WildlifeSimulator {
                 Move selectedMove;
                 Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
                 do{
-                    System.out.println("Choose a move: " + "/n" + 
-                    pMoves[0].getTitle() + "/n" + 
-                    pMoves[1].getTitle() + "/n" + 
-                    pMoves[2].getTitle() + "/n" + 
+                    System.out.println("Choose a move: " + "\n" + 
+                    pMoves[0].getTitle() + "\n" + 
+                    pMoves[1].getTitle() + "\n" + 
+                    pMoves[2].getTitle() + "\n" + 
                     pMoves[3].getTitle());
                     
                     selectedMoveString = scan.nextLine().toLowerCase();
