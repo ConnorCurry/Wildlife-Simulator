@@ -18,7 +18,7 @@
 
 *Sprint Goal:*
 
-*UML Diagrams:*
+*UML Diagrams:* https://drive.google.com/file/d/1UHhyyU2P4N8uRuuG6bTG-EvQyFvjgdOF/view?usp=sharing
 
 *Sprint Review Agenda:*
 
