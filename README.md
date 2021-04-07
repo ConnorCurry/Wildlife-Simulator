@@ -23,3 +23,13 @@
 *Sprint Review Agenda:*
 
 *Sprint Retrospective:*
+
+**Sprint 3:**
+
+*Sprint Goal:*
+
+*UML Diagrams:*
+
+*Sprint Review Agenda:*
+
+*Sprint Retrospective:*
