@@ -4,6 +4,8 @@
 
 *Scenarios & Narratives:* https://docs.google.com/document/d/1lvrNGWjKu17U7q4BWF-L9mJJFaNusVUTPwi9mKLGR1Q/edit?usp=sharing
 
+***
+
 **Sprint 1:**
 
 *Sprint Goal:* A functioning demo battle with a set party for the player and a set wild animal opponent
@@ -14,6 +16,8 @@
 
 *Sprint Retrospective:* https://docs.google.com/document/d/1YLB0bQ4c9INizOjoXEeJ5yWT0Ipflw1Wny4dGEgCfF8/edit?usp=sharing
 
+***
+
 **Sprint 2:**
 
 *Sprint Goal:*
@@ -23,6 +27,8 @@
 *Sprint Review Agenda:*
 
 *Sprint Retrospective:*
+
+***
 
 **Sprint 3:**
 
