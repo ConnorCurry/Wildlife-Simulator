@@ -2,7 +2,7 @@
 
 *Scenarios & Narratives:* https://docs.google.com/document/d/1lvrNGWjKu17U7q4BWF-L9mJJFaNusVUTPwi9mKLGR1Q/edit?usp=sharing
 
-*Zenhub Link:* https://app.zenhub.com/workspaces/wildlife-simulator-60589e04d7d7410015bea82b/board?repos=350355026
+*Zenhub:* https://app.zenhub.com/workspaces/wildlife-simulator-60589e04d7d7410015bea82b/board?repos=350355026
 
 ***
 
