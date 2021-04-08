@@ -21,7 +21,7 @@
 
 ## Sprint 2:
 
-**Sprint Goal:** A functioning practice mode (with added save/load, status effects, UI feedback, leveling, moving between zones) for users who want to play through a few battles, but don't have the time to play through the entire game.
+**Sprint Goal:** A functioning practice mode (with added save/load, status effects, UI feedback, leveling and moving between zones) for users who want to play through a few battles, but don't have the time to play through the entire game
 
 **UML Diagrams:** https://drive.google.com/file/d/1UHhyyU2P4N8uRuuG6bTG-EvQyFvjgdOF/view?usp=sharing
 
