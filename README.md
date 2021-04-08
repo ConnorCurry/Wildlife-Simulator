@@ -20,7 +20,7 @@
 
 **Sprint 2:**
 
-*Sprint Goal:*
+*Sprint Goal:* Implemented remaining base mechanics (save/load, status effects, UI feedback, leveling, moving between zones, ) so that we can move on to the story
 
 *UML Diagrams:* https://drive.google.com/file/d/1UHhyyU2P4N8uRuuG6bTG-EvQyFvjgdOF/view?usp=sharing
 
