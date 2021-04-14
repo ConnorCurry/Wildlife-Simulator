@@ -54,4 +54,9 @@ public class PlayerTest {
 
         assertArrayEquals(new Animal[]{}, p.swappableAnimals());
     }
+    @Test
+    void viewPartyTest() {
+        
+    }
+
 }

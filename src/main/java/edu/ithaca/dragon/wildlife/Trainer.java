@@ -50,4 +50,9 @@ public class Trainer {
     public Animal[] getAnimalsArray() {
         return animals;
     }
+
+    //Returns string of trainer's party
+    public String viewParty(Animal[] animals){
+        return null;
+    }
 }
