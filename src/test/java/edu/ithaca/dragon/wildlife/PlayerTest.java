@@ -60,14 +60,15 @@ public class PlayerTest {
     void viewPartyTest() {
         Trainer t = new Trainer();
         Animal a1, a2, a3, a4;
-        a1 = new Animal(1, 1, 100, "Bear");
-        a2 = new Animal(2, 2, 200, "Dog");
-        a3 = new Animal(3, 3, 300, "Snake");
-        a4 = new Animal(4, 0, 400, "Lion"); 
+        a1 = new Animal(100, 1, 1, "Bear");
+        a2 = new Animal(200, 2, 2, "Dog");
+        a3 = new Animal(300, 3, 3, "Snake");
+        a4 = new Animal(400, 0, 4, "Lion"); 
 
         Animal[] as = {a1, a2, a3, a4};
         t.setAnimals(as);
-        String answer1 = "Animal 1: Bear, HP: 1 %nAnimal 2: Dog, HP: 2 %nAnimal 3: Snake, HP: 3 %nAnimal 4: Lion, HP: 0 %n";
+        String answer1 = "Animal 1: Bear, HP: 1, Max HP: 100, Attack Damage: 1 %nAnimal 2: Dog, HP: 2, Max HP: 200, Attack Damage: 2 %nAnimal 3: Snake, HP: 3, Max HP: 300, Attack Damage: 3 %nAnimal 4: Lion, HP: 0, Max HP: 400, Attack Damage: 4 %n";
+        System.out.printf(answer1);
         assertEquals(answer1, t.viewParty());
     }
 }

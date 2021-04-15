@@ -56,7 +56,7 @@ public class Trainer {
         String partyInfo = "";
         for(int i = 0; i < animals.length; i++){
             int anNum = i +1;
-            partyInfo += "Animal " + anNum + ": " + animals[i].getName() + ", HP: " + animals[i].getCurrentHP() + " %n";
+            partyInfo += "Animal " + anNum + ": " + animals[i].getName() + ", HP: " + animals[i].getCurrentHP() + ", Max HP: " + animals[i].getMaxHP() + ", Attack Damage: " + animals[i].getAD() + " %n";
         }
         return partyInfo;
     }
