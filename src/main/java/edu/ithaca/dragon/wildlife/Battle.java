@@ -1,7 +1,6 @@
 package edu.ithaca.dragon.wildlife;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Battle {
 
@@ -35,17 +34,57 @@ public class Battle {
 
     // takes move input from player and attacks opponent
     public void playerAttack(Move selectedMove) {
-        int dmg = selectedMove.getDamage() + playerAnimal.getAD(); //amount to apply
-        selectedMove.decrementAmountLeft(); //move gets -1 amtLeft
-        this.oppAnimal.receiveDamage(dmg); //apply damage
-        if(this.oppAnimal.getCurrentHP() <= 0){ //deadly attack
+        Scanner reader = new Scanner(System.in);
+        boolean run = true;
+        //apply status effect
+        if(this.playerAnimal.getCurrentEffect() != null) {
+            //apply effect damage
+            this.playerAnimal.receiveDamage(this.playerAnimal.getCurrentEffect().getDamage());
+            //decrement life
+            this.playerAnimal.getCurrentEffect().decrementLife();
+            //if animal died
+            if(playerAnimal.getCurrentHP() <0) {
+                run = false;
+                //Need to choose new animal for turn
+                Animal[] animals = this.getPlayerAnimalsArray();
+                ArrayList<Animal> validAnimals = new ArrayList<Animal>();
+                //Get list of valid animals
+                for(int i = 0; i < animals.length; i++) {
+                    if(animals[i].getCurrentHP() > 0) {
+                        validAnimals.add(animals[i]);
+                    }
+                }
+                int ans = -1;
+                if(validAnimals.size() > 0){ //if valid animals in party
+                    for(int i = 0; i < validAnimals.size(); i++) {
+                        System.out.println((i+1) + " "+ validAnimals.get(i).getName() + " : HP=" + validAnimals.get(i).getCurrentHP() + "/" + validAnimals.get(i).getMaxHP()+ " ; AD = " + validAnimals.get(i).getAD());
+                        
+                    }
+                    ans = reader.nextInt();
+                    if(ans < 0 || ans > validAnimals.size()){
+                        ans = 0;
+                    }
+                    this.playerAnimal = validAnimals.get(ans);
+                }   
+                    
+                }
+                
+        }
+
+        if(run){
+            int dmg = selectedMove.getDamage() + playerAnimal.getAD(); //amount to apply
+            selectedMove.decrementAmountLeft(); //move gets -1 amtLeft
+            this.oppAnimal.receiveDamage(dmg); //apply damage
+            if(this.oppAnimal.getCurrentHP() <= 0){ //deadly attack
             Animal newOA = this.currOpponent.getNextAnimal();
             if(newOA == null) { //no more valid animals
                 this.winner = this.currPlayer;
             } else {
                 this.oppAnimal = newOA;
+                }   
             }
         }
+        
 
     }
 
