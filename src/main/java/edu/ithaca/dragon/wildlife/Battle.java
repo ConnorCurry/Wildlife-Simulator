@@ -86,44 +86,76 @@ public class Battle {
 
     // program selects a move from the opponent's moveset and attacks player
     public void opponentAttack() {
-        //decide on best move
-        Move[] moves = oppAnimal.getMoves();
-        Move move = null;
-        for(int i = 0; i < moves.length; i++) { //for all animal moves
-            if(moves[i] != null) { //if the move at index i of moves isn't null
-                if(moves[i].getAmountLeft() > 0) { //If still can use move at index i
-                    if(move == null) { //first valid move gets caught here
-                        move = moves[i];
-                    } else { 
-                        if(moves[i].getDamage() > move.getDamage() && moves[i].getAmountLeft() > 0) { //test if this move is better than move
+        Scanner reader = new Scanner(System.in);
+        boolean run = true;
+        //apply status effect
+        if(this.oppAnimal.getCurrentEffect() != null) {
+            //apply effect damage
+            this.oppAnimal.receiveDamage(this.oppAnimal.getCurrentEffect().getDamage());
+            //decrement life
+            this.oppAnimal.getCurrentEffect().decrementLife();
+        }
+        //if animal died
+        if(oppAnimal.getCurrentHP() <0) {
+            //Need to choose new animal for turn
+            Animal[] animals = this.getOpponentAnimalsArray();
+            ArrayList<Animal> validAnimals = new ArrayList<Animal>();
+            //Get list of valid animals
+            for(int i = 0; i < animals.length; i++) {
+                if(animals[i].getCurrentHP() > 0) {
+                    validAnimals.add(animals[i]);
+                }
+            }      
+                
+            int ans = -1;
+            if(validAnimals.isEmpty()){ //if no valid animals in party
+                this.winner = this.currPlayer;
+                return;
+            } else { //swap to first valid animal
+                this.oppAnimal = validAnimals.get(0);
+            }
+                    
+        } else {
+            //decide on best move
+            Move[] moves = oppAnimal.getMoves();
+            Move move = null;
+            for(int i = 0; i < moves.length; i++) { //for all animal moves
+                if(moves[i] != null) { //if the move at index i of moves isn't null
+                    if(moves[i].getAmountLeft() > 0) { //If still can use move at index i
+                        if(move == null) { //first valid move gets caught here
                             move = moves[i];
-                        } //if not better do nothing
+                        } else { 
+                            if(moves[i].getDamage() > move.getDamage() && moves[i].getAmountLeft() > 0) { //test if this move is better than move
+                                move = moves[i];
+                            } //if not better do nothing
+                        }
                     }
+                }
+            }
+            
+            
+            
+            //move is set to highest damage move that the opponent animal has left
+            int dmg;
+            if(move != null) {
+                dmg = move.getDamage() + oppAnimal.getAD(); //amount to apply
+                move.decrementAmountLeft(); //move gets 1 less amtLeft
+            } else {
+                dmg = oppAnimal.getAD(); //amount to apply
+            }
+
+            //apply damage
+            this.playerAnimal.receiveDamage(dmg); //apply damage
+            if(this.playerAnimal.getCurrentHP() <= 0) { //Deadly attack
+                Animal newPA = this.currPlayer.getNextAnimal();
+                if(newPA == null) { //No more animals in party
+                    this.winner = this.currOpponent; //game over
+                } else {
+                    this.playerAnimal = newPA; //set to next animal
                 }
             }
         }
         
-        
-        
-        //move is set to highest damage move that the opponent animal has left
-        int dmg;
-        if(move != null) {
-            dmg = move.getDamage() + oppAnimal.getAD(); //amount to apply
-            move.decrementAmountLeft(); //move gets 1 less amtLeft
-        } else {
-            dmg = oppAnimal.getAD(); //amount to apply
-        }
-
-        //apply damage
-        this.playerAnimal.receiveDamage(dmg); //apply damage
-        if(this.playerAnimal.getCurrentHP() <= 0) { //Deadly attack
-            Animal newPA = this.currPlayer.getNextAnimal();
-            if(newPA == null) { //No more animals in party
-                this.winner = this.currOpponent; //game over
-            } else {
-                this.playerAnimal = newPA; //set to next animal
-            }
-        }
     }
 
     public Trainer getWinner() {
@@ -140,6 +172,10 @@ public class Battle {
 
     public Animal[] getPlayerAnimalsArray() {
         return currPlayer.getAnimalsArray();
+    }
+
+    public Animal[] getOpponentAnimalsArray() {
+        return(this.currOpponent.getAnimalsArray());
     }
 
 }
