@@ -1,19 +1,20 @@
 package edu.ithaca.dragon.wildlife;
 
 public class GetStatusEffect {
+
     
-    public StatusEffect getPoison(Animal host) {
-        StatusEffect poison = new StatusEffect(host, "poison", 6 , 5);
+    public StatusEffect getPoison() {
+        StatusEffect poison = new StatusEffect(null, "poison", 6 , 5);
         return(poison);
     }
 
-    public StatusEffect getBleed(Animal host) {
-        StatusEffect bleed = new StatusEffect(host, "bleed", 9 , 3);
+    public StatusEffect getBleed() {
+        StatusEffect bleed = new StatusEffect(null, "bleed", 9 , 3);
         return(bleed);
     }
 
-    public StatusEffect getBurn(Animal host) {
-        StatusEffect burn = new StatusEffect(host, "burn", 4 , 7);
+    public StatusEffect getBurn() {
+        StatusEffect burn = new StatusEffect(null, "burn", 4 , 7);
         return(burn);
     }
 }

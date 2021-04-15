@@ -11,7 +11,12 @@ public class StatusEffect {
 
 
     public StatusEffect(Animal host, String label, int duration,int damage){
-        this.host = host;
+        if(host != null) {
+            this.host = host;
+        } else {
+            this.host = null;
+        }
+        
         this.label = label;
         this.life = duration;
         this.dmg = damage;
@@ -20,5 +25,10 @@ public class StatusEffect {
     public void applyEffect() {
         this.host.receiveDamage(this.dmg);
         this.life--;
+    }
+
+
+    public void setHost(Animal host) {
+        this.host = host;
     }
 }
