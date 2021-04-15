@@ -8,12 +8,12 @@ public class GetStatusEffect {
     }
 
     public StatusEffect getBleed(Animal host) {
-        StatusEffect bleed = new StatusEffect(host, "bleed", 8 , 4);
+        StatusEffect bleed = new StatusEffect(host, "bleed", 9 , 3);
         return(bleed);
     }
 
     public StatusEffect getBurn(Animal host) {
-        StatusEffect burn = new StatusEffect(host, "burn", 8 , 4);
+        StatusEffect burn = new StatusEffect(host, "burn", 4 , 7);
         return(burn);
     }
 }
