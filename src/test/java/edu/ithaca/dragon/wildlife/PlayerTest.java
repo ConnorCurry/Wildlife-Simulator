@@ -1,6 +1,8 @@
 package edu.ithaca.dragon.wildlife;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
@@ -56,7 +58,16 @@ public class PlayerTest {
     }
     @Test
     void viewPartyTest() {
-        
-    }
+        Trainer t = new Trainer();
+        Animal a1, a2, a3, a4;
+        a1 = new Animal(1, 1, 100, "Bear");
+        a2 = new Animal(2, 2, 200, "Dog");
+        a3 = new Animal(3, 3, 300, "Snake");
+        a4 = new Animal(4, 0, 400, "Lion"); 
 
+        Animal[] as = {a1, a2, a3, a4};
+        t.setAnimals(as);
+        String answer1 = "Animal 1: Bear, HP: 1 %nAnimal 2: Dog, HP: 2 %nAnimal 3: Snake, HP: 3 %nAnimal 4: Lion, HP: 0";
+        assertEquals(answer1, t.viewParty());
+    }
 }

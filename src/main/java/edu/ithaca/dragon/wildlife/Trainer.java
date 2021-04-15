@@ -52,7 +52,7 @@ public class Trainer {
     }
 
     //Returns string of trainer's party
-    public String viewParty(Animal[] animals){
+    public String viewParty(){
         return null;
     }
 }
