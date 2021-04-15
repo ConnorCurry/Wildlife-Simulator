@@ -6,6 +6,7 @@ public class Move {
     private int amountLeft;
     private StatusEffect effect;
 
+    //Constructor with effect (effect can be null)
     public Move(String title, int dmg, int amt, String effect) {
         this.title = title;
         this.damage = dmg;
@@ -23,6 +24,13 @@ public class Move {
         } else {
             effect = null;
         }
+    }
+    //Constructor without effect
+    public Move(String title, int dmg, int amt) {
+        this.title = title;
+        this.damage = dmg;
+        this.amountLeft = amt;
+
     }
 
     public void decrementAmountLeft() {
