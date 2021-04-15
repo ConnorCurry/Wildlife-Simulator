@@ -37,6 +37,8 @@ public class Move {
         this.amountLeft -= 1;
     }
 
+
+    //Getters
     public int getDamage() {
         return(this.damage);
     }
@@ -46,6 +48,9 @@ public class Move {
     }
 
     public String getTitle(){
-        return title;
+        return(title);
+    }
+    public StatusEffect getEffect() {
+        return(this.effect);
     }
 }

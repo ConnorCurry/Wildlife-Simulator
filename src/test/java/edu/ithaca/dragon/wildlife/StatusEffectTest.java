@@ -29,7 +29,17 @@ class StatusEffectTest {
 
     @Test
     void moveWithStatusEffectTest() {
-        
+        Move m = new Move("demo", 10, 10, "poison");
+        assertEquals(6, m.getEffect().getLife());
+        assertEquals(5, m.getEffect().getDamage());
+
+        m = new Move("demo2", 10, 10, "bleed");
+        assertEquals(9, m.getEffect().getLife());
+        assertEquals(3, m.getEffect().getDamage());
+
+        m = new Move("demo3", 10, 10, "burn");
+        assertEquals(4, m.getEffect().getLife());
+        assertEquals(7, m.getEffect().getDamage());
     }
     
 }
