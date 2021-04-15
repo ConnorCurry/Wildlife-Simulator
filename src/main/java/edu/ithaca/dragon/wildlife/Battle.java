@@ -42,50 +42,46 @@ public class Battle {
             this.playerAnimal.receiveDamage(this.playerAnimal.getCurrentEffect().getDamage());
             //decrement life
             this.playerAnimal.getCurrentEffect().decrementLife();
-            //if animal died
-            if(playerAnimal.getCurrentHP() <0) {
-                run = false;
-                //Need to choose new animal for turn
-                Animal[] animals = this.getPlayerAnimalsArray();
-                ArrayList<Animal> validAnimals = new ArrayList<Animal>();
-                //Get list of valid animals
-                for(int i = 0; i < animals.length; i++) {
-                    if(animals[i].getCurrentHP() > 0) {
-                        validAnimals.add(animals[i]);
-                    }
-                }
-                int ans = -1;
-                if(validAnimals.size() > 0){ //if valid animals in party
-                    for(int i = 0; i < validAnimals.size(); i++) {
-                        System.out.println((i+1) + " "+ validAnimals.get(i).getName() + " : HP=" + validAnimals.get(i).getCurrentHP() + "/" + validAnimals.get(i).getMaxHP()+ " ; AD = " + validAnimals.get(i).getAD());
-                        
-                    }
-                    ans = reader.nextInt();
-                    if(ans < 0 || ans > validAnimals.size()){
-                        ans = 0;
-                    }
-                    this.playerAnimal = validAnimals.get(ans);
-                }   
-                    
-                }
-                
         }
-
-        if(run){
+        //if animal died
+        if(playerAnimal.getCurrentHP() <0) {
+            //Need to choose new animal for turn
+            Animal[] animals = this.getPlayerAnimalsArray();
+            ArrayList<Animal> validAnimals = new ArrayList<Animal>();
+            //Get list of valid animals
+            for(int i = 0; i < animals.length; i++) {
+                if(animals[i].getCurrentHP() > 0) {
+                    validAnimals.add(animals[i]);
+                }
+            }      
+                
+            int ans = -1;
+            if(validAnimals.isEmpty()){ //if valid animals in party
+                for(int i = 0; i < validAnimals.size(); i++) {
+                    System.out.println((i+1) + " "+ validAnimals.get(i).getName() + " : HP=" + validAnimals.get(i).getCurrentHP() + "/" + validAnimals.get(i).getMaxHP()+ " ; AD = " + validAnimals.get(i).getAD());
+                }
+                ans = reader.nextInt();
+                if(ans < 1 || ans > validAnimals.size()){
+                    ans = 1;
+                }
+                this.playerAnimal = validAnimals.get(ans-1);
+            }   
+                    
+        } else { //If Animal Survived Status Effect (if no effect, animal will just start turn normally here)
             int dmg = selectedMove.getDamage() + playerAnimal.getAD(); //amount to apply
             selectedMove.decrementAmountLeft(); //move gets -1 amtLeft
             this.oppAnimal.receiveDamage(dmg); //apply damage
             if(this.oppAnimal.getCurrentHP() <= 0){ //deadly attack
-            Animal newOA = this.currOpponent.getNextAnimal();
-            if(newOA == null) { //no more valid animals
-                this.winner = this.currPlayer;
-            } else {
-                this.oppAnimal = newOA;
+                Animal newOA = this.currOpponent.getNextAnimal();
+                if(newOA == null) { //no more valid animals
+                    this.winner = this.currPlayer;
+                } else {
+                    this.oppAnimal = newOA;
                 }   
             }
         }
+                
         
-
     }
 
     // program selects a move from the opponent's moveset and attacks player
