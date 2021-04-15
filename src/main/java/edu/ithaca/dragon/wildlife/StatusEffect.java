@@ -28,6 +28,17 @@ public class StatusEffect {
     }
 
 
+    //Getters
+
+    public int getLife() {
+        return(this.life);
+    }
+
+    public int getDamage() {
+        return(this.dmg);
+    }
+
+    //Setters
     public void setHost(Animal host) {
         this.host = host;
     }
