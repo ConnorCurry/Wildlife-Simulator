@@ -53,6 +53,11 @@ public class Trainer {
 
     //Returns string of trainer's party
     public String viewParty(){
-        return null;
+        String partyInfo = "";
+        for(int i = 0; i < animals.length; i++){
+            int anNum = i +1;
+            partyInfo += "Animal " + anNum + ": " + animals[i].getName() + ", HP: " + animals[i].getCurrentHP() + " %n";
+        }
+        return partyInfo;
     }
 }

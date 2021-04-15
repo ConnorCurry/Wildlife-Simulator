@@ -67,7 +67,7 @@ public class PlayerTest {
 
         Animal[] as = {a1, a2, a3, a4};
         t.setAnimals(as);
-        String answer1 = "Animal 1: Bear, HP: 1 %nAnimal 2: Dog, HP: 2 %nAnimal 3: Snake, HP: 3 %nAnimal 4: Lion, HP: 0";
+        String answer1 = "Animal 1: Bear, HP: 1 %nAnimal 2: Dog, HP: 2 %nAnimal 3: Snake, HP: 3 %nAnimal 4: Lion, HP: 0 %n";
         assertEquals(answer1, t.viewParty());
     }
 }
