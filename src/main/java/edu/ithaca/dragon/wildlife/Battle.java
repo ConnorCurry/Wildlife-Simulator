@@ -92,7 +92,7 @@ public class Battle {
         if(this.oppAnimal.getCurrentEffect() != null) {
             //apply effect damage
             this.oppAnimal.receiveDamage(this.oppAnimal.getCurrentEffect().getDamage());
-            //decrement life
+            //decrement life of effect
             this.oppAnimal.getCurrentEffect().decrementLife();
         }
         //if animal died
@@ -107,7 +107,6 @@ public class Battle {
                 }
             }      
                 
-            int ans = -1;
             if(validAnimals.isEmpty()){ //if no valid animals in party
                 this.winner = this.currPlayer;
                 return;
@@ -120,7 +119,7 @@ public class Battle {
             Move[] moves = oppAnimal.getMoves();
             Move move = null;
             for(int i = 0; i < moves.length; i++) { //for all animal moves
-                if(moves[i] != null) { //if the move at index i of moves isn't null
+                while(moves[i] != null) { //if the move at index i of moves isn't null
                     if(moves[i].getAmountLeft() > 0) { //If still can use move at index i
                         if(move == null) { //first valid move gets caught here
                             move = moves[i];
@@ -130,6 +129,9 @@ public class Battle {
                             } //if not better do nothing
                         }
                     }
+                }
+                if(move == null){
+                    move = new Move("nullmove", 0, 99);
                 }
             }
             
