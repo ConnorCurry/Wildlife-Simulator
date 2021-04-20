@@ -81,6 +81,12 @@ public class Trainer {
     }
 
     public void removeFromParty(int anNumb){
-
+        if(animals == null){
+            System.out.println("Your party is empty!");
+        }
+        else{
+            int anIndex = anNumb - 1;
+            animals[anIndex] = null;
+        }
     }
 }
