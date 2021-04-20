@@ -2,10 +2,13 @@ package edu.ithaca.dragon.wildlife;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
+
     @Test
     void swapAnimalTest() {
         Player p = new Player();
@@ -75,16 +78,18 @@ public class PlayerTest {
     @Test
     void addToPartyTest(){
         Trainer t = new Trainer();
-        Animal a1, a2, a3, a4;
+        Animal a1, a2, a3, a4, a5;
         a1 = new Animal(100, 1, 1, "Bear");
         a2 = new Animal(200, 2, 2, "Dog");
         a3 = new Animal(300, 3, 3, "Snake");
         a4 = new Animal(400, 0, 4, "Lion"); 
+        a5 = new Animal(500, 5, 5, "Oh My");
 
-        Animal[] as = {a1, a2, a3};
+        Animal[] as = {a1, a2, a3, null};
         t.setAnimals(as);
         t.addToParty(a4);
         assertEquals(a4, t.getAnimalsArray()[3]);
+        t.addToParty(a5);   //test to see if there is a print    
 
     }
 
