@@ -80,7 +80,7 @@ public class Trainer {
         }
     }
 
-    public void removeFromParty(Animal animal){
+    public void removeFromParty(int anNumb){
 
     }
 }

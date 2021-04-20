@@ -95,6 +95,21 @@ public class PlayerTest {
 
     @Test
     void removeFromPartyTest(){
+        Trainer t = new Trainer();
+        Animal a1, a2, a3, a4, a5;
+        a1 = new Animal(100, 1, 1, "Bear");
+        a2 = new Animal(200, 2, 2, "Dog");
+        a3 = new Animal(300, 3, 3, "Snake");
+        a4 = new Animal(400, 0, 4, "Lion"); 
+        a5 = new Animal(500, 5, 5, "Oh My");
+        Animal[] as = {a1, a2, a3, a4};
+        t.setAnimals(as);
+        t.removeFromParty(4);
+        assertNull(t.getAnimalsArray()[3]);
+        Animal[] as2 = {null, null, null, null};
+        t.setAnimals(as2);
+        t.removeFromParty(1); //test to see if there is a print
+
 
     }
 }
