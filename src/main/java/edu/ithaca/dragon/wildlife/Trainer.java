@@ -57,4 +57,14 @@ public class Trainer {
     public Animal[] getAnimalsArray() {
         return animals;
     }
+
+    //Returns string of trainer's party
+    public String viewParty(){
+        String partyInfo = "";
+        for(int i = 0; i < animals.length; i++){
+            int anNum = i +1;
+            partyInfo += "Animal " + anNum + ": " + animals[i].getName() + ", HP: " + animals[i].getCurrentHP() + ", Max HP: " + animals[i].getMaxHP() + ", Attack Damage: " + animals[i].getAD() + " %n";
+        }
+        return partyInfo;
+    }
 }
