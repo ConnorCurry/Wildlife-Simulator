@@ -44,7 +44,12 @@ public class Animal {
      * If after addition exp equals 3, reset exp and initiate level up
      */
     public void addExp(){
-    
+        this.ExP += 1;
+        System.out.println("One ExP Gained!");
+        if (this.ExP == 3){
+            this.ExP = 0;
+            this.levelUp();
+        }
     }
     /**
      * adds one to level (up to a max of 10)
@@ -52,7 +57,13 @@ public class Animal {
      * learns new move if able (will add later, once file scan in is ready, will make master list of animals and cross check moves)
      */
     public void levelUp(){
-
+        if(this.level < 10){
+            this.level += 1;
+            double dHP = this.maxHP * 1.05;
+            this.maxHP = (int)dHP;
+            double dAd = this.ad * 1.02;
+            this.ad = (int)dAd;
+        }
     }
     //getters
     public int getAD() {

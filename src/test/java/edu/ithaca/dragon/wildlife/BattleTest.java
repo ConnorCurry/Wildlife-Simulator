@@ -343,12 +343,12 @@ class BattleTest {
         a1.levelUp();
         a1.levelUp();
         assertEquals(10, a1.getLevel());//equivalence class, max level newly reached
-        assertEquals(155, a1.getMaxHP());
-        assertEquals(119, a1.getAD());
+        assertEquals(151, a1.getMaxHP());
+        assertEquals(118, a1.getAD());
         a1.levelUp();
         assertEquals(10, a1.getLevel());//equivalence class, no level change because max level already reached
-        assertEquals(155, a1.getMaxHP());
-        assertEquals(119, a1.getAD());
+        assertEquals(151, a1.getMaxHP());
+        assertEquals(118, a1.getAD());
 
 
     }
