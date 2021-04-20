@@ -44,6 +44,12 @@ public class WildlifeSimulatorTest {
     }
 
     @Test
+    /**
+     * Test function for setting up areas
+     * Testing out Jackson use for loading and saving area data
+     * This is not a unit test of any particular feature
+     * This should be removed for the final product
+     */
     public void saveLoadAreas() {
         ObjectMapper mapper = new ObjectMapper();
 
@@ -93,7 +99,7 @@ public class WildlifeSimulatorTest {
     @Test
     public void initalLoadTest() {
         WildlifeSimulator sim = new WildlifeSimulator();
-        sim.newSave();
+        sim.initalLoad();
         assertEquals(Climate.PLAINS, sim.getCurrArea().getClimate()); // Check climate in area 1 from fresh save file
         assertEquals(Climate.DESERT, sim.getAreas().get(2).getClimate()); // Check climate in area 2 from fresh save file
         assertEquals(3, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getDamage()); // Check damage of trainer in area 1 on first animals first move
