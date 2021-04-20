@@ -73,7 +73,7 @@ public class WildlifeSimulatorTest {
         
 
         try {
-            mapper.writeValue(new File("target/areas.json"), areas);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/areas.json"), areas);
         }
         catch(Exception e) {
             System.out.println("Error Writing:\n" + e);
