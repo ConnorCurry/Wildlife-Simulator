@@ -74,11 +74,22 @@ public class PlayerTest {
 
     @Test
     void addToPartyTest(){
+        Trainer t = new Trainer();
+        Animal a1, a2, a3, a4;
+        a1 = new Animal(100, 1, 1, "Bear");
+        a2 = new Animal(200, 2, 2, "Dog");
+        a3 = new Animal(300, 3, 3, "Snake");
+        a4 = new Animal(400, 0, 4, "Lion"); 
+
+        Animal[] as = {a1, a2, a3};
+        t.setAnimals(as);
+        t.addToParty(a4);
+        assertEquals(a4, t.getAnimalsArray()[3]);
 
     }
 
     @Test
     void removeFromPartyTest(){
-        
+
     }
 }
