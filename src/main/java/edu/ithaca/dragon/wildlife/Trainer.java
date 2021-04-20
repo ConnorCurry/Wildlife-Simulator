@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Trainer {
-    private Animal[] animals = new Animal[6];
+    public Animal[] animals = new Animal[6];
 
    /*  public Trainer() {
 

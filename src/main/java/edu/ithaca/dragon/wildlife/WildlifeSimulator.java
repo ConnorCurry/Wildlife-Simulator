@@ -21,7 +21,21 @@ public class WildlifeSimulator {
         currBattle = new Battle(player, currArea.getTrainers()[0], currArea.getClimate());
         // while no winner exists, run turns
         // in future we need to add a speed stat to animals to check who goes first
-        Scanner sc = new Scanner(new File("Animals.csv"));  
+        Scanner sc = new Scanner(new File("pAnimals.csv"));
+        sc.useDelimiter(",");   //sets the delimiter pattern
+        sc.next(); 
+        while (sc.hasNext())  //returns a boolean value  
+            { 
+
+            }
+        while (sc.hasNextLine()){
+            sc.nextLine();
+            while (sc.hasNext())  //returns a boolean value  
+            { 
+
+            }
+        }
+        
         Scanner scan = new Scanner(System.in);
         do {
             System.out.println("Player animal health: " + currBattle.getPlayerAnimal().getCurrentHP());
