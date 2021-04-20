@@ -190,4 +190,16 @@ public class WildlifeSimulator {
         }
         throw new IllegalArgumentException();
     }
+
+    public Area getCurrArea() {
+        return currArea;
+    }
+    
+    public HashMap<Integer, Area> getAreas() {
+        return areas;
+    }
+
+    public void setCurrArea(Integer areaID) {
+        currArea = areas.get(areaID);
+    }
 }

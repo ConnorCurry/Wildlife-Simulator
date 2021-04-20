@@ -63,6 +63,7 @@ public class WildlifeSimulatorTest {
         Area area1 = new Area(trainerArray, Climate.PLAINS);
         HashMap<Integer, Area> areas = new HashMap<>();
         areas.put(1, area1);
+        
 
         try {
             mapper.writeValue(new File("target/areas.json"), areas);
@@ -87,5 +88,22 @@ public class WildlifeSimulatorTest {
         assertTrue(area1.getClimate() == loadedArea1.getClimate());
         assertTrue(areas.get(1).getClimate() == loadedAreas.get(1).getClimate());
         
+    }
+
+    @Test
+    public void initalLoadTest() {
+        WildlifeSimulator sim = new WildlifeSimulator();
+        sim.newSave();
+        assertEquals(Climate.PLAINS, sim.getCurrArea().getClimate()); // Check climate in area 1 from fresh save file
+        assertEquals(Climate.DESERT, sim.getAreas().get(2).getClimate()); // Check climate in area 2 from fresh save file
+        assertEquals(3, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getDamage()); // Check damage of trainer in area 1 on first animals first move
+        assertEquals(20, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getAmountLeft()); // Check amount of moves left of trainer in area 1 on first animals first move
+        assertTrue(sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getTitle().equals("Dash")); // Check name of first animal of trainer 1 in area 1
+        assertTrue(sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getName().equals("Deer")); // Check name of first animal
+        assertEquals(30, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMaxHP()); // Check max HP of animal
+        assertEquals(30, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getCurrentHP()); // Check current HP of animal
+        assertEquals(5, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getAD()); // Check attack damage of animal
+        assertEquals(1, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getLevel()); // Check level of animal
+
     }
 }
