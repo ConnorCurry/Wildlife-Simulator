@@ -40,14 +40,16 @@ public class Animal {
         }
     }
     /**
-     * Adds one to experience points
+     * Adds one to experience points, prints that fact
      * If after addition exp equals 3, reset exp and initiate level up
      */
     public void addExp(){
     
     }
     /**
-     * adds one to level, increases stats based off level up, learns new move if able
+     * adds one to level (up to a max of 10)
+     * increases stats based off level up (5% health boost, 2% attack damage boost (turns into int and loses decimals)) 
+     * learns new move if able (will add later, once file scan in is ready, will make master list of animals and cross check moves)
      */
     public void levelUp(){
 
@@ -86,5 +88,9 @@ public class Animal {
 
     public String getName(){
         return name;
+    }
+
+    public int getExp(){
+        return ExP;
     }
 }

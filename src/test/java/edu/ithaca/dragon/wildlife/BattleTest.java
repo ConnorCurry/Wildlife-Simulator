@@ -313,13 +313,43 @@ class BattleTest {
 
     @Test
 
-    void addExpTest(){
-
+    void addExpTest(){ //unit test, just tests experience features but relies on levelUp function working
+        Animal a1 = new Animal(100, 20, 100);
+        assertEquals(0, a1.getExp());//equivalence class, new animal with no exp
+        a1.addExp();
+        assertEquals(1, a1.getExp());//equivalence class, normal exp gain
+        a1.addExp();
+        assertEquals(2, a1.getExp());
+        a1.addExp();
+        assertEquals(0, a1.getExp());//equivalence class, existing animal with reset exp
+        
     }
 
     @Test
 
     void levelUpTest(){
-        
+        Animal a1 = new Animal(100, 20, 100);
+        assertEquals(1, a1.getLevel());//equivalence class, new animal with starting level
+        a1.levelUp();
+        assertEquals(2, a1.getLevel());//equivalence class, normal level up
+        assertEquals(105, a1.getMaxHP());
+        assertEquals(102, a1.getAD());
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        assertEquals(10, a1.getLevel());//equivalence class, max level newly reached
+        assertEquals(155, a1.getMaxHP());
+        assertEquals(119, a1.getAD());
+        a1.levelUp();
+        assertEquals(10, a1.getLevel());//equivalence class, no level change because max level already reached
+        assertEquals(155, a1.getMaxHP());
+        assertEquals(119, a1.getAD());
+
+
     }
 }
