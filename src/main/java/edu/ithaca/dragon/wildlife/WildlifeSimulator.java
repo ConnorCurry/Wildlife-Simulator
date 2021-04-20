@@ -16,6 +16,16 @@ public class WildlifeSimulator {
         this.currArea = this.areas.get(1);
     }
 
+    public WildlifeSimulator() {}
+
+    public void newSave() {
+
+    }
+
+    public void loadFromSave() {
+
+    }
+
     public Trainer startBattle(){
         currBattle = new Battle(player, currArea.getTrainers()[0], currArea.getClimate());
         // while no winner exists, run turns
