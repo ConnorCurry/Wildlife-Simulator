@@ -3,21 +3,28 @@ package edu.ithaca.dragon.wildlife;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Trainer {
     private Animal[] animals = new Animal[6];
 
-   /*  public Trainer() {
+    public Trainer() {
+    }
 
-    } */
+    @JsonCreator
+    public Trainer(@JsonProperty("animalsArray") Animal[] animals) {
+        this.animals = animals;
+    } 
 
     // returns first animal in party
-    public Animal getFirstAnimal() {
+    public Animal firstAnimal() {
         
         return(this.animals[0]);
     }
 
     //returns first valid animal in party - if none returns null
-    public Animal getNextAnimal() {
+    public Animal nextAnimal() {
         Animal a;
         for(int i = 0; i < this.animals.length; i++) {
             if(this.animals[i] != null) {

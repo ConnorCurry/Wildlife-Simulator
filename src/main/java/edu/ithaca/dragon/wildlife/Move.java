@@ -1,11 +1,15 @@
 package edu.ithaca.dragon.wildlife;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Move {
     private String title;
     private int damage;
     private int amountLeft;
 
-    public Move(String title, int dmg, int amt) {
+    @JsonCreator
+    public Move(@JsonProperty("title") String title, @JsonProperty("damage") int dmg, @JsonProperty("amountLeft") int amt) {
         this.title = title;
         this.damage = dmg;
         this.amountLeft = amt;
