@@ -1,6 +1,7 @@
 package edu.ithaca.dragon.wildlife;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -110,6 +111,6 @@ public class WildlifeSimulatorTest {
         assertEquals(30, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getCurrentHP()); // Check current HP of animal
         assertEquals(5, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getAD()); // Check attack damage of animal
         assertEquals(1, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getLevel()); // Check level of animal
-
+        assertNull(sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getStatusString());
     }
 }

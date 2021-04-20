@@ -8,16 +8,15 @@ public class Move {
     private int damage;
     private int amountLeft;
     private StatusEffect effect;
+    private String statusString;
 
-<<<<<<< HEAD
     @JsonCreator
-    public Move(@JsonProperty("title") String title, @JsonProperty("damage") int dmg, @JsonProperty("amountLeft") int amt) {
-=======
     //Constructor with effect (effect can be null)
-    public Move(String title, int dmg, int amt, String effect) {
+    public Move(@JsonProperty("title") String title, @JsonProperty("damage") int dmg, @JsonProperty("amountLeft") int amt, @JsonProperty("statusString") String effect) {
         this.title = title;
         this.damage = dmg;
         this.amountLeft = amt;
+        this.statusString = effect;
 
         if(effect != null) {
             GetStatusEffect gse = new GetStatusEffect();
@@ -32,9 +31,9 @@ public class Move {
             effect = null;
         }
     }
+    
     //Constructor without effect
     public Move(String title, int dmg, int amt) {
->>>>>>> master
         this.title = title;
         this.damage = dmg;
         this.amountLeft = amt;
@@ -55,5 +54,9 @@ public class Move {
 
     public String getTitle(){
         return title;
+    }
+
+    public String getStatusString() {
+        return statusString;
     }
 }
