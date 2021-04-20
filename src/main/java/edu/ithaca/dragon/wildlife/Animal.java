@@ -7,6 +7,7 @@ public class Animal {
     private int ad; //ad = Attack Damage
     private String name;
     private int level;
+    private int ExP; //Every three victories a level up should occur
 
     //Constructor
     public Animal(int hp,int chp, int ad) {
@@ -14,6 +15,7 @@ public class Animal {
         this.currentHP = chp;
         this.ad = ad;
         this.level = 1;
+        this.ExP = 0;
     }
 
     public Animal(int hp,int chp, int ad, String name) {
@@ -22,6 +24,7 @@ public class Animal {
         this.ad = ad;
         this.level = 1;
         this.name = name;
+        this.ExP = 0;
     }
 
     public void receiveDamage(int dmg) {
@@ -36,8 +39,19 @@ public class Animal {
             currentHP+=healAmt;
         }
     }
+    /**
+     * Adds one to experience points
+     * If after addition exp equals 3, reset exp and initiate level up
+     */
+    public void addExp(){
+    
+    }
+    /**
+     * adds one to level, increases stats based off level up, learns new move if able
+     */
+    public void levelUp(){
 
-
+    }
     //getters
     public int getAD() {
         return(this.ad);

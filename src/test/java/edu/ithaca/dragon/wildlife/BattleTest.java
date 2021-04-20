@@ -310,4 +310,16 @@ class BattleTest {
         a2.healMove(20);
         assertEquals(100, a2.getCurrentHP());
     }
+
+    @Test
+
+    void addExpTest(){
+
+    }
+
+    @Test
+
+    void levelUpTest(){
+        
+    }
 }
