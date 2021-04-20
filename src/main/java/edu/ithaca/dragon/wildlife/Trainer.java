@@ -60,4 +60,12 @@ public class Trainer {
         }
         return partyInfo;
     }
+
+    public void addToParty(Animal animal){
+
+    }
+
+    public void removeFromParty(Animal animal){
+        
+    }
 }

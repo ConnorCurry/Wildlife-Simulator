@@ -71,4 +71,14 @@ public class PlayerTest {
         System.out.printf(answer1);
         assertEquals(answer1, t.viewParty());
     }
+
+    @Test
+    void addToPartyTest(){
+
+    }
+
+    @Test
+    void removeFromPartyTest(){
+        
+    }
 }
