@@ -64,7 +64,7 @@ public class Trainer {
     public void addToParty(Animal animal){
         Boolean i = false;
         int z = 0;
-        if(animals[3] != null){
+        if(animals[animals.length - 1] != null){
             System.out.println("Your party is full! Remove an animal before adding one.");
         }
         else{

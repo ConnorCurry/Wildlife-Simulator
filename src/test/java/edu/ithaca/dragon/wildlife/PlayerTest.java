@@ -78,17 +78,18 @@ public class PlayerTest {
     @Test
     void addToPartyTest(){
         Trainer t = new Trainer();
-        Animal a1, a2, a3, a4, a5;
+        Animal a1, a2, a3, a4, a5, a6;
         a1 = new Animal(100, 1, 1, "Bear");
         a2 = new Animal(200, 2, 2, "Dog");
         a3 = new Animal(300, 3, 3, "Snake");
         a4 = new Animal(400, 0, 4, "Lion"); 
         a5 = new Animal(500, 5, 5, "Oh My");
+        a6 = new Animal(600, 6, 6, "Rat");
 
-        Animal[] as = {a1, a2, a3, null};
+        Animal[] as = {a1, a2, a3, a4, a5, null};
         t.setAnimals(as);
-        t.addToParty(a4);
-        assertEquals(a4, t.getAnimalsArray()[3]);
+        t.addToParty(a6);
+        assertEquals(a6, t.getAnimalsArray()[5]);
         t.addToParty(a5);   //test to see if there is a print    
 
     }
