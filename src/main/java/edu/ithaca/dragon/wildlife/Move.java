@@ -7,6 +7,7 @@ public class Move {
     private String title;
     private int damage;
     private int amountLeft;
+    private String strEffect;
     private StatusEffect effect;
     private String statusString;
 
@@ -39,11 +40,20 @@ public class Move {
         this.amountLeft = amt;
 
     }
+    //Constructor with string effect
+    public Move(String title, int dmg, int amt, String effect) {
+        this.title = title;
+        this.damage = dmg;
+        this.amountLeft = amt;
+        this.strEffect = effect;
+    }
 
     public void decrementAmountLeft() {
         this.amountLeft -= 1;
     }
 
+
+    //Getters
     public int getDamage() {
         return(this.damage);
     }
@@ -53,7 +63,10 @@ public class Move {
     }
 
     public String getTitle(){
-        return title;
+        return(title);
+    }
+    public StatusEffect getEffect() {
+        return(this.effect);
     }
 
     public String getStatusString() {

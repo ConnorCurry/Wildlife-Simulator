@@ -310,4 +310,66 @@ class BattleTest {
         a2.healMove(20);
         assertEquals(100, a2.getCurrentHP());
     }
+
+    @Test
+
+    void addExpTest(){ //unit test, just tests experience features but relies on levelUp function working
+        Animal a1 = new Animal(100, 20, 100);
+        assertEquals(0, a1.getExp());//equivalence class, new animal with no exp
+        a1.addExp();
+        assertEquals(1, a1.getExp());//equivalence class, normal exp gain
+        a1.addExp();
+        assertEquals(2, a1.getExp());
+        a1.addExp();
+        assertEquals(0, a1.getExp());//equivalence class, existing animal with reset exp
+        
+    }
+
+    @Test
+
+    void levelUpTest(){
+        Animal a1 = new Animal(100, 20, 100);
+        assertEquals(1, a1.getLevel());//equivalence class, new animal with starting level
+        a1.levelUp();
+        assertEquals(2, a1.getLevel());//equivalence class, normal level up
+        assertEquals(105, a1.getMaxHP());
+        assertEquals(102, a1.getAD());
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        a1.levelUp();
+        assertEquals(10, a1.getLevel());//equivalence class, max level newly reached
+        assertEquals(151, a1.getMaxHP());
+        assertEquals(118, a1.getAD());
+        a1.levelUp();
+        assertEquals(10, a1.getLevel());//equivalence class, no level change because max level already reached
+        assertEquals(151, a1.getMaxHP());
+        assertEquals(118, a1.getAD());
+
+
+    }
+
+    // @Test
+
+    // void learnMoveTest(){
+    //     Animal oa = new Animal(100,100,10);
+    //     Move om1 = new Move("Opponent Move 1", 30, 1);
+    //     Move om2 = new Move("Opponent Move 2", 20, 1);
+    //     Animal[] oas = new Animal[1];
+    //     oas[0] = oa;
+    //     Move[] oms = new Move[4];
+    //     oms[0] = om1;
+    //     oms[1] = om2;
+    //     oa.setMoves(oms);
+    //     oa.learnMove("Bite");
+    //     oa.learnMove("Bite");//fails, edge case: already know this move
+    //     oa.learnMove("Rollover");//fails, edge case: not high enough level to learn move
+    //     oa.learnMove("dasdfas");//fails, edge case: move does not exist
+    //     oa.learnMove("Scratch");
+    //     oa.learnMove("Dash");//fails, edge case: already know four moves
+    // }
 }
