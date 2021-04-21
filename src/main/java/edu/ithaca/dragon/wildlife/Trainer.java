@@ -61,7 +61,7 @@ public class Trainer {
         return partyInfo;
     }
 
-    public void addToParty(Animal animal){
+    public void addToParty(Animal newAnimal){
         Boolean i = false;
         int z = 0;
         if(animals[animals.length - 1] != null){
@@ -70,8 +70,10 @@ public class Trainer {
         else{
             while(i == false){
                 if(animals[z] == null){
-                    animals[z] = animal;
+                    animals[z] = newAnimal;
                     i = true;
+                    String animalName = newAnimal.getName();
+                    System.out.println("Added " + animalName + " to your party!");
                 }
                 else{
                     z++;
@@ -81,12 +83,26 @@ public class Trainer {
     }
 
     public void removeFromParty(int anNumb){
-        if(animals == null){
+        if(isPartyEmpty()){
             System.out.println("Your party is empty!");
         }
         else{
             int anIndex = anNumb - 1;
+            String animalName = animals[anIndex].getName();
             animals[anIndex] = null;
+            System.out.println("Removed " + animalName + " from your party!");
         }
     }
+
+    public boolean isPartyEmpty(){
+        boolean empty = true;
+        for(int i = 0; i < animals.length; i++){
+            if (animals[i] != null) {
+                empty = false;
+                break;
+            }
+        }
+        return empty;
+    }
 }
+
