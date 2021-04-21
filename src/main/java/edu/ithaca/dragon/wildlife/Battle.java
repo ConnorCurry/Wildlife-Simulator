@@ -15,8 +15,8 @@ public class Battle {
         currPlayer = player;
         currOpponent = trainer;
         this.climate = climate;
-        playerAnimal = player.getFirstAnimal();
-        oppAnimal = trainer.getFirstAnimal();
+        playerAnimal = player.firstAnimal();
+        oppAnimal = trainer.firstAnimal();
     }
 
     /**
@@ -79,9 +79,7 @@ public class Battle {
                     this.oppAnimal = newOA;
                 }   
             }
-        }
-                
-        
+        }         
     }
 
     // program selects a move from the opponent's moveset and attacks player
@@ -133,8 +131,7 @@ public class Battle {
                 if(move == null){
                     move = new Move("nullmove", 0, 99);
                 }
-            }
-            
+            }         
             
             
             //move is set to highest damage move that the opponent animal has left
@@ -142,6 +139,8 @@ public class Battle {
             if(move != null) {
                 dmg = move.getDamage() + oppAnimal.getAD(); //amount to apply
                 move.decrementAmountLeft(); //move gets 1 less amtLeft
+
+
             } else {
                 dmg = oppAnimal.getAD(); //amount to apply
             }
