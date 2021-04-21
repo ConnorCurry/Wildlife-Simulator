@@ -1,6 +1,9 @@
 package edu.ithaca.dragon.wildlife;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 public class Battle {
 
@@ -84,7 +87,6 @@ public class Battle {
 
     // program selects a move from the opponent's moveset and attacks player
     public void opponentAttack() {
-        Scanner reader = new Scanner(System.in);
         boolean run = true;
         //apply status effect
         if(this.oppAnimal.getCurrentEffect() != null) {
@@ -118,7 +120,7 @@ public class Battle {
             Move move = null;
             for(int i = 0; i < moves.length; i++) { //for all animal moves
                 // TODO this while loop is causing an infinite loop, run deadlyOpponentAttackTest or opponentAttackTest!
-                while(moves[i] != null) { //if the move at index i of moves isn't null 
+               if(moves[i] != null) { //if the move at index i of moves isn't null 
                     if(moves[i].getAmountLeft() > 0) { //If still can use move at index i
                         if(move == null) { //first valid move gets caught here
                             move = moves[i];
