@@ -16,8 +16,8 @@ public class Battle {
         currPlayer = player;
         currOpponent = trainer;
         this.climate = climate;
-        playerAnimal = player.getFirstAnimal();
-        oppAnimal = trainer.getFirstAnimal();
+        playerAnimal = player.firstAnimal();
+        oppAnimal = trainer.firstAnimal();
     }
 
     /**
@@ -39,7 +39,7 @@ public class Battle {
         selectedMove.decrementAmountLeft(); //move gets -1 amtLeft
         this.oppAnimal.receiveDamage(dmg); //apply damage
         if(this.oppAnimal.getCurrentHP() <= 0){ //deadly attack
-            Animal newOA = this.currOpponent.getNextAnimal();
+            Animal newOA = this.currOpponent.nextAnimal();
             if(newOA == null) { //no more valid animals
                 this.winner = this.currPlayer;
             } else {
@@ -82,7 +82,7 @@ public class Battle {
         //apply damage
         this.playerAnimal.receiveDamage(dmg); //apply damage
         if(this.playerAnimal.getCurrentHP() <= 0) { //Deadly attack
-            Animal newPA = this.currPlayer.getNextAnimal();
+            Animal newPA = this.currPlayer.nextAnimal();
             if(newPA == null) { //No more animals in party
                 this.winner = this.currOpponent; //game over
             } else {

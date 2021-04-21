@@ -1,5 +1,8 @@
 package edu.ithaca.dragon.wildlife;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Animal {
     private Move[] moves = new Move[4];
     private int maxHP; // HP = Health Points
@@ -18,7 +21,16 @@ public class Animal {
         this.ExP = 0;
     }
 
-    public Animal(int hp,int chp, int ad, String name) {
+    @JsonCreator
+    public Animal(@JsonProperty("maxHP") int hp, @JsonProperty("currentHP") int chp, @JsonProperty("ad") int ad, @JsonProperty("name") String name, @JsonProperty("level") int level) {
+        this.maxHP = hp;
+        this.currentHP = chp;
+        this.ad = ad;
+        this.level = level;
+        this.name = name;
+    }
+
+    public Animal(int hp, int chp, int ad, String name) {
         this.maxHP = hp;
         this.currentHP = chp;
         this.ad = ad;
