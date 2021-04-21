@@ -72,7 +72,7 @@ public class Battle {
             selectedMove.decrementAmountLeft(); //move gets -1 amtLeft
             this.oppAnimal.receiveDamage(dmg); //apply damage
             if(this.oppAnimal.getCurrentHP() <= 0){ //deadly attack
-                Animal newOA = this.currOpponent.getNextAnimal();
+                Animal newOA = this.currOpponent.nextAnimal();
                 if(newOA == null) { //no more valid animals
                     this.winner = this.currPlayer;
                 } else {
@@ -117,7 +117,8 @@ public class Battle {
             Move[] moves = oppAnimal.getMoves();
             Move move = null;
             for(int i = 0; i < moves.length; i++) { //for all animal moves
-                while(moves[i] != null) { //if the move at index i of moves isn't null
+                // TODO this while loop is causing an infinite loop, run 
+                while(moves[i] != null) { //if the move at index i of moves isn't null 
                     if(moves[i].getAmountLeft() > 0) { //If still can use move at index i
                         if(move == null) { //first valid move gets caught here
                             move = moves[i];
@@ -148,7 +149,7 @@ public class Battle {
             //apply damage
             this.playerAnimal.receiveDamage(dmg); //apply damage
             if(this.playerAnimal.getCurrentHP() <= 0) { //Deadly attack
-                Animal newPA = this.currPlayer.getNextAnimal();
+                Animal newPA = this.currPlayer.nextAnimal();
                 if(newPA == null) { //No more animals in party
                     this.winner = this.currOpponent; //game over
                 } else {

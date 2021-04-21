@@ -114,7 +114,7 @@ public class Animal {
         can't learn a previously known move
     */
     public boolean learnMove(String moveToLearn){
-      if(moves.length < 4){
+    if(moves.length < 4){
         HashMap<String, Move> exisistingMoves = WildlifeSimulator.getMoveList();
         if (exisistingMoves.containsKey(moveToLearn)){
             for (int i = 0; i < this.level; i++){
@@ -144,11 +144,12 @@ public class Animal {
             return false;
         }
 
-      }
-      else{
-          System.out.println("Already know the maximum of 4 moves!");
-          return false;
-      }
+    }
+    else{
+        System.out.println("Already know the maximum of 4 moves!");
+        return false;
+    }
+    return false;
     }
     //getters
     public int getAD() {
