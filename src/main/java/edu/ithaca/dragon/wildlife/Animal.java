@@ -73,7 +73,7 @@ public class Animal {
     /**
      * adds one to level (up to a max of 10)
      * increases stats based off level up (5% health boost, 2% attack damage boost (turns into int and loses decimals)) 
-     * learns new move if able (will add later, once file scan in is ready, will make master list of animals and cross check moves)
+     * Prints if any moves were unlocked and able to be learned
      */
     public void levelUp(){
         if(this.level < 10){
@@ -82,7 +82,22 @@ public class Animal {
             this.maxHP = (int)dHP;
             double dAd = this.ad * 1.02;
             this.ad = (int)dAd;
+            if(this.learnableMoves.containsKey(this.level)){
+                ArrayList<String> mArray = this.learnableMoves.get(this.level);
+                System.out.println("Newly unlocked Moves Include");
+                for(int i=0; i < mArray.size(); i++){
+                    System.out.println(mArray.get(i));
+                }
+            }
         }
+    }
+
+    public void learnMove(){
+        /*
+        can only learn moves that have been unlocked
+        can only know up to 4 moves
+        can't learn a previously known move
+        */
     }
     //getters
     public int getAD() {
