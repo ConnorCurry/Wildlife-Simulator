@@ -1,5 +1,6 @@
 package edu.ithaca.dragon.wildlife;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -9,6 +10,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class WildlifeSimulator {
     private HashMap<Integer, Area> areas = new HashMap<>();
@@ -96,6 +100,30 @@ public class WildlifeSimulator {
         catch (IOException ioe) {
             ioe.printStackTrace();
         }
+    }
+
+    public WildlifeSimulator() {}
+
+    /**
+     * Initial area HashMap load from set file of areas
+     * Loads in areas with their trainers and animals etc.
+     * Loaded from target/initial/initial-areas.json
+     */
+    public void initalLoad() {
+        ObjectMapper mapper = new ObjectMapper();
+        TypeReference<HashMap<Integer, Area>> typeRef = new TypeReference<HashMap<Integer, Area>>(){};
+        try {
+            this.areas = mapper.readValue(new File("target/initial/initial-areas.json"), typeRef);
+            this.currArea = this.areas.get(1);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to create new save file:\n" + e);
+        }
+
+    }
+
+    public void loadFromSave() {
+
     }
 
     public Trainer startBattle(){
@@ -270,4 +298,16 @@ public class WildlifeSimulator {
     public HashMap<String, Move> getMoveList(){
         return this.moveList;
     }
+    public Area getCurrArea() {
+        return currArea;
+    }
+    
+    public HashMap<Integer, Area> getAreas() {
+        return areas;
+    }
+
+    public void setCurrArea(Integer areaID) {
+        currArea = areas.get(areaID);
+    }
 }
+
