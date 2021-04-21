@@ -10,6 +10,7 @@ public class Animal {
     private int ad; //ad = Attack Damage
     private String name;
     private int level;
+    private StatusEffect currentEffect;
     private int ExP; //Every three victories a level up should occur
 
     //Constructor
@@ -18,6 +19,7 @@ public class Animal {
         this.currentHP = chp;
         this.ad = ad;
         this.level = 1;
+        this.currentEffect = null;
         this.ExP = 0;
     }
 
@@ -28,6 +30,8 @@ public class Animal {
         this.ad = ad;
         this.level = level;
         this.name = name;
+        this.ExP = 0;
+        this.currentEffect = null;
     }
 
     public Animal(int hp, int chp, int ad, String name) {
@@ -36,6 +40,7 @@ public class Animal {
         this.ad = ad;
         this.level = 1;
         this.name = name;
+        this.currentEffect = null;
         this.ExP = 0;
     }
 
@@ -94,6 +99,9 @@ public class Animal {
     }
     public int getLevel(){
         return(this.level);
+    }
+    public StatusEffect getCurrentEffect() {
+        return(this.currentEffect);
     }
 
     //setters
