@@ -123,7 +123,7 @@ public class WildlifeSimulator {
     }
 
     public void loadFromSave() {
-
+        
     }
 
     public Trainer startBattle(){
