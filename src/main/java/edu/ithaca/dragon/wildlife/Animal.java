@@ -91,13 +91,13 @@ public class Animal {
             }
         }
     }
-
-    public void learnMove(){
-        /*
+    /*
         can only learn moves that have been unlocked
         can only know up to 4 moves
         can't learn a previously known move
-        */
+    */
+    public void learnMove(String moveToLearn){
+      
     }
     //getters
     public int getAD() {

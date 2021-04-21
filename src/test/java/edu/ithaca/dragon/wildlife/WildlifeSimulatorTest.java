@@ -108,5 +108,6 @@ public class WildlifeSimulatorTest {
     //     assertTrue(simulator.getAnimals().containsKey("Squirrel"));
     //     assertTrue(simulator.getAnimals().containsKey("Wolf"));
     // }
+    
 
 }

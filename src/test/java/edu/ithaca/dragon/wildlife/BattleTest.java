@@ -352,4 +352,24 @@ class BattleTest {
 
 
     }
+
+    // @Test
+
+    // void learnMoveTest(){
+    //     Animal oa = new Animal(100,100,10);
+    //     Move om1 = new Move("Opponent Move 1", 30, 1);
+    //     Move om2 = new Move("Opponent Move 2", 20, 1);
+    //     Animal[] oas = new Animal[1];
+    //     oas[0] = oa;
+    //     Move[] oms = new Move[4];
+    //     oms[0] = om1;
+    //     oms[1] = om2;
+    //     oa.setMoves(oms);
+    //     oa.learnMove("Bite");
+    //     oa.learnMove("Bite");//fails, edge case: already know this move
+    //     oa.learnMove("Rollover");//fails, edge case: not high enough level to learn move
+    //     oa.learnMove("dasdfas");//fails, edge case: move does not exist
+    //     oa.learnMove("Scratch");
+    //     oa.learnMove("Dash");//fails, edge case: already know four moves
+    // }
 }
