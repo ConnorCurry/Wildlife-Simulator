@@ -26,80 +26,6 @@ public class WildlifeSimulator {
         this.areas = areas;
         this.player = player;
         this.currArea = this.areas.get(1);
-        Path fPath = Paths.get("Animals.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
-        try(BufferedReader br = Files.newBufferedReader(fPath, StandardCharsets.US_ASCII)) {
-            String line = br.readLine();
-            while (line != null) {
-                String[] attributes = line.split(",");
-                int i = 0;
-
-                String aName = attributes[i];
-                i++;
-                String strHP = attributes[i];
-                i++;
-                int bHP = Integer.valueOf(strHP);
-                String strAD = attributes[i];
-                i++;
-                int bAD = Integer.valueOf(strAD);
-                HashMap<Integer, ArrayList<String>> possibleMove = new HashMap<>();
-                while(i < attributes.length){
-                    i++;
-                    String[] move = attributes[i].split(" ");
-                    String strLvl = move[0];
-                    int lvl = Integer.valueOf(strLvl);
-                    if(possibleMove.containsKey(lvl)){
-                        possibleMove.get(1).add(move[1]);
-                    }
-                    else{
-                        ArrayList<String> moveNames = new ArrayList<>();
-                        moveNames.add(move[1]);
-                        possibleMove.put(lvl, moveNames); 
-                    }
-
-                }
-                Animal newAnimal = new Animal(bHP, bHP, bAD, aName, possibleMove);
-                animals.put(aName, newAnimal);
-                line = br.readLine();
-            }
-
-        }
-        catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-        Path fPath2 = Paths.get("Moves.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
-        try(BufferedReader br = Files.newBufferedReader(fPath2, StandardCharsets.US_ASCII)) {
-            String line = br.readLine();
-            while (line != null) {
-                String[] attributes = line.split(",");
-                int i = 0;
-                
-                String mName = attributes[i];
-                i++;
-                String strDmg = attributes[i];
-                i++;
-                int dmg = Integer.valueOf(strDmg);
-                String strAmt = attributes[i];
-                i++;
-                int amt = Integer.valueOf(strAmt);
-
-                if(i < attributes.length){
-                    String strEffect = attributes[i];
-                    Move newMove = new Move(mName, dmg, amt, strEffect);
-                    moveList.put(mName, newMove);
-
-                }
-                else{
-                    Move newMove = new Move(mName, dmg, amt);
-                    moveList.put(mName, newMove);
-
-                }
-                line = br.readLine();
-            }
-
-        }
-        catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
     }
 
     public WildlifeSimulator() {}
@@ -291,12 +217,89 @@ public class WildlifeSimulator {
         throw new IllegalArgumentException();
     }
 
-    public HashMap<String, Animal> getAnimals(){
-        return this.animals;
+    public static HashMap<String, Animal> getAnimals(){
+        HashMap<String, Animal> animals = new HashMap<>();
+        Path fPath = Paths.get("Animals.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
+        try(BufferedReader br = Files.newBufferedReader(fPath, StandardCharsets.US_ASCII)) {
+            String line = br.readLine();
+            while (line != null) {
+                String[] attributes = line.split(",");
+                int i = 0;
+
+                String aName = attributes[i];
+                i++;
+                String strHP = attributes[i];
+                i++;
+                int bHP = Integer.valueOf(strHP);
+                String strAD = attributes[i];
+                i++;
+                int bAD = Integer.valueOf(strAD);
+                HashMap<Integer, ArrayList<String>> possibleMove = new HashMap<>();
+                while(i < attributes.length){
+                    i++;
+                    String[] move = attributes[i].split(" ");
+                    String strLvl = move[0];
+                    int lvl = Integer.valueOf(strLvl);
+                    if(possibleMove.containsKey(lvl)){
+                        possibleMove.get(1).add(move[1]);
+                    }
+                    else{
+                        ArrayList<String> moveNames = new ArrayList<>();
+                        moveNames.add(move[1]);
+                        possibleMove.put(lvl, moveNames); 
+                    }
+
+                }
+                Animal newAnimal = new Animal(bHP, bHP, bAD, aName, possibleMove);
+                animals.put(aName, newAnimal);
+                line = br.readLine();
+            }
+
+        }
+        catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return animals;
     }
 
-    public HashMap<String, Move> getMoveList(){
-        return this.moveList;
+    public static HashMap<String, Move> getMoveList(){
+        HashMap<String, Move> moveList = new HashMap<>();
+        Path fPath2 = Paths.get("Moves.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
+        try(BufferedReader br = Files.newBufferedReader(fPath2, StandardCharsets.US_ASCII)) {
+            String line = br.readLine();
+            while (line != null) {
+                String[] attributes = line.split(",");
+                int i = 0;
+                
+                String mName = attributes[i];
+                i++;
+                String strDmg = attributes[i];
+                i++;
+                int dmg = Integer.valueOf(strDmg);
+                String strAmt = attributes[i];
+                i++;
+                int amt = Integer.valueOf(strAmt);
+
+                if(i < attributes.length){
+                    String strEffect = attributes[i];
+                    Move newMove = new Move(mName, dmg, amt, strEffect);
+                    moveList.put(mName, newMove);
+
+                }
+                else{
+                    Move newMove = new Move(mName, dmg, amt);
+                    moveList.put(mName, newMove);
+
+                }
+                line = br.readLine();
+            }
+
+        }
+        catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+    
+        return moveList;
     }
     public Area getCurrArea() {
         return currArea;
