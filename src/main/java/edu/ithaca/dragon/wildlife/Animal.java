@@ -1,7 +1,11 @@
 package edu.ithaca.dragon.wildlife;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class Animal {
     private Move[] moves = new Move[4];
+    private HashMap<Integer, ArrayList<String>> learnableMoves = new HashMap<>();
     private int maxHP; // HP = Health Points
     private int currentHP;
     private int ad; //ad = Attack Damage
@@ -25,6 +29,16 @@ public class Animal {
         this.level = 1;
         this.name = name;
         this.ExP = 0;
+    }
+
+    public Animal(int hp,int chp, int ad, String name, HashMap<Integer, ArrayList<String>> possibleMoves) {
+        this.maxHP = hp;
+        this.currentHP = chp;
+        this.ad = ad;
+        this.level = 1;
+        this.name = name;
+        this.ExP = 0;
+        this.learnableMoves = possibleMoves;
     }
 
     public void receiveDamage(int dmg) {
