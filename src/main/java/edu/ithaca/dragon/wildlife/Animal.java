@@ -97,7 +97,37 @@ public class Animal {
         can't learn a previously known move
     */
     public void learnMove(String moveToLearn){
-      
+      if(this.moves.length < 4){
+        HashMap<String, Move> exisistingMoves = WildlifeSimulator.getMoveList(); //need to fix
+        if (exisistingMoves.containsKey(moveToLearn)){
+            for (int i = 0; i < this.level; i++){
+                if(this.learnableMoves.containsKey(i)){
+                    boolean ifEq = false;
+                    for (int j = 0; j < this.learnableMoves.get(i).size(); j++){
+                        if(learnableMoves.get(i).get(j).equals(moveToLearn)){
+                            this.moves[this.moves.length++] = exisistingMoves.get(moveToLearn);
+                            System.out.println(moveToLearn + " learned!");
+                            ifEq = true;
+                        }
+                    }
+                    if(!ifEq){
+                        System.out.println("Animal has not unlocked this move yet!");
+                    }
+                }
+                else{
+                    System.out.println("Animal has not unlocked this move!");
+                }
+            }
+        }
+        else{
+            System.out.println("Move doesn't exist!");
+
+        }
+
+      }
+      else{
+          System.out.println("Already know the maximum of 4 moves!");
+      }
     }
     //getters
     public int getAD() {

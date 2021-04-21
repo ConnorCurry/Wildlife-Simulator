@@ -263,7 +263,11 @@ public class WildlifeSimulator {
         throw new IllegalArgumentException();
     }
 
-    public HashMap getAnimals(){
+    public HashMap<String, Animal> getAnimals(){
         return this.animals;
+    }
+
+    public HashMap<String, Move> getMoveList(){
+        return this.moveList;
     }
 }
