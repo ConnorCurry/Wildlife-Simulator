@@ -117,7 +117,7 @@ public class Battle {
             Move[] moves = oppAnimal.getMoves();
             Move move = null;
             for(int i = 0; i < moves.length; i++) { //for all animal moves
-                // TODO this while loop is causing an infinite loop, run 
+                // TODO this while loop is causing an infinite loop, run deadlyOpponentAttackTest or opponentAttackTest!
                 while(moves[i] != null) { //if the move at index i of moves isn't null 
                     if(moves[i].getAmountLeft() > 0) { //If still can use move at index i
                         if(move == null) { //first valid move gets caught here
