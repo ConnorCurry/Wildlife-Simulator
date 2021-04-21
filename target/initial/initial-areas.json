@@ -33,9 +33,9 @@
       }, null, null, null, null] 
       }, { 
       "animalsArray" : [ {
-        "maxHP" : 28,
+        "maxHP" : 26.25,
         "currentHP" : 28,
-        "ad" : 7,
+        "ad" : 6.12,
         "level" : 2,
         "moves" : [ {
           "title" : "meow",
