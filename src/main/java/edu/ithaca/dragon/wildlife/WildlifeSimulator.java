@@ -109,7 +109,7 @@ public class WildlifeSimulator {
 
             String selectedActionString;
             do{
-                System.out.println("Will you: \nAttack\nSwap");
+                System.out.println("\nWill you: \nAttack\nSwap");
                 selectedActionString = scan.nextLine().toLowerCase();
             } while (!selectedActionString.equals("attack") && !selectedActionString.equals("swap"));
 
@@ -202,6 +202,9 @@ public class WildlifeSimulator {
                     selectedMoveString = scan.nextLine().toLowerCase();
                 } while (!moveList.contains(selectedMoveString));
                 selectedMove = WildlifeSimulator.getMoveFromTitle(currBattle.getPlayerAnimal(), selectedMoveString);
+                int DMG = selectedMove.getDamage();
+                String strDMG = Integer.toString(DMG);
+                System.out.println("\nUsed " + selectedMove.getTitle() + " which dealt " + strDMG + " damage!\n");
                 currBattle.playerAttack(selectedMove);
             }
             
