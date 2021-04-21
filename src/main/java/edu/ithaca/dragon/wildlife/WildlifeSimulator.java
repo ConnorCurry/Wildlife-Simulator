@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 public class WildlifeSimulator {
     private HashMap<Integer, Area> areas = new HashMap<>();
     private HashMap<String, Animal> animals = new HashMap<>();
+    private HashMap<String, Move> moveList = new HashMap<>();
     private Area currArea;
     private Battle currBattle;
     private Player player;
@@ -54,6 +55,40 @@ public class WildlifeSimulator {
                 }
                 Animal newAnimal = new Animal(bHP, bHP, bAD, aName, possibleMove);
                 animals.put(aName, newAnimal);
+                line = br.readLine();
+            }
+
+        }
+        catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        Path fPath2 = Paths.get("Moves.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
+        try(BufferedReader br = Files.newBufferedReader(fPath2, StandardCharsets.US_ASCII)) {
+            String line = br.readLine();
+            while (line != null) {
+                String[] attributes = line.split(",");
+                int i = 0;
+                
+                String mName = attributes[i];
+                i++;
+                String strDmg = attributes[i];
+                i++;
+                int dmg = Integer.valueOf(strDmg);
+                String strAmt = attributes[i];
+                i++;
+                int amt = Integer.valueOf(strAmt);
+
+                if(i < attributes.length){
+                    String strEffect = attributes[i];
+                    Move newMove = new Move(mName, dmg, amt, strEffect);
+                    moveList.put(mName, newMove);
+
+                }
+                else{
+                    Move newMove = new Move(mName, dmg, amt);
+                    moveList.put(mName, newMove);
+
+                }
                 line = br.readLine();
             }
 

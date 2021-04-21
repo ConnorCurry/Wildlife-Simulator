@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Animal {
     private Move[] moves = new Move[4];
-    private HashMap<Integer, ArrayList<String>> learnableMoves = new HashMap<>();
+    private HashMap<Integer, ArrayList<String>> learnableMoves = new HashMap<>();//just include move names, must call cross-check function to get move info
     private int maxHP; // HP = Health Points
     private int currentHP;
     private int ad; //ad = Attack Damage
@@ -52,6 +52,11 @@ public class Animal {
         else{
             currentHP+=healAmt;
         }
+    }
+    public void moveIs(String Move){
+        /*
+        This function will check what a move is from a string and print it out since the hashmap in these properties just have the move names and level requirements
+        */
     }
     /**
      * Adds one to experience points, prints that fact
@@ -118,4 +123,5 @@ public class Animal {
     public int getExp(){
         return ExP;
     }
+    
 }
