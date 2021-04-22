@@ -27,7 +27,7 @@
 
 **Sprint Review Agenda:** https://docs.google.com/document/d/1QbuSJFeGhN1NYzVk91D6lqBMbRBr_aBbg_2zFgwJblg/edit?usp=sharing
 
-**Sprint Retrospective:**
+**Sprint Retrospective:** https://docs.google.com/document/d/1dYSaYe_S7Y3cWCllRD6u5iUavbbK-TDJ1V6VLDBEqj4/edit?usp=sharing
 
 ***
 
