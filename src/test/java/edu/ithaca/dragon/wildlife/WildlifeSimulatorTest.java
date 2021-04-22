@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -184,5 +185,32 @@ public class WildlifeSimulatorTest {
         assertEquals(5, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getAD()); // Check attack damage of animal
         assertEquals(1, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getLevel()); // Check level of animal
         assertNull(sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getStatusString());
+    }
+
+    @Test
+    public void animalLearnSetTest() {
+        HashMap<Integer, ArrayList<String>> dogMoves;
+        dogMoves = WildlifeSimulator.animalLearnSet("dog");
+        assertTrue(dogMoves.get(1).get(0).equals("bark"));
+        assertTrue(dogMoves.get(1).get(1).equals("bite"));
+        assertTrue(dogMoves.get(3).get(0).equals("fetch"));
+        assertTrue(dogMoves.get(3).get(1).equals("sit"));
+        assertTrue(dogMoves.get(3).get(2).equals("rollover"));
+
+        HashMap<Integer, ArrayList<String>> bearMoves;
+        bearMoves = WildlifeSimulator.animalLearnSet("bear");
+        assertTrue(bearMoves.get(1).get(0).equals("tackle"));
+        assertTrue(bearMoves.get(5).get(0).equals("bear hug"));
+
+        HashMap<Integer, ArrayList<String>> foxMoves;
+        foxMoves = WildlifeSimulator.animalLearnSet("fox");
+        assertTrue(foxMoves.get(1).get(0).equals("scratch"));
+        assertTrue(foxMoves.get(3).get(0).equals("dash"));
+        assertTrue(foxMoves.get(5).get(0).equals("bite"));
+
+        HashMap<Integer, ArrayList<String>> hawkMoves;
+        hawkMoves = WildlifeSimulator.animalLearnSet("hawk");
+        assertTrue(hawkMoves.get(1).get(0).equals("peck"));
+        assertTrue(hawkMoves.get(3).get(0).equals("wing attack"));
     }
 }
