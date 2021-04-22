@@ -40,13 +40,7 @@ public class Move {
         this.amountLeft = amt;
 
     }
-    //Constructor with string effect
-    public Move(String title, int dmg, int amt, String effect) {
-        this.title = title;
-        this.damage = dmg;
-        this.amountLeft = amt;
-        this.strEffect = effect;
-    }
+
 
     public void decrementAmountLeft() {
         this.amountLeft -= 1;

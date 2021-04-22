@@ -34,7 +34,7 @@ public class CommandLineUI {
         Animal oppA1 = new Animal(30, 30, 5, "Deer");
         Move dash = new Move("Dash", 3, 20);
         oppA1.setMoves(new Move[]{dash, null, null, null});
-        Animal oppA2 = new Animal(40, 40, 7, "Wolf");
+        Animal oppA2 = new Animal(40, 40, 5, "Wolf");
         oppA2.setMoves(new Move[]{bite, scratch, null, null});
 
         Animal[] oppSet = {oppA1, oppA2, null, null, null, null};
