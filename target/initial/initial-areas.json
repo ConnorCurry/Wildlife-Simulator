@@ -34,7 +34,7 @@
       }, { 
       "animalsArray" : [ {
         "maxHP" : 26.25,
-        "currentHP" : 28,
+        "currentHP" : 26.25,
         "ad" : 6.12,
         "level" : 2,
         "moves" : [ {
