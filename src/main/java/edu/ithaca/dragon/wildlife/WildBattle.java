@@ -32,6 +32,7 @@ public class WildBattle extends Battle {
         else{
             System.out.println("You successfully caught the " + oppAnimal.getName() + ".");
             winner = currPlayer;
+            currPlayer.addToParty(oppAnimal);
             return true;
         }
     }
