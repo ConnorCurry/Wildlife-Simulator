@@ -104,12 +104,12 @@ public class WildlifeSimulator {
         // in future we need to add a speed stat to animals to check who goes first
         Scanner scan = new Scanner(System.in);
         do {
-            System.out.println("Player animal health: " + currBattle.getPlayerAnimal().getCurrentHP());
-            System.out.println("Opponent animal health: " + currBattle.getOpponentAnimal().getCurrentHP());
+            System.out.println("Player's " + currBattle.getPlayerAnimal().getName() + " health: " + currBattle.getPlayerAnimal().getCurrentHP());
+            System.out.println("Opponent's " + currBattle.getOpponentAnimal().getName() + " health: " + currBattle.getOpponentAnimal().getCurrentHP());
 
             String selectedActionString;
             do{
-                System.out.println("\nWill you: \nAttack\nSwap");
+                System.out.println("\nWill you: \nAttack\nSwap\n");
                 selectedActionString = scan.nextLine().toLowerCase();
             } while (!selectedActionString.equals("attack") && !selectedActionString.equals("swap"));
 
@@ -119,7 +119,7 @@ public class WildlifeSimulator {
                 Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
                 ArrayList<String> moveList = new ArrayList<>();
                 do{
-                    System.out.println("Choose a move: " + "\n");
+                    System.out.println("\nChoose a move: " + "\n");
                     
                     for (Move move : pMoves) {
                         if (move != null){
@@ -131,12 +131,13 @@ public class WildlifeSimulator {
                     selectedMoveString = scan.nextLine().toLowerCase();
                 } while (!moveList.contains(selectedMoveString));
                 selectedMove = WildlifeSimulator.getMoveFromTitle(currBattle.getPlayerAnimal(), selectedMoveString);
+                System.out.println("\nYour " + currBattle.getPlayerAnimal().getName() + " used " + selectedMove.getTitle() + " which dealt " + selectedMove.getDamage() + " damage to opponent's " + currBattle.getOpponentAnimal().getName() + "!\n");
                 currBattle.playerAttack(selectedMove);
             }
             else if (selectedActionString.equals("swap")) {
-                System.out.println("Which animal will you swap to?");
+                System.out.println("\nWhich animal will you swap to?\n");
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    if (animal != null) {
+                    if (animal != null && animal != currBattle.getPlayerAnimal()) {
                         System.out.println(animal.getName());
                     }
                 }
@@ -157,13 +158,15 @@ public class WildlifeSimulator {
                     }
                 }
             }
-            currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
+            if(currBattle.getWinner() == null){
+                currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
+            }
         } while (currBattle.getWinner() == null);
         scan.close();
         if (currBattle.getWinner() == player) {
-            System.out.println("Player Wins!");
+            System.out.println("You Win!");
         }
-        else System.out.println("Player lost");
+        else System.out.println("You Lose");
         return currBattle.getWinner();
     }
 
@@ -174,13 +177,14 @@ public class WildlifeSimulator {
         // while no winner exists, run turns
         // in future we need to add a speed stat to animals to check who goes first
         Scanner scan = new Scanner(System.in);
+        boolean run = false;
         do {
-            System.out.println("Player animal health: " + currBattle.getPlayerAnimal().getCurrentHP());
-            System.out.println("Opponent animal health: " + currBattle.getOpponentAnimal().getCurrentHP());
+            System.out.println("Player's "+ currBattle.getPlayerAnimal().getName() + " health: " + currBattle.getPlayerAnimal().getCurrentHP());
+            System.out.println("Opponent's " + currBattle.oppAnimal.getName() + " health: " + currBattle.getOpponentAnimal().getCurrentHP()+"\n");
 
             String selectedActionString;
             do {
-                System.out.println("Will you: \nAttack\nSwap\nRun\nCatch");
+                System.out.println("Will you: \nAttack\nSwap\nRun\nCatch\n");
                 selectedActionString = scan.nextLine().toLowerCase();
             } while (!selectedActionString.equals("attack") && !selectedActionString.equals("swap") && !selectedActionString.equals("run") && !selectedActionString.equals("catch"));
 
@@ -190,7 +194,7 @@ public class WildlifeSimulator {
                 Move[] pMoves = currBattle.getPlayerAnimal().getMoves();
                 ArrayList<String> moveList = new ArrayList<>();
                 do{
-                    System.out.println("Choose a move: " + "\n");
+                    System.out.println("\nChoose a move: " + "\n");
                     
                     for (Move move : pMoves) {
                         if (move != null){
@@ -204,14 +208,14 @@ public class WildlifeSimulator {
                 selectedMove = WildlifeSimulator.getMoveFromTitle(currBattle.getPlayerAnimal(), selectedMoveString);
                 int DMG = selectedMove.getDamage();
                 String strDMG = Integer.toString(DMG);
-                System.out.println("\nUsed " + selectedMove.getTitle() + " which dealt " + strDMG + " damage!\n");
+                System.out.println("\nYour " + currBattle.getPlayerAnimal().getName() + " used " + selectedMove.getTitle() + " which dealt " + strDMG + " damage to opponent's " + currBattle.getOpponentAnimal().getName() + "!\n");
                 currBattle.playerAttack(selectedMove);
             }
             
             else if (selectedActionString.equals("swap")) {
-                System.out.println("Which animal will you swap to?");
+                System.out.println("\nWhich animal will you swap to?\n");
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
-                    if (animal != null){
+                    if (animal != null && animal != currBattle.getPlayerAnimal()){
                         System.out.println(animal.getName());
                     }
                 }
@@ -235,19 +239,24 @@ public class WildlifeSimulator {
 
             else if (selectedActionString.equals("run")) {
                 ((WildBattle)currBattle).run();
+                run = true;
             }
 
             else if (selectedActionString.equals("catch")) {
                 ((WildBattle)currBattle).captureAnimal();
             }
 
-            currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
+            if(currBattle.getWinner() == null){
+                currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
+            } // Can we make this method print the text for what move was played and how much damage it did?
         } while (currBattle.getWinner() == null);
         scan.close();
         if (currBattle.getWinner() == player) {
-            System.out.println("Player Wins!");
+            System.out.println("You Win!");
         }
-        else System.out.println("Player lost");
+        else if(run == false){
+            System.out.println("You Lose");
+        }
         return currBattle.getWinner();
     }
     

@@ -10,7 +10,7 @@ public class Battle {
     private Climate climate;
     private Animal playerAnimal;
     protected Animal oppAnimal;
-    protected Trainer winner; //only set when battle is won
+    protected Trainer winner = null; //only set when battle is won
 
     public Battle(Player player, Trainer trainer, Climate climate) {
         currPlayer = player;
@@ -27,7 +27,9 @@ public class Battle {
     public void playerSwapAnimal(Animal animal) {
         List<Animal> swappable = Arrays.asList(currPlayer.swappableAnimals());
         if (!(animal.equals(playerAnimal)) && swappable.contains(animal)) {
+            System.out.println("\n" + playerAnimal.getName() + " has been recalled.\n");
             playerAnimal = animal;
+            System.out.println("\n" + playerAnimal.getName() + " I choose you!\n");
         } else {
             throw new IllegalArgumentException("Cannot swap to that Animal");
         }
@@ -78,7 +80,7 @@ public class Battle {
         if(move != null) {
             dmg = move.getDamage() + oppAnimal.getAD();//amount to apply
             String strDMG = Integer.toString(dmg);
-            System.out.println("\nOponnent's "+ oppAnimal.getName() + " used " + move.getTitle() + " which dealt " + strDMG + "!\n");
+            System.out.println("\nOponnent's "+ oppAnimal.getName() + " used " + move.getTitle() + " which dealt " + strDMG + " to " + this.playerAnimal.getName() + "!\n");
             move.decrementAmountLeft(); //move gets 1 less amtLeft
         } else {
             dmg = oppAnimal.getAD(); //amount to apply

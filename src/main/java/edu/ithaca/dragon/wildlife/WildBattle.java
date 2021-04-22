@@ -13,7 +13,7 @@ public class WildBattle extends Battle {
     //this will be a bit different for initial demo, as there is only the demo battle, and no greater map / changelocation
     public void run() {
         hasRun = true;
-        System.out.println("You ran away!");
+        System.out.println("\nYou ran away!\n");
         winner = currOpponent;
     }
 
@@ -26,11 +26,11 @@ public class WildBattle extends Battle {
         odds -= (this.oppAnimal.getLevel()/4);
         int selection = rand.nextInt(100);
         if (selection > odds){
-            System.out.println("The animal was not successfully captured");
+            System.out.println("\nhe animal was not successfully captured");
             return false;
         }
         else{
-            System.out.println("You successfully caught the " + oppAnimal.getName() + ".");
+            System.out.println("\nYou successfully caught the " + oppAnimal.getName() + ".\n");
             winner = currPlayer;
             return true;
         }
