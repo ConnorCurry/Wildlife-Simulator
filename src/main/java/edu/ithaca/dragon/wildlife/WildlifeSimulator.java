@@ -1,6 +1,7 @@
 package edu.ithaca.dragon.wildlife;
 
 import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ import java.nio.file.Paths;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class WildlifeSimulator {
     private HashMap<Integer, Area> areas = new HashMap<>();
@@ -219,7 +221,7 @@ public class WildlifeSimulator {
 
     public static HashMap<String, Animal> getAnimals(){
         HashMap<String, Animal> animals = new HashMap<>();
-        Path fPath = Paths.get("Animals.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
+        Path fPath = Paths.get("src/main/java/edu/ithaca/dragon/wildlife/Animals.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
         try(BufferedReader br = Files.newBufferedReader(fPath, StandardCharsets.US_ASCII)) {
             String line = br.readLine();
             while (line != null) {
@@ -260,6 +262,48 @@ public class WildlifeSimulator {
             ioe.printStackTrace();
         }
         return animals;
+    }
+
+    public static HashMap<Integer, ArrayList<String>> animalLearnSet(String animalName) {
+        HashMap<Integer, ArrayList<String>> learnSet = new HashMap<Integer, ArrayList<String>>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("src/main/java/edu/ithaca/dragon/wildlife/Animals.csv"));
+            String line = br.readLine();
+            while (line != null) {
+                String[] attributes = line.split(",");
+                if (attributes[0].toLowerCase().equals(animalName.toLowerCase())) {
+                    for (int i=3; i<attributes.length; i++){
+                        String[] moveData = attributes[i].split(" ");
+                        Integer levelLearned = Integer.parseInt(moveData[0]);
+                        if (learnSet.containsKey(levelLearned)) {
+                            ArrayList<String> moves = learnSet.get(levelLearned);
+                            if (moveData.length == 3){
+                                moves.add(moveData[1] + " " + moveData[2]);
+                            }
+                            else {
+                                moves.add(moveData[1]);
+                            }
+                            learnSet.put(levelLearned, moves);
+                        }
+                        else{
+                            ArrayList<String> newMove = new ArrayList<String>();
+                            if (moveData.length == 3){
+                                newMove.add(moveData[1] + " " + moveData[2]);
+                            } else {
+                                newMove.add(moveData[1]);
+                            }
+                            learnSet.put(Integer.parseInt(moveData[0]), newMove);
+                        }
+                    }
+                }
+                line = br.readLine();
+            }
+            br.close();
+        }
+        catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return learnSet;
     }
 
     public static HashMap<String, Move> getMoveList(){
