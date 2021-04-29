@@ -35,7 +35,7 @@
 
 **Sprint Goal:** A functioning battle/demo mode for users who want to experience the combat mechanics, and to demo battle functionality, with new environmental/status effects for different Locations
 
-**UML Diagrams:** 
+**UML Diagrams:** https://drive.google.com/file/d/1zOoMjyJFu4b1sdSlt0ZxpfgY5I9ZQdKj/view?usp=sharing
 
 **Sprint Review Agenda:**
 
