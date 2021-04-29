@@ -257,7 +257,7 @@ class BattleTest {
                 bestNumber+=1;
             }
         }
-        assertEquals(580, bestNumber, 90);
+        assertEquals(580, bestNumber, 130);
         for(int i=0; i<1000; i++){ //Worst possible chance to capture, 100% health, max level 99
             Animal pa = new Animal(200, 200, 10); //Player Animal
             Move pm = new Move("Player Move", 20, 2);
@@ -295,7 +295,7 @@ class BattleTest {
             worstNumber+=1;
         }
     }
-    assertEquals(350, worstNumber, 90);
+    assertEquals(350, worstNumber, 130);
     }
 
 
@@ -315,13 +315,13 @@ class BattleTest {
 
     void addExpTest(){ //unit test, just tests experience features but relies on levelUp function working
         Animal a1 = new Animal(100, 20, 100);
-        assertEquals(0, a1.getExp());//equivalence class, new animal with no exp
+        assertEquals(0, a1.getExP());//equivalence class, new animal with no exp
         a1.addExp();
-        assertEquals(1, a1.getExp());//equivalence class, normal exp gain
+        assertEquals(1, a1.getExP());//equivalence class, normal exp gain
         a1.addExp();
-        assertEquals(2, a1.getExp());
+        assertEquals(2, a1.getExP());
         a1.addExp();
-        assertEquals(0, a1.getExp());//equivalence class, existing animal with reset exp
+        assertEquals(0, a1.getExP());//equivalence class, existing animal with reset exp
         
     }
 

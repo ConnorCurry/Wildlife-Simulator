@@ -120,7 +120,13 @@ public class Animal {
         can't learn a previously known move
     */
     public boolean learnMove(String moveToLearn){
-    if(moves.length < 4){
+    int size =0;
+    for (int i=0; i < 4; i++){
+        if(moves[i] != null){
+            size++;
+        }
+    }
+    if(size < 4){
         HashMap<String, Move> exisistingMoves = WildlifeSimulator.getMoveList();
         if (exisistingMoves.containsKey(moveToLearn)){
             for (int i = 0; i < this.level; i++){
@@ -128,7 +134,7 @@ public class Animal {
                     boolean ifEq = false;
                     for (int j = 0; j < this.learnableMoves.get(i).size(); j++){
                         if(learnableMoves.get(i).get(j).equals(moveToLearn)){
-                            moves[moves.length + 1] = exisistingMoves.get(moveToLearn);
+                            moves[size + 1] = exisistingMoves.get(moveToLearn);
                             System.out.println(moveToLearn + " learned!");
                             ifEq = true;
                             return ifEq;
