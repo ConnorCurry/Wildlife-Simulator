@@ -33,9 +33,9 @@
 
 ## Sprint 3:
 
-**Sprint Goal:**
+**Sprint Goal:** A functioning battle/demo mode for users who want to experience the combat mechanics, and to demo battle functionality, with new environmental/status effects for different Locations
 
-**UML Diagrams:**
+**UML Diagrams:** 
 
 **Sprint Review Agenda:**
 
