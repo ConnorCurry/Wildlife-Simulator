@@ -12,7 +12,7 @@ public class Battle {
     private Climate climate;
     private Animal playerAnimal;
     protected Animal oppAnimal;
-    protected Trainer winner; //only set when battle is won
+    protected Trainer winner = null; //only set when battle is won
 
     public Battle(Player player, Trainer trainer, Climate climate) {
         currPlayer = player;
@@ -29,7 +29,9 @@ public class Battle {
     public void playerSwapAnimal(Animal animal) {
         List<Animal> swappable = Arrays.asList(currPlayer.swappableAnimals());
         if (!(animal.equals(playerAnimal)) && swappable.contains(animal)) {
+            System.out.println("\n" + playerAnimal.getName() + " has been recalled.\n");
             playerAnimal = animal;
+            System.out.println("\n" + playerAnimal.getName() + " I choose you!\n");
         } else {
             throw new IllegalArgumentException("Cannot swap to that Animal");
         }
@@ -37,6 +39,7 @@ public class Battle {
 
     // takes move input from player and attacks opponent
     public void playerAttack(Move selectedMove) {
+
         Scanner reader = new Scanner(System.in);
         boolean run = true;
         //apply status effect
@@ -75,11 +78,13 @@ public class Battle {
             selectedMove.decrementAmountLeft(); //move gets -1 amtLeft
             this.oppAnimal.receiveDamage(dmg); //apply damage
             if(this.oppAnimal.getCurrentHP() <= 0){ //deadly attack
+                System.out.println("Oponnent's " + oppAnimal.getName() + " has fainted!");
                 Animal newOA = this.currOpponent.nextAnimal();
                 if(newOA == null) { //no more valid animals
                     this.winner = this.currPlayer;
                 } else {
                     this.oppAnimal = newOA;
+                    System.out.println("You are now facing " + oppAnimal.getName() + "!");
                 }   
             }
         }         
@@ -113,7 +118,6 @@ public class Battle {
             } else { //swap to first valid animal
                 this.oppAnimal = validAnimals.get(0);
             }
-                    
         } else {
             //decide on best move
             Move[] moves = oppAnimal.getMoves();
@@ -140,23 +144,22 @@ public class Battle {
             //move is set to highest damage move that the opponent animal has left
             int dmg;
             if(move != null) {
-                dmg = move.getDamage() + oppAnimal.getAD(); //amount to apply
+                dmg = move.getDamage() + oppAnimal.getAD();//amount to apply
+                String strDMG = Integer.toString(dmg);
+                System.out.println("\nOponnent's "+ oppAnimal.getName() + " used " + move.getTitle() + " which dealt " + strDMG + " to " + this.playerAnimal.getName() + "!\n");
                 move.decrementAmountLeft(); //move gets 1 less amtLeft
 
 
+        //apply damage
+        this.playerAnimal.receiveDamage(dmg); //apply damage
+        if(this.playerAnimal.getCurrentHP() <= 0) { //Deadly attack
+            System.out.println("Your " + playerAnimal.getName() + " has fainted!");
+            Animal newPA = this.currPlayer.getNextAnimal();
+            if(newPA == null) { //No more animals in party
+                this.winner = this.currOpponent; //game over
             } else {
-                dmg = oppAnimal.getAD(); //amount to apply
-            }
-
-            //apply damage
-            this.playerAnimal.receiveDamage(dmg); //apply damage
-            if(this.playerAnimal.getCurrentHP() <= 0) { //Deadly attack
-                Animal newPA = this.currPlayer.nextAnimal();
-                if(newPA == null) { //No more animals in party
-                    this.winner = this.currOpponent; //game over
-                } else {
-                    this.playerAnimal = newPA; //set to next animal
-                }
+                this.playerAnimal = newPA; //set to next animal
+                System.out.println("Your next animal: " + playerAnimal.getName() + " has been sent out!");
             }
         }
         
