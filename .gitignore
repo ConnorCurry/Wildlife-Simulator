@@ -1,5 +1,7 @@
 #maven
-/target
+#/target
+/target/classes
+/target/test-classes
 
 # vscode
 /.classpath

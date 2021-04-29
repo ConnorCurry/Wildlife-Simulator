@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Animal {
     private Move[] moves = new Move[4];
     private HashMap<Integer, ArrayList<String>> learnableMoves = new HashMap<>();//just include move names, must call cross-check function to get move info
@@ -11,6 +14,7 @@ public class Animal {
     private int ad; //ad = Attack Damage
     private String name;
     private int level;
+    private StatusEffect currentEffect;
     private int ExP; //Every three victories a level up should occur
 
     //Constructor
@@ -19,15 +23,34 @@ public class Animal {
         this.currentHP = chp;
         this.ad = ad;
         this.level = 1;
+        this.currentEffect = null;
         this.ExP = 0;
     }
 
-    public Animal(int hp,int chp, int ad, String name) {
+    @JsonCreator
+    public Animal(@JsonProperty("maxHP") int hp, 
+    @JsonProperty("currentHP") int chp, 
+    @JsonProperty("ad") int ad, 
+    @JsonProperty("name") String name, 
+    @JsonProperty("level") int level,
+    @JsonProperty("ExP") int ExP) {
+        this.maxHP = hp;
+        this.currentHP = chp;
+        this.ad = ad;
+        this.level = level;
+        this.name = name;
+        this.ExP = 0;
+        this.currentEffect = null;
+        this.learnableMoves = WildlifeSimulator.animalLearnSet(name);
+    }
+
+    public Animal(int hp, int chp, int ad, String name) {
         this.maxHP = hp;
         this.currentHP = chp;
         this.ad = ad;
         this.level = 1;
         this.name = name;
+        this.currentEffect = null;
         this.ExP = 0;
     }
 
@@ -96,38 +119,43 @@ public class Animal {
         can only know up to 4 moves
         can't learn a previously known move
     */
-    public void learnMove(String moveToLearn){
-      if(this.moves.length < 4){
-        HashMap<String, Move> exisistingMoves = WildlifeSimulator.getMoveList(); //need to fix
+    public boolean learnMove(String moveToLearn){
+    if(moves.length < 4){
+        HashMap<String, Move> exisistingMoves = WildlifeSimulator.getMoveList();
         if (exisistingMoves.containsKey(moveToLearn)){
             for (int i = 0; i < this.level; i++){
                 if(this.learnableMoves.containsKey(i)){
                     boolean ifEq = false;
                     for (int j = 0; j < this.learnableMoves.get(i).size(); j++){
                         if(learnableMoves.get(i).get(j).equals(moveToLearn)){
-                            this.moves[this.moves.length++] = exisistingMoves.get(moveToLearn);
+                            moves[moves.length + 1] = exisistingMoves.get(moveToLearn);
                             System.out.println(moveToLearn + " learned!");
                             ifEq = true;
+                            return ifEq;
                         }
                     }
                     if(!ifEq){
                         System.out.println("Animal has not unlocked this move yet!");
+                        return false;
                     }
                 }
                 else{
                     System.out.println("Animal has not unlocked this move!");
+                    return false;
                 }
             }
         }
         else{
             System.out.println("Move doesn't exist!");
-
+            return false;
         }
 
-      }
-      else{
-          System.out.println("Already know the maximum of 4 moves!");
-      }
+    }
+    else{
+        System.out.println("Already know the maximum of 4 moves!");
+        return false;
+    }
+    return false;
     }
     //getters
     public int getAD() {
@@ -147,6 +175,9 @@ public class Animal {
     public int getLevel(){
         return(this.level);
     }
+    public StatusEffect getCurrentEffect() {
+        return(this.currentEffect);
+    }
 
     //setters
     public void setMoves(Move[] ms) {
@@ -165,8 +196,12 @@ public class Animal {
         return name;
     }
 
-    public int getExp(){
+    public int getExP(){
         return ExP;
+    }
+
+    public HashMap<Integer, ArrayList<String>> getLearnableMoves() {
+        return learnableMoves;
     }
     
 }

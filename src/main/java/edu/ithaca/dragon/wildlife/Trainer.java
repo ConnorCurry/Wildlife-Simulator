@@ -3,21 +3,28 @@ package edu.ithaca.dragon.wildlife;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Trainer {
     private Animal[] animals = new Animal[6];
 
-   /*  public Trainer() {
+    public Trainer() {
+    }
 
-    } */
+    @JsonCreator
+    public Trainer(@JsonProperty("animalsArray") Animal[] animals) {
+        this.animals = animals;
+    } 
 
     // returns first animal in party
-    public Animal getFirstAnimal() {
+    public Animal firstAnimal() {
         
         return(this.animals[0]);
     }
 
     //returns first valid animal in party - if none returns null
-    public Animal getNextAnimal() {
+    public Animal nextAnimal() {
         Animal a;
         for(int i = 0; i < this.animals.length; i++) {
             if(this.animals[i] != null) {
@@ -60,4 +67,49 @@ public class Trainer {
         }
         return partyInfo;
     }
+
+    public void addToParty(Animal newAnimal){
+        Boolean i = false;
+        int z = 0;
+        if(animals[animals.length - 1] != null){
+            System.out.println("Your party is full! Remove an animal before adding one.");
+        }
+        else{
+            while(i == false){
+                if(animals[z] == null){
+                    animals[z] = newAnimal;
+                    i = true;
+                    String animalName = newAnimal.getName();
+                    System.out.println("Added " + animalName + " to your party!");
+                }
+                else{
+                    z++;
+                }
+            }
+        }
+    }
+
+    public void removeFromParty(int anNumb){
+        if(isPartyEmpty()){
+            System.out.println("Your party is empty!");
+        }
+        else{
+            int anIndex = anNumb - 1;
+            String animalName = animals[anIndex].getName();
+            animals[anIndex] = null;
+            System.out.println("Removed " + animalName + " from your party!");
+        }
+    }
+
+    public boolean isPartyEmpty(){
+        boolean empty = true;
+        for(int i = 0; i < animals.length; i++){
+            if (animals[i] != null) {
+                empty = false;
+                break;
+            }
+        }
+        return empty;
+    }
 }
+
