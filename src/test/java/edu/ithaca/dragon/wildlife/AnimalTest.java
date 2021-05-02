@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class AnimalTest {
     
     @Test
-    public void AnimalConstructorTest() {
+    public void animalConstructorTest() {
         Animal bear = new Animal(55, 55, 7, "bear", 1, 0);
         assertTrue(bear.getLearnableMoves().get(1).get(0).equals("tackle"));
         assertTrue(bear.getLearnableMoves().get(5).get(0).equals("bear hug"));
