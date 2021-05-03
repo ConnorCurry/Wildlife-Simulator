@@ -3,7 +3,6 @@ package edu.ithaca.dragon.wildlife;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -89,7 +88,7 @@ public class PlayerTest {
         Animal[] as = {a1, a2, a3, a4, a5, null};
         t.setAnimals(as);
         t.addToParty(a6);
-        assertEquals(a6, t.getAnimalsArray()[5]);
+        assertEquals(a6, t.getAnimals()[5]);
         t.addToParty(a5);   //test to see if there is a print    
 
     }
@@ -107,9 +106,66 @@ public class PlayerTest {
         Animal[] as = {a1, a2, a3, a4, a5, a6};
         t.setAnimals(as);
         t.removeFromParty(6);
-        assertNull(t.getAnimalsArray()[5]);
+        assertNull(t.getAnimals()[5]);
         Animal[] as2 = {null, null, null, null, null, null};
         t.setAnimals(as2);
         t.removeFromParty(1); //test to see if there is a print
+    }
+
+    @Test
+    void savePartyInfoTest() {
+        Move dash = new Move("Dash", 3, 20);
+        Move bite = new Move("Bite", 5, 10);
+        Move scratch = new Move("Scratch", 3, 15);
+
+        Player p = new Player();
+        Animal a1, a2;
+
+        p = new Player();
+        a1 = new Animal(2, 1, 3, "Animal1");
+        a1.setMoves(new Move[]{dash, null, null, null});
+        p.addToParty(a1);
+
+        // Write to file
+        p.savePartyInfo("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv");
+
+        // Read from file
+        Player readPlayer = Player.readPartyInfo("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv");
+
+        Animal readAnimal = readPlayer.firstAnimal();
+        assertEquals("Animal1", readAnimal.getName());
+        assertEquals(2, readAnimal.getMaxHP());
+        assertEquals(1, readAnimal.getCurrentHP());
+        assertEquals(3, readAnimal.getAD());
+        assertEquals("Dash", readAnimal.getMoves()[0].getTitle());
+
+
+        p = new Player();
+        a1 = new Animal(8, 8, 8, "Animal1");
+        a1.setMoves(new Move[]{dash, null, null, null});
+        a2 = new Animal(5, 4, 6, "Animal2");
+        a2.setMoves(new Move[]{bite, scratch, null, null});
+        p.setAnimals(new Animal[]{a1, a2});
+
+        // Write to file
+        p.savePartyInfo("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv");
+
+        // Read from file
+        readPlayer = Player.readPartyInfo("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv");
+
+        Animal readAnimal1 = readPlayer.getAnimals()[0];
+        assertEquals("Animal1", readAnimal1.getName());
+        assertEquals(8, readAnimal1.getMaxHP());
+        assertEquals(8, readAnimal1.getCurrentHP());
+        assertEquals(8, readAnimal1.getAD());
+        assertEquals("Dash", readAnimal1.getMoves()[0].getTitle());
+
+        Animal readAnimal2 = readPlayer.getAnimals()[1];
+        assertEquals("Animal2", readAnimal2.getName());
+        assertEquals(5, readAnimal2.getMaxHP());
+        assertEquals(4, readAnimal2.getCurrentHP());
+        assertEquals(6, readAnimal2.getAD());
+        assertEquals("Bite", readAnimal2.getMoves()[0].getTitle());
+        assertEquals("Scratch", readAnimal2.getMoves()[1].getTitle());
     }
 }

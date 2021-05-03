@@ -15,7 +15,7 @@ public class Animal {
     private String name;
     private int level;
     private StatusEffect currentEffect;
-    private int ExP; //Every three victories a level up should occur
+    private int exP; //Every three victories a level up should occur
 
     //Constructor
     public Animal(int hp,int chp, int ad) {
@@ -24,7 +24,7 @@ public class Animal {
         this.ad = ad;
         this.level = 1;
         this.currentEffect = null;
-        this.ExP = 0;
+        this.exP = 0;
     }
 
     @JsonCreator
@@ -33,13 +33,13 @@ public class Animal {
     @JsonProperty("ad") int ad, 
     @JsonProperty("name") String name, 
     @JsonProperty("level") int level,
-    @JsonProperty("ExP") int ExP) {
+    @JsonProperty("exP") int exP) {
         this.maxHP = hp;
         this.currentHP = chp;
         this.ad = ad;
         this.level = level;
         this.name = name;
-        this.ExP = 0;
+        this.exP = 0;
         this.currentEffect = null;
         this.learnableMoves = WildlifeSimulator.animalLearnSet(name);
     }
@@ -51,7 +51,7 @@ public class Animal {
         this.level = 1;
         this.name = name;
         this.currentEffect = null;
-        this.ExP = 0;
+        this.exP = 0;
     }
 
     public Animal(int hp,int chp, int ad, String name, HashMap<Integer, ArrayList<String>> possibleMoves) {
@@ -60,7 +60,7 @@ public class Animal {
         this.ad = ad;
         this.level = 1;
         this.name = name;
-        this.ExP = 0;
+        this.exP = 0;
         this.learnableMoves = possibleMoves;
     }
 
@@ -86,10 +86,10 @@ public class Animal {
      * If after addition exp equals 3, reset exp and initiate level up
      */
     public void addExp(){
-        this.ExP += 1;
+        this.exP += 1;
         System.out.println("One ExP Gained!");
-        if (this.ExP == 3){
-            this.ExP = 0;
+        if (this.exP == 3){
+            this.exP = 0;
             this.levelUp();
         }
     }
@@ -120,49 +120,49 @@ public class Animal {
         can't learn a previously known move
     */
     public boolean learnMove(String moveToLearn){
-    int size =0;
-    for (int i=0; i < 4; i++){
-        if(moves[i] != null){
-            size++;
+        int size =0;
+        for (int i=0; i < 4; i++){
+            if(moves[i] != null){
+                size++;
+            }
         }
-    }
-    if(size < 4){
-        HashMap<String, Move> exisistingMoves = WildlifeSimulator.getMoveList();
-        if (exisistingMoves.containsKey(moveToLearn)){
-            for (int i = 0; i < this.level; i++){
-                if(this.learnableMoves.containsKey(i)){
-                    boolean ifEq = false;
-                    for (int j = 0; j < this.learnableMoves.get(i).size(); j++){
-                        if(learnableMoves.get(i).get(j).equals(moveToLearn)){
-                            moves[size + 1] = exisistingMoves.get(moveToLearn);
-                            System.out.println(moveToLearn + " learned!");
-                            ifEq = true;
-                            return ifEq;
+        if(size < 4){
+            HashMap<String, Move> exisistingMoves = WildlifeSimulator.getMoveList();
+            if (exisistingMoves.containsKey(moveToLearn)){
+                for (int i = 0; i < this.level; i++){
+                    if(this.learnableMoves.containsKey(i)){
+                        boolean ifEq = false;
+                        for (int j = 0; j < this.learnableMoves.get(i).size(); j++){
+                            if(learnableMoves.get(i).get(j).equals(moveToLearn)){
+                                moves[size + 1] = exisistingMoves.get(moveToLearn);
+                                System.out.println(moveToLearn + " learned!");
+                                ifEq = true;
+                                return ifEq;
+                            }
+                        }
+                        if(!ifEq){
+                            System.out.println("Animal has not unlocked this move yet!");
+                            return false;
                         }
                     }
-                    if(!ifEq){
-                        System.out.println("Animal has not unlocked this move yet!");
+                    else{
+                        System.out.println("Animal has not unlocked this move!");
                         return false;
                     }
                 }
-                else{
-                    System.out.println("Animal has not unlocked this move!");
-                    return false;
-                }
             }
-        }
-        else{
-            System.out.println("Move doesn't exist!");
+            else{
+                System.out.println("Move doesn't exist!");
+                return false;
+            }
+
+        } else{
+            System.out.println("Already know the maximum of 4 moves!");
             return false;
         }
-
-    }
-    else{
-        System.out.println("Already know the maximum of 4 moves!");
         return false;
     }
-    return false;
-    }
+    
     //getters
     public int getAD() {
         return(this.ad);
@@ -203,7 +203,7 @@ public class Animal {
     }
 
     public int getExP(){
-        return ExP;
+        return exP;
     }
 
     public HashMap<Integer, ArrayList<String>> getLearnableMoves() {

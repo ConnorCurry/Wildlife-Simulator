@@ -178,11 +178,11 @@ public class Battle {
 	}
 
 	public Animal[] getPlayerAnimalsArray() {
-		return currPlayer.getAnimalsArray();
+		return currPlayer.getAnimals();
 	}
 
 	public Animal[] getOpponentAnimalsArray() {
-		return(this.currOpponent.getAnimalsArray());
+		return(this.currOpponent.getAnimals());
 	}
 
 }

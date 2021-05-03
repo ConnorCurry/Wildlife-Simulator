@@ -13,7 +13,7 @@ public class Trainer {
     }
 
     @JsonCreator
-    public Trainer(@JsonProperty("animalsArray") Animal[] animals) {
+    public Trainer(@JsonProperty("animals") Animal[] animals) {
         this.animals = animals;
     } 
 
@@ -54,7 +54,7 @@ public class Trainer {
         return swappable.toArray(new Animal[0]);
     }
 
-    public Animal[] getAnimalsArray() {
+    public Animal[] getAnimals() {
         return animals;
     }
 
@@ -90,7 +90,7 @@ public class Trainer {
     }
 
     public void removeFromParty(int anNumb){
-        if(isPartyEmpty()){
+        if(partyIsEmpty()){
             System.out.println("Your party is empty!");
         }
         else{
@@ -101,7 +101,7 @@ public class Trainer {
         }
     }
 
-    public boolean isPartyEmpty(){
+    public boolean partyIsEmpty(){
         boolean empty = true;
         for(int i = 0; i < animals.length; i++){
             if (animals[i] != null) {
