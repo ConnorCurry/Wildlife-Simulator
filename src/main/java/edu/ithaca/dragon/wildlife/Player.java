@@ -18,7 +18,7 @@ public class Player extends Trainer{
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/java/edu/ithaca/dragon/wildlife/Player.csv"), this);
         }
         catch(Exception e) {
-            System.out.println("Error Writing:\n" + e);
+            // System.out.println("Error Writing:\n" + e);
         }
     }
 
@@ -32,22 +32,22 @@ public class Player extends Trainer{
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(path), this);
         }
         catch(Exception e) {
-            System.out.println("Error Writing:\n" + e);
+            // System.out.println("Error Writing:\n" + e);
         }
     }
 
     /**
      * reads and returns a Player from a default path
      */
-    public static Trainer readPartyInfo() {
+    public static Player readPartyInfo() {
         ObjectMapper mapper = new ObjectMapper();
 
         Player p = null;
         try {
-            p = mapper.readValue(new File("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv"), new TypeReference<Player>(){});
+            p = mapper.readValue(new File("src/main/java/edu/ithaca/dragon/wildlife/Player.csv"), new TypeReference<Player>(){});
         }
         catch(Exception e) {
-            System.out.println("Error Reading:\n" + e);
+            // System.out.println("Error Reading:\n" + e);
         }
         return p;
     }
@@ -63,7 +63,7 @@ public class Player extends Trainer{
             p = mapper.readValue(new File(path), new TypeReference<Player>(){});
         }
         catch(Exception e) {
-            System.out.println("Error Reading:\n" + e);
+            // System.out.println("Error Reading:\n" + e);
         }
         return p;
     }
