@@ -1,0 +1,41 @@
+{
+  "animalsArray" : [ {
+    "maxHP" : 8,
+    "currentHP" : 8,
+    "ad" : 8,
+    "name" : "Animal1",
+    "level" : 1,
+    "exP" : 0,
+    "moves" : [ {
+      "title" : "Dash",
+      "damage" : 3,
+      "amountLeft" : 20,
+      "statusString" : null,
+      "effect" : null
+    }, null, null, null ],
+    "learnableMoves" : { },
+    "currentEffect" : null
+  }, {
+    "maxHP" : 5,
+    "currentHP" : 4,
+    "ad" : 6,
+    "name" : "Animal2",
+    "level" : 1,
+    "exP" : 0,
+    "moves" : [ {
+      "title" : "Bite",
+      "damage" : 5,
+      "amountLeft" : 10,
+      "statusString" : null,
+      "effect" : null
+    }, {
+      "title" : "Scratch",
+      "damage" : 3,
+      "amountLeft" : 15,
+      "statusString" : null,
+      "effect" : null
+    }, null, null ],
+    "learnableMoves" : { },
+    "currentEffect" : null
+  } ]
+}

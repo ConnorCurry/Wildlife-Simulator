@@ -7,6 +7,7 @@
         "ad" : 5,
         "name" : "Deer",
         "level" : 1,
+        "exP" : 0,
         "moves" : [ {
           "title" : "Dash",
           "damage" : 3,
@@ -15,14 +16,14 @@
           "effect" : null
         }, null, null, null ],
         "learnableMoves" : { },
-        "currentEffect" : null,
-        "exP" : 0
+        "currentEffect" : null
       }, {
         "maxHP" : 40,
         "currentHP" : 40,
         "ad" : 7,
         "name" : "Wolf",
         "level" : 1,
+        "exP" : 0,
         "moves" : [ {
           "title" : "Bite",
           "damage" : 5,
@@ -37,10 +38,8 @@
           "effect" : null
         }, null, null ],
         "learnableMoves" : { },
-        "currentEffect" : null,
-        "exP" : 0
-      }, null, null, null, null ],
-      "partyEmpty" : false
+        "currentEffect" : null
+      }, null, null, null, null ]
     } ],
     "climate" : "PLAINS"
   }
