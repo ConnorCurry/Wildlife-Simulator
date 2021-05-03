@@ -7,20 +7,34 @@ public class CommandLineUI {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
+        String in;
         // Create player and demo party
-        Player player = new Player();
-        Animal a1 = new Animal(40, 40, 7, "Wolf");
+        do {
+            System.out.println("Which player do you choose:\nload\ndemo (overwrites save)");
+            in = scan.nextLine().toLowerCase();
+        } while(!in.equals("load") && !in.equals("demo"));
+
+        Player player = null;
+        if (in.equals("load")) {
+            player = Player.readPartyInfo();
+        }
+
         Move bite = new Move("Bite", 5, 10);
         Move scratch = new Move("Scratch", 3, 15);
-        a1.setMoves(new Move[]{bite, scratch, null, null});
-
-        Animal a2 = new Animal(50, 50, 8, "Bear");
-        a2.setMoves(new Move[]{bite, null, null, null});
-
-        Animal a3 = new Animal(25, 25, 3, "Squirrel");
-        a3.setMoves(new Move[]{null, null, null, null});
-        Animal[] playerAnimalSet = {a1, a2, a3, null, null, null};
-        player.setAnimals(playerAnimalSet);
+        if (player == null) {
+            player = new Player();
+            Animal a1 = new Animal(40, 40, 7, "Wolf");
+            a1.setMoves(new Move[]{bite, scratch, null, null});
+    
+            Animal a2 = new Animal(50, 50, 8, "Bear");
+            a2.setMoves(new Move[]{bite, null, null, null});
+    
+            Animal a3 = new Animal(25, 25, 3, "Squirrel");
+            a3.setMoves(new Move[]{null, null, null, null});
+            Animal[] playerAnimalSet = {a1, a2, a3, null, null, null};
+            player.setAnimals(playerAnimalSet);
+            player.savePartyInfo();
+        }
 
         // Create demo wild animal w/ trainer
         Trainer wildTrainer = new Trainer();
@@ -63,6 +77,6 @@ public class CommandLineUI {
         }
         else simulator.startBattle();
 
-
+        player.savePartyInfo();
     }
 }
