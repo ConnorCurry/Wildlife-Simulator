@@ -1,5 +1,5 @@
 {
-  "animalsArray" : [ {
+  "animals" : [ {
     "maxHP" : 8,
     "currentHP" : 8,
     "ad" : 8,

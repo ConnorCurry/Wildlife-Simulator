@@ -13,7 +13,7 @@ public class Trainer {
     }
 
     @JsonCreator
-    public Trainer(@JsonProperty("animalsArray") Animal[] animals) {
+    public Trainer(@JsonProperty("animals") Animal[] animals) {
         this.animals = animals;
     } 
 
@@ -54,7 +54,7 @@ public class Trainer {
         return swappable.toArray(new Animal[0]);
     }
 
-    public Animal[] getAnimalsArray() {
+    public Animal[] getAnimals() {
         return animals;
     }
 

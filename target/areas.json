@@ -1,7 +1,7 @@
 {
   "1" : {
     "trainers" : [ {
-      "animalsArray" : [ {
+      "animals" : [ {
         "maxHP" : 30,
         "currentHP" : 30,
         "ad" : 5,

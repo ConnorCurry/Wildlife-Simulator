@@ -3,15 +3,8 @@ package edu.ithaca.dragon.wildlife;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.io.File;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.junit.jupiter.api.Test;
-
-import com.fasterxml.jackson.core.type.TypeReference;
 
 public class PlayerTest {
 
@@ -95,7 +88,7 @@ public class PlayerTest {
         Animal[] as = {a1, a2, a3, a4, a5, null};
         t.setAnimals(as);
         t.addToParty(a6);
-        assertEquals(a6, t.getAnimalsArray()[5]);
+        assertEquals(a6, t.getAnimals()[5]);
         t.addToParty(a5);   //test to see if there is a print    
 
     }
@@ -113,7 +106,7 @@ public class PlayerTest {
         Animal[] as = {a1, a2, a3, a4, a5, a6};
         t.setAnimals(as);
         t.removeFromParty(6);
-        assertNull(t.getAnimalsArray()[5]);
+        assertNull(t.getAnimals()[5]);
         Animal[] as2 = {null, null, null, null, null, null};
         t.setAnimals(as2);
         t.removeFromParty(1); //test to see if there is a print
@@ -121,37 +114,23 @@ public class PlayerTest {
 
     @Test
     void savePartyInfoTest() {
-        ObjectMapper mapper = new ObjectMapper();
-
         Move dash = new Move("Dash", 3, 20);
         Move bite = new Move("Bite", 5, 10);
         Move scratch = new Move("Scratch", 3, 15);
 
-        Trainer p = new Trainer();
+        Player p = new Player();
         Animal a1, a2;
 
-        p = new Trainer();
+        p = new Player();
         a1 = new Animal(2, 1, 3, "Animal1");
         a1.setMoves(new Move[]{dash, null, null, null});
         p.addToParty(a1);
 
-
         // Write to file
-        try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv"), p);
-        }
-        catch(Exception e) {
-            System.out.println("Error Writing:\n" + e);
-        }
+        p.savePartyInfo("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv");
 
-        Trainer readPlayer = null;
         // Read from file
-        try {
-            readPlayer = mapper.readValue(new File("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv"), new TypeReference<Trainer>(){});
-        }
-        catch(Exception e) {
-            System.out.println("Error Reading:\n" + e);
-        }
+        Player readPlayer = Player.readPartyInfo("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv");
 
         Animal readAnimal = readPlayer.firstAnimal();
         assertEquals("Animal1", readAnimal.getName());
@@ -161,7 +140,7 @@ public class PlayerTest {
         assertEquals("Dash", readAnimal.getMoves()[0].getTitle());
 
 
-        p = new Trainer();
+        p = new Player();
         a1 = new Animal(8, 8, 8, "Animal1");
         a1.setMoves(new Move[]{dash, null, null, null});
         a2 = new Animal(5, 4, 6, "Animal2");
@@ -169,29 +148,19 @@ public class PlayerTest {
         p.setAnimals(new Animal[]{a1, a2});
 
         // Write to file
-        try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv"), p);
-        }
-        catch(Exception e) {
-            System.out.println("Error Writing:\n" + e);
-        }
+        p.savePartyInfo("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv");
 
         // Read from file
-        try {
-            readPlayer = mapper.readValue(new File("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv"), new TypeReference<Trainer>(){});
-        }
-        catch(Exception e) {
-            System.out.println("Error Reading:\n" + e);
-        }
+        readPlayer = Player.readPartyInfo("src/test/java/edu/ithaca/dragon/wildlife/PlayerTest.csv");
 
-        Animal readAnimal1 = readPlayer.getAnimalsArray()[0];
+        Animal readAnimal1 = readPlayer.getAnimals()[0];
         assertEquals("Animal1", readAnimal1.getName());
         assertEquals(8, readAnimal1.getMaxHP());
         assertEquals(8, readAnimal1.getCurrentHP());
         assertEquals(8, readAnimal1.getAD());
         assertEquals("Dash", readAnimal1.getMoves()[0].getTitle());
 
-        Animal readAnimal2 = readPlayer.getAnimalsArray()[1];
+        Animal readAnimal2 = readPlayer.getAnimals()[1];
         assertEquals("Animal2", readAnimal2.getName());
         assertEquals(5, readAnimal2.getMaxHP());
         assertEquals(4, readAnimal2.getCurrentHP());

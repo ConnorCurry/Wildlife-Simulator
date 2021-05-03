@@ -176,15 +176,15 @@ public class WildlifeSimulatorTest {
         sim.initalLoad();
         assertEquals(Climate.PLAINS, sim.getCurrArea().getClimate()); // Check climate in area 1 from fresh save file
         assertEquals(Climate.DESERT, sim.getAreas().get(2).getClimate()); // Check climate in area 2 from fresh save file
-        assertEquals(3, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getDamage()); // Check damage of trainer in area 1 on first animals first move
-        assertEquals(20, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getAmountLeft()); // Check amount of moves left of trainer in area 1 on first animals first move
-        assertTrue(sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getTitle().equals("Dash")); // Check name of first animal of trainer 1 in area 1
-        assertTrue(sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getName().equals("Deer")); // Check name of first animal
-        assertEquals(30, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMaxHP()); // Check max HP of animal
-        assertEquals(30, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getCurrentHP()); // Check current HP of animal
-        assertEquals(5, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getAD()); // Check attack damage of animal
-        assertEquals(1, sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getLevel()); // Check level of animal
-        assertNull(sim.getCurrArea().getTrainers()[0].getAnimalsArray()[0].getMoves()[0].getStatusString());
+        assertEquals(3, sim.getCurrArea().getTrainers()[0].getAnimals()[0].getMoves()[0].getDamage()); // Check damage of trainer in area 1 on first animals first move
+        assertEquals(20, sim.getCurrArea().getTrainers()[0].getAnimals()[0].getMoves()[0].getAmountLeft()); // Check amount of moves left of trainer in area 1 on first animals first move
+        assertTrue(sim.getCurrArea().getTrainers()[0].getAnimals()[0].getMoves()[0].getTitle().equals("Dash")); // Check name of first animal of trainer 1 in area 1
+        assertTrue(sim.getCurrArea().getTrainers()[0].getAnimals()[0].getName().equals("Deer")); // Check name of first animal
+        assertEquals(30, sim.getCurrArea().getTrainers()[0].getAnimals()[0].getMaxHP()); // Check max HP of animal
+        assertEquals(30, sim.getCurrArea().getTrainers()[0].getAnimals()[0].getCurrentHP()); // Check current HP of animal
+        assertEquals(5, sim.getCurrArea().getTrainers()[0].getAnimals()[0].getAD()); // Check attack damage of animal
+        assertEquals(1, sim.getCurrArea().getTrainers()[0].getAnimals()[0].getLevel()); // Check level of animal
+        assertNull(sim.getCurrArea().getTrainers()[0].getAnimals()[0].getMoves()[0].getStatusString());
     }
 
     @Test
