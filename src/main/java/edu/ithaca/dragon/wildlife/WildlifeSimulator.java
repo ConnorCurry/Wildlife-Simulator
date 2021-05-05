@@ -318,6 +318,10 @@ public class WildlifeSimulator {
         return learnSet;
     }
 
+    public static void ChangeArea(){
+        
+    }
+
     public static HashMap<String, Move> getMoveList(){
         HashMap<String, Move> moveList = new HashMap<>();
         Path fPath2 = Paths.get("Moves.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html

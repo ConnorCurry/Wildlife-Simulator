@@ -48,6 +48,11 @@ public class WildlifeSimulatorTest {
         assertThrows(IllegalArgumentException.class, () -> {WildlifeSimulator.getMoveFromTitle(animal1, "bite");}); // move shouldn't exist
     }
 
+    @Test
+    public void changeAreaTest(){
+        
+    }
+
     
     // public static void main(String[] args) {
     //     Scanner scan = new Scanner(System.in);
