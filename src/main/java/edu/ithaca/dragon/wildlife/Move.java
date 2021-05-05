@@ -1,7 +1,10 @@
 package edu.ithaca.dragon.wildlife;
 
+import java.io.File;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Move {
     private String title;
@@ -65,5 +68,20 @@ public class Move {
 
     public String getStatusString() {
         return statusString;
+    }
+
+    //Json
+
+    public static Move readMoveInfo() {
+        ObjectMapper mapper = new ObjectMapper();
+
+        Move m = null;
+        try {
+            m = mapper.readValue(new File("src/main/java/edu/ithaca/dragon/wildlife/Moves.csv"), new TypeReference<Move>(){});
+        }
+        catch(Exception e) {
+            // System.out.println("Error Reading:\n" + e);
+        }
+        return m;
     }
 }
