@@ -25,7 +25,11 @@
 </details>
 
 ## Getting Started
-clone and run the main method in CommandLineUI.java
+1. Clone the repo
+```sh
+git clone https://github.com/ConnorCurry/Wildlife-Simulator.git
+```
+2. Run main in CommandLineUI.java
 
 ## Project Documents
 **Scenarios & Narratives:** https://docs.google.com/document/d/1lvrNGWjKu17U7q4BWF-L9mJJFaNusVUTPwi9mKLGR1Q/edit?usp=sharing
