@@ -37,6 +37,6 @@
 
 **UML Diagrams:** https://drive.google.com/file/d/1zOoMjyJFu4b1sdSlt0ZxpfgY5I9ZQdKj/view?usp=sharing
 
-**Sprint Review Agenda:**
+**Sprint Review Agenda:** https://docs.google.com/document/d/1wZrg2BYcR_x8CGRsYl7YdlaIjLl-HBQvIpWpY0PSQUA/edit?usp=sharing
 
 **Sprint Retrospective:**
