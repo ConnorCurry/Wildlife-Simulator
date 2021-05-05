@@ -4,16 +4,16 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#Getting Started">Getting Started</a>
+      <a href="#getting-started">Getting Started</a>
     </li>
     <li>
-      <a href="#Sprint 1">Sprint 1</a>
+      <a href="#sprint-1">Sprint 1</a>
     </li>
     <li>
-      <a href="#Sprint 2">Sprint 2</a>
+      <a href="#sprint-2">Sprint 2</a>
     </li>
     <li>
-      <a href="#Sprint 3">Sprint 3</a>
+      <a href="#sprint-3">Sprint 3</a>
     </li>
   </ol>
 </details>
