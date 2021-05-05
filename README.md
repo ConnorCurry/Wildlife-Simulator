@@ -1,9 +1,22 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-
 # Wildlife Simulator
+
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#Getting Started">Getting Started</a>
+    </li>
+    <li>
+      <a href="#Sprint 1">Sprint 1</a>
+    </li>
+    <li>
+      <a href="#Sprint 2">Sprint 2</a>
+    </li>
+    <li>
+      <a href="#Sprint 3">Sprint 3</a>
+    </li>
+  </ol>
+</details>
 
 ## Getting Started
 clone and run the main method in CommandLineUI.java
