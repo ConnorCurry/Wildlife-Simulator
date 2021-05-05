@@ -1,4 +1,12 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
 # Wildlife Simulator
+
+## Getting Started
+clone and run the main method in CommandLineUI.java
 
 ## Project Documents
 **Scenarios & Narratives:** https://docs.google.com/document/d/1lvrNGWjKu17U7q4BWF-L9mJJFaNusVUTPwi9mKLGR1Q/edit?usp=sharing
