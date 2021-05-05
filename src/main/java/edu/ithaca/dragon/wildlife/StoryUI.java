@@ -38,7 +38,19 @@ public class StoryUI {
         
         //Quest Begins, split into 4 parts (Plains , Tundra (3 trainers, 3 wild animals), Desert (5 trainers, 4 wild animals), Swamp (6 trainers, 5 wild animals))
             //Plains-Area 1 ; (1 trainer, 2 wild animals)
+        //First Animal Battle
+        System.out.println("You are stumbling around and run across a wild Animal!");
+        w.startWildBattle();
+        //Dialague; then trainer battle
+        System.out.println("You are suddenly roasted out of nowhere by Trainer Jeff Ross");
+        Trainer winner = w.startBattle();
+        while(winner != neo){
+            //for all neos animals, heal the, and reset their moves; then...
+            w.startBattle();
+        }
+        //second animal battle
         
+
     }
 
     
