@@ -1,3 +1,6 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Issues][issues-shield]][issues-url]
+
 # Wildlife Simulator
 
 <details open="open">
@@ -64,3 +67,8 @@ clone and run the main method in CommandLineUI.java
 **Sprint Review Agenda:** https://docs.google.com/document/d/1wZrg2BYcR_x8CGRsYl7YdlaIjLl-HBQvIpWpY0PSQUA/edit?usp=sharing
 
 **Sprint Retrospective:**
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/ConnorCurry/Wildlife-Simulator/graphs/contributors
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/ConnorCurry/Wildlife-Simulator/issues
