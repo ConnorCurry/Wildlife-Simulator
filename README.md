@@ -7,6 +7,9 @@
       <a href="#getting-started">Getting Started</a>
     </li>
     <li>
+      <a href="#project-documents">Project Documents</a>
+    </li>
+    <li>
       <a href="#sprint-1">Sprint 1</a>
     </li>
     <li>
