@@ -3,6 +3,7 @@ package edu.ithaca.dragon.wildlife;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Battle {
@@ -161,6 +162,44 @@ public class Battle {
 						System.out.println("Your next animal: " + playerAnimal.getName() + " has been sent out!");
 					}
 				}
+			}
+		}
+	}
+
+	public void climateEffects() {
+		Random rand = new Random();
+		switch (climate) {
+			case PLAINS:
+				System.out.println("The plains climate does not affect the fight");
+				break;
+			case DESERT:
+				if(rand.nextInt(100) > 85) {
+					playerAnimal.receiveDamage(2);
+					System.out.println("Your animal is struggling in the high heat. It lost 2 HP");
+				}
+				if(rand.nextInt(100) > 85) {
+					oppAnimal.receiveDamage(2);
+					System.out.println("The opposing animal is struggling in the high heat. It lost 2 HP");
+				}
+				break;
+			case TUNDRA:
+				if(rand.nextInt(100) > 70) {
+					playerAnimal.receiveDamage(2);
+					System.out.println("Your animal is struggling in the freezing cold. It lost 2 HP");
+				}
+				if(rand.nextInt(100) > 70) {
+					oppAnimal.receiveDamage(2);
+					System.out.println("The opposing animal is struggling in the freezing cold. It lost 2 HP");
+				}
+				break;
+			case SWAMP:
+			if(rand.nextInt(100) > 50) {
+				playerAnimal.receiveDamage(1);
+				System.out.println("Your animal is struggling in the swamp. It lost 1 HP");
+			}
+			if(rand.nextInt(100) > 50) {
+				oppAnimal.receiveDamage(1);
+				System.out.println("The opposing animal is struggling in the swamp. It lost 1 HP");
 			}
 		}
 	}
