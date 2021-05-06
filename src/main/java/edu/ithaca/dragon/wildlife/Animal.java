@@ -66,6 +66,16 @@ public class Animal {
         this.learnableMoves = possibleMoves;
     }
 
+    public Animal(int hp, int chp, int ad, String name, int level, int exP) {
+        this.maxHP = hp;
+        this.currentHP = hp;
+        this.ad = ad;
+        this.name = name;
+        this.level = level;
+        this.exP = exP;
+        this.learnableMoves = WildlifeSimulator.animalLearnSet(name);
+    }
+
     public void receiveDamage(int dmg) {
         this.currentHP -= dmg;
     }
