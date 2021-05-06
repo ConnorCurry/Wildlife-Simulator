@@ -185,6 +185,7 @@ public class WildlifeSimulatorTest {
         assertEquals(5, sim.getCurrArea().getTrainers()[0].getAnimals()[0].getAD()); // Check attack damage of animal
         assertEquals(1, sim.getCurrArea().getTrainers()[0].getAnimals()[0].getLevel()); // Check level of animal
         assertNull(sim.getCurrArea().getTrainers()[0].getAnimals()[0].getMoves()[0].getStatusString());
+        assertEquals(0, sim.getCurrArea().getCurrentTrainer());
     }
 
     @Test
