@@ -62,7 +62,16 @@ public class WildlifeSimulator {
     }
 
     public void loadFromSave() {
+        ObjectMapper mapper = new ObjectMapper();
+        TypeReference<HashMap<Integer, Area>> typeRef = new TypeReference<HashMap<Integer,Area>>(){};
         
+        try {
+            this.areas = mapper.readValue(new File("target/save/areas.json"), typeRef);
+            this.currArea = this.areas.get(1);
+        }
+        catch(Exception e) {
+            System.out.println("Error Loading previous save data:\n" + e);
+        }
     }
 
     public Trainer startBattle(){
