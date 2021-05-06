@@ -36,21 +36,22 @@ public class StoryUI {
         }
         System.out.println("That's all you'll be needing in the Wilderness, now get out.")
         
-        //Quest Begins, split into 4 parts (Plains , Tundra (3 trainers, 3 wild animals), Desert (5 trainers, 4 wild animals), Swamp (6 trainers, 5 wild animals))
+        //Quest Begins, split into 4 parts (Plains , Tundra , Desert (5 trainers, 4 wild animals), Swamp (6 trainers, 5 wild animals))
             //Plains-Area 1 ; (1 trainer, 2 wild animals)
-        //First Animal Battle
-        System.out.println("You are stumbling around and run across a wild Animal!");
+        //First Animal Battle 1/2 w
+        System.out.println("You are stumbling around on the hills and run across a wild Animal!");
         w.startWildBattle();
-        //Dialague; then trainer battle
-        System.out.println("You are suddenly roasted out of nowhere by Trainer Jeff Ross");
+        //Dialague; then trainer battle 1/1 t
+        System.out.println("You are suddenly roasted out of nowhere by Trainer Jeff Ross who pops out of the brush");
         Trainer winner = w.startBattle();
         while(winner != neo){
-            //for all neos animals, heal the, and reset their moves; then...
+            //for all neos animals, heal them; then...
             w.startBattle();
         }
-        //second animal battle
-        
-
+        //second animal battle 2/2w
+        System.out.println("As you leave the viscinity of your prior opponent, you are hit in the head out of the blue by an Animal camoflauged by its surroundings");
+        System.out.println("You have successfully passed the Plains Area")
+            //Tundra-Area 2; (2 trainers, 2 wild animals)
     }
 
     

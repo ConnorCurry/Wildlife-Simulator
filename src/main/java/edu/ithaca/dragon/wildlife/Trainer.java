@@ -116,7 +116,7 @@ public class Trainer {
     public void reviveParty() {
         if(this.animals != null) {
             for(int i = 0; i < animals.length; i++) {
-                this.animals[i].cur
+                this.animals[i].resetCurrentHP();
             }
         }
     }
