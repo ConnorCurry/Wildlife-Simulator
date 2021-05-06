@@ -7,9 +7,9 @@ public class StoryUI {
     
     public void story() {
         Scanner reader = new Scanner(System.in);
-        //Hashmap <Integer, Area> areas = ... Load from Areas.csv
         Player neo = new Player();
-        WildlifeSimulator w = new WildlifeSimulator(areas, neo);
+        WildlifeSimulator w = new WildlifeSimulator(neo);
+        w.initalLoad();
         System.out.println("Welcome to WildLife Simulator. Your name is Neo. You have just finished the initial memory wipe necessary to proceed.");
         
 

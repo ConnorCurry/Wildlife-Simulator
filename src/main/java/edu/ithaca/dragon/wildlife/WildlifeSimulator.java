@@ -30,6 +30,10 @@ public class WildlifeSimulator {
         this.currArea = this.areas.get(1);
     }
 
+    public WildlifeSimulator(Player player) {
+        this.player = player;
+    }
+
     public WildlifeSimulator() {}
 
     /**
