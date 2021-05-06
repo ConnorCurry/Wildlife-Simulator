@@ -7,11 +7,19 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 public class Area {
     Trainer[] trainers;
     Climate climate;
+    int currentTrainer;
     
     @JsonCreator
-    public Area(@JsonProperty("trainers") Trainer[] trainers, @JsonProperty("climate") Climate climate) {
+    public Area(@JsonProperty("trainers") Trainer[] trainers, @JsonProperty("climate") Climate climate, @JsonProperty("currentTrainer") int currentTrainer) {
         this.trainers = trainers;
         this.climate = climate;
+        this.currentTrainer = currentTrainer;
+    }
+
+    public Area(Trainer[] trainers, Climate climate) {
+        this.trainers = trainers;
+        this.climate = climate;
+        this.currentTrainer = 0;
     }
 
     public Area(String data) {
@@ -24,5 +32,9 @@ public class Area {
 
     public Climate getClimate() {
         return climate;
+    }
+
+    public int getCurrentTrainer() {
+        return currentTrainer;
     }
 }

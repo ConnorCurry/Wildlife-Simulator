@@ -1,12 +1,14 @@
 {
   "1" : {
+    "currentTrainer" : 0,
     "trainers" : [ {
-      "animalsArray" : [ {
+      "animals" : [ {
         "maxHP" : 30,
         "currentHP" : 30,
         "ad" : 5,
         "name" : "Deer",
         "level" : 1,
+        "exP" : 0,
         "moves" : [ {
           "title" : "Dash",
           "damage" : 3,
@@ -19,6 +21,7 @@
         "ad" : 7,
         "name" : "Wolf",
         "level" : 1,
+        "exP" : 0,
         "moves" : [ {
           "title" : "Bite",
           "damage" : 4,
@@ -32,11 +35,13 @@
         }, null, null] 
       }, null, null, null, null] 
       }, { 
-      "animalsArray" : [ {
+      "animals" : [ {
         "maxHP" : 26.25,
         "currentHP" : 26.25,
         "ad" : 6.12,
+        "name" : "Cat",
         "level" : 2,
+        "exP" : 0,
         "moves" : [ {
           "title" : "meow",
           "damage" : 1,
@@ -54,6 +59,7 @@
   },
 
   "2" : {
+    "currentTrainer" : 0,
     "trainers" : [null, null],
     "climate" : "DESERT"
   }

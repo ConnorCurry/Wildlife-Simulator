@@ -30,6 +30,10 @@ public class WildlifeSimulator {
         this.currArea = this.areas.get(1);
     }
 
+    public WildlifeSimulator(Player player) {
+        this.player = player;
+    }
+
     public WildlifeSimulator() {}
 
     /**
@@ -50,8 +54,28 @@ public class WildlifeSimulator {
 
     }
 
+    public void saveAreas() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/save/areas.json"), areas);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to overwrite save file:\n" + e);
+
+        }
+    }
+
     public void loadFromSave() {
+        ObjectMapper mapper = new ObjectMapper();
+        TypeReference<HashMap<Integer, Area>> typeRef = new TypeReference<HashMap<Integer,Area>>(){};
         
+        try {
+            this.areas = mapper.readValue(new File("target/save/areas.json"), typeRef);
+            this.currArea = this.areas.get(1);
+        }
+        catch(Exception e) {
+            System.out.println("Error Loading previous save data:\n" + e);
+        }
     }
 
     public Trainer startBattle(){
@@ -106,7 +130,7 @@ public class WildlifeSimulator {
                 }
                 do {
                     swapString = scan.nextLine().toLowerCase();
-                } while (!namesList.contains(swapString)); // not sure contains will work here
+                } while (!namesList.contains(swapString)); 
 
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
                     if (animal != null && animal.getName().toLowerCase().equals(swapString)) {
@@ -117,6 +141,9 @@ public class WildlifeSimulator {
             if(currBattle.getWinner() == null){
                 currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
             }
+
+            currBattle.climateEffects();
+
         } while (currBattle.getWinner() == null);
         scan.close();
         if (currBattle.getWinner() == player) {

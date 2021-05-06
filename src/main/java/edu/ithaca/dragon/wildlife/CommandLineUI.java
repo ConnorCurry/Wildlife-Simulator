@@ -9,14 +9,20 @@ public class CommandLineUI {
 
         String in;
         // Create player and demo party
-        do {
-            System.out.println("Which player do you choose:\nload\ndemo (overwrites save)");
+        do { //repeats until either "load" or "demo" is input (upper/lowercases covered)
+            System.out.println("Which player do you choose:\nload\nloadstory\nstory\ndemo (overwrites save)");
             in = scan.nextLine().toLowerCase();
-        } while(!in.equals("load") && !in.equals("demo"));
+        } while(!in.equals("load") && !in.equals("demo") && !in.equals("loadstory") && !in.equals("story"));
 
         Player player = null;
         if (in.equals("load")) {
             player = Player.readPartyInfo();
+        } else if (in.equals("loadstory")){
+            //TODO: Load Story
+        } else if(in.equals("story")) {
+            StoryUI story = new StoryUI();
+            story.story();
+            return;
         }
 
         Move bite = new Move("Bite", 5, 10);
