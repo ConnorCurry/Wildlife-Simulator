@@ -31,7 +31,7 @@ public class StoryUI {
             } else if (ans == 3) {
                 neo.addToParty(starterAnimals.get("hawk"));
             } else {
-                System.out.println("Invalid input. Please try again, this time either inputting 1, 2, or 3");
+                System.out.println("Invalid input. Please try again, this time either inputting 1, 2, 3");
             }
         }
         System.out.println("That's all you'll be needing in the Wilderness, now get out.");
@@ -51,6 +51,7 @@ public class StoryUI {
         //second animal battle 2/2w
         System.out.println("As you leave the viscinity of your prior opponent, you are hit in the head out of the blue by an Animal camoflauged by its surroundings");
         System.out.println("You have successfully passed the Plains Area");
+        
             //Tundra-Area 2; (2 trainers, 2 wild animals)
         //1/2 w
         System.out.println("All of a sudden, from out of the dirt, springs a wild animal!");
