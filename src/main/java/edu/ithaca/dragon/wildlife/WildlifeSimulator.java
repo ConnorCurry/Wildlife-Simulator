@@ -130,7 +130,7 @@ public class WildlifeSimulator {
                 }
                 do {
                     swapString = scan.nextLine().toLowerCase();
-                } while (!namesList.contains(swapString)); // not sure contains will work here
+                } while (!namesList.contains(swapString)); 
 
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
                     if (animal != null && animal.getName().toLowerCase().equals(swapString)) {
@@ -141,6 +141,9 @@ public class WildlifeSimulator {
             if(currBattle.getWinner() == null){
                 currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
             }
+
+            currBattle.climateEffects();
+
         } while (currBattle.getWinner() == null);
         scan.close();
         if (currBattle.getWinner() == player) {

@@ -1,21 +1,21 @@
 {
   "animals" : [ {
     "maxHP" : 40,
-    "currentHP" : 40,
+    "currentHP" : 26,
     "ad" : 7,
-    "name" : "Dog",
+    "name" : "Wolf",
     "level" : 1,
     "exP" : 0,
     "moves" : [ {
       "title" : "Bite",
       "damage" : 5,
-      "amountLeft" : 10,
+      "amountLeft" : 9,
       "statusString" : null,
       "effect" : null
     }, {
       "title" : "Scratch",
       "damage" : 3,
-      "amountLeft" : 15,
+      "amountLeft" : 11,
       "statusString" : null,
       "effect" : null
     }, null, null ],
@@ -25,13 +25,13 @@
     "maxHP" : 50,
     "currentHP" : 50,
     "ad" : 8,
-    "name" : "Tick",
+    "name" : "Bear",
     "level" : 1,
     "exP" : 0,
     "moves" : [ {
       "title" : "Bite",
       "damage" : 5,
-      "amountLeft" : 10,
+      "amountLeft" : 9,
       "statusString" : null,
       "effect" : null
     }, null, null, null ],
@@ -41,7 +41,7 @@
     "maxHP" : 25,
     "currentHP" : 25,
     "ad" : 3,
-    "name" : "Fish",
+    "name" : "Squirrel",
     "level" : 1,
     "exP" : 0,
     "moves" : [ null, null, null, null ],
