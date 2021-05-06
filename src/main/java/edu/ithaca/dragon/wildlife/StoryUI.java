@@ -89,7 +89,7 @@ public class StoryUI {
             w.startBattle();
         }
         //2/2 w
-        System.out.println("You feel an attack coming from underneath the sand...")
+        System.out.println("You feel an attack coming from underneath the sand...");
         w.startWildBattle();
         //3/3 t
         System.out.println("The sand guru blocks your path to the final biome and must be defeated for passage.");
@@ -121,11 +121,13 @@ public class StoryUI {
         System.out.println("A cherubim asks you a riddle which you fail miserably");
         w.startWildBattle();
         //3/3 t
-        System.out.println("You approach the final trainer of the final area, The Demiurgus (Jehovah, Osiris, Uranus, Shiva)")
+        System.out.println("You approach the final trainer of the final area, The Demiurgus (Jehovah, Osiris, Uranus, Shiva)");
         while(winner != neo){
             //for all neos animals, heal them; then...
             w.startBattle();
         }
+        System.out.println("As The Demiurgus falls, he smiles and whispers, I am the demiurgus of your mind, and am merely a reflection of your concept of the true ineffible Demiurge. As you have now overcome the gross, material image of god in which you held, you have in turn become the new Primordial Creator and Generator of all to come within your true self's dream called reality.");
+        System.out.println("GAME OVER: YOU WIN!");
     }
 
     
