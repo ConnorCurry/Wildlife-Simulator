@@ -196,6 +196,10 @@ public class Animal {
         this.level = levelToBe;
     }
 
+    public void resetCurrentHP() {
+        this.currentHP = this.maxHP;
+    }
+
     public void forgetMove(int moveIndex){
         moves[moveIndex] = null;
     }
