@@ -1,9 +1,9 @@
-Bear,55,7,1 tackle,5 bear hug
+Bear,55,7,1 tackle,5 bearHug
 Cat,25,6,1 meow,2 scratch,4 pounce
 Deer,30,5,1 dash,2 bite
 Dog,45,5,1 bark ,1 bite,3 fetch,3 sit,3 rollover
 Fox,35,6,1 scratch,3 dash,5 bite
-Hawk,25,4,1 peck,3 wing attack
-Snake,30,5,1 bite,4 venom bite,5 wrap
+Hawk,25,4,1 peck,3 wingAttack
+Snake,30,5,1 bite,4 venomBite,5 wrap
 Squirrel,25,3,1 dig,2 scratch
 Wolf,40,7,1 bite,1 scratch

@@ -25,11 +25,11 @@ public class StoryUI {
             ans = reader.nextInt();
             HashMap <String, Animal> starterAnimals = WildlifeSimulator.getAnimals();
             if(ans == 1) {
-                neo.addToParty(starterAnimals.get("cat"));
+                neo.addToParty(starterAnimals.get("Cat"));
             } else if(ans == 2) {
-                neo.addToParty(starterAnimals.get("snake"));
+                neo.addToParty(starterAnimals.get("Snake"));
             } else if (ans == 3) {
-                neo.addToParty(starterAnimals.get("hawk"));
+                neo.addToParty(starterAnimals.get("Hawk"));
             } else {
                 System.out.println("Invalid input. Please try again, this time either inputting 1, 2, or 3");
             }

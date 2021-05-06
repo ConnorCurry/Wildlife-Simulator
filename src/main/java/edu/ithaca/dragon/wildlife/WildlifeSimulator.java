@@ -277,7 +277,6 @@ public class WildlifeSimulator {
                 int bAD = Integer.valueOf(strAD);
                 HashMap<Integer, ArrayList<String>> possibleMove = new HashMap<>();
                 while(i < attributes.length){
-                    i++;
                     String[] move = attributes[i].split(" ");
                     String strLvl = move[0];
                     int lvl = Integer.valueOf(strLvl);
@@ -289,7 +288,7 @@ public class WildlifeSimulator {
                         moveNames.add(move[1]);
                         possibleMove.put(lvl, moveNames); 
                     }
-
+                    i++;
                 }
                 Animal newAnimal = new Animal(bHP, bHP, bAD, aName, possibleMove);
                 animals.put(aName, newAnimal);
