@@ -50,6 +50,17 @@ public class WildlifeSimulator {
 
     }
 
+    public void saveAreas() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/save/areas.json"), areas);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to overwrite save file:\n" + e);
+
+        }
+    }
+
     public void loadFromSave() {
         
     }

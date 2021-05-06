@@ -171,6 +171,48 @@ public class WildlifeSimulatorTest {
     }
 
     @Test
+    public void saveAreasTest() {
+        ObjectMapper mapper = new ObjectMapper();
+
+        Trainer oppTrainer = new Trainer();
+        Move dash = new Move("Dash", 3, 20);
+        Move bite = new Move("Bite", 5, 10);
+        Move scratch = new Move("Scratch", 3, 15);
+        Animal oppA1 = new Animal(30, 30, 5, "Deer", 1, 0, new Move[]{dash, null, null, null});
+        Animal oppA2 = new Animal(40, 40, 7, "Wolf", 1, 2, new Move[]{bite, scratch, null, null});
+
+        Animal[] oppSet = {oppA1, oppA2, null, null, null, null};
+        oppTrainer.setAnimals(oppSet);
+
+        Trainer[] trainerArray = {oppTrainer};
+        Area area1 = new Area(trainerArray, Climate.PLAINS);
+        HashMap<Integer, Area> areas = new HashMap<>();
+        areas.put(1, area1);
+        
+        Player player = new Player();
+
+        WildlifeSimulator sim = new WildlifeSimulator(areas, player);
+
+        sim.saveAreas();
+
+        TypeReference<HashMap<Integer, Area>> typeRef = new TypeReference<HashMap<Integer,Area>>(){};
+        HashMap<Integer, Area> loadedAreas = new HashMap<>();
+        try {
+            loadedAreas = mapper.readValue(new File("target/save/areas.json"), typeRef);
+        }
+        catch(Exception e) {
+            System.out.println("Error Reading:\n" + e);
+        }
+
+        Area loadedArea1 = loadedAreas.get(1);
+        
+        System.out.println(loadedArea1.getClimate() + "\n\n\n");
+        System.out.println(area1.getClimate());
+        assertTrue(area1.getClimate() == loadedArea1.getClimate());
+        assertTrue(areas.get(1).getClimate() == loadedAreas.get(1).getClimate());
+    }
+
+    @Test
     public void initalLoadTest() {
         WildlifeSimulator sim = new WildlifeSimulator();
         sim.initalLoad();
