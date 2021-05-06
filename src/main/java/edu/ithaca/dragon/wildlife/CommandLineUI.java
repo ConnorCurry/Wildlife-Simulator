@@ -21,7 +21,7 @@ public class CommandLineUI {
             //TODO: Load Story
         } else if(in.equals("story")) {
             StoryUI story = new StoryUI();
-            StoryUI.story();
+            story.story();
             return;
         }
 

@@ -1,5 +1,6 @@
 {
   "1" : {
+    "currentTrainer" : 0,
     "trainers" : [ {
       "animals" : [ {
         "maxHP" : 30,
@@ -12,12 +13,9 @@
           "title" : "Dash",
           "damage" : 3,
           "amountLeft" : 20,
-          "statusString" : null,
-          "effect" : null
-        }, null, null, null ],
-        "learnableMoves" : { },
-        "currentEffect" : null
-      }, {
+          "statusString" : null
+        }, null, null, null ]
+        }, {
         "maxHP" : 40,
         "currentHP" : 40,
         "ad" : 7,
@@ -26,21 +24,507 @@
         "exP" : 0,
         "moves" : [ {
           "title" : "Bite",
-          "damage" : 5,
+          "damage" : 4,
+          "amountLeft" : 10,
+          "statusString" : null
+          }, {
+          "title" : "Scratch",
+          "damage" : 3,
+          "amountLeft" : 15,
+          "statusString" : null
+        }, null, null] 
+      }, null, null, null, null] 
+      }, { 
+      "animals" : [ {
+        "maxHP" : 26.25,
+        "currentHP" : 26.25,
+        "ad" : 6.12,
+        "name" : "Cat",
+        "level" : 2,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "meow",
+          "damage" : 1,
+          "amountLeft" : 25,
+          "statusString": null
+          }, {
+          "title" : "scratch",
+          "damage" : 3,
+          "amountLeft": 15,
+          "statusString" : null
+        }, null, null ]
+      } ]
+      } ],
+    "climate":"PLAINS"
+  },
+
+  "2" : {
+    "trainers" : [ {
+      "animals" : [ {
+        "maxHP" : 45,
+        "currentHP" : 45,
+        "ad" : 8,
+        "name" : "Wolf",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bite",
+          "damage" : 6,
           "amountLeft" : 10,
           "statusString" : null,
           "effect" : null
         }, {
           "title" : "Scratch",
-          "damage" : 3,
+          "damage" : 4,
           "amountLeft" : 15,
           "statusString" : null,
           "effect" : null
         }, null, null ],
         "learnableMoves" : { },
         "currentEffect" : null
+      }, {
+        "maxHP" : 50,
+        "currentHP" : 50,
+        "ad" : 7,
+        "name" : "Bear",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bear Hug",
+          "damage" : 10,
+          "amountLeft" : 1,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Scratch",
+          "damage" : 5,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Bite",
+          "damage" : 6,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, null, null, null, null ]
+    }, {
+      "animals" : [ {
+        "maxHP" : 50,
+        "currentHP" : 50,
+        "ad" : 7,
+        "name" : "Bear",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bear Hug",
+          "damage" : 10,
+          "amountLeft" : 1,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Scratch",
+          "damage" : 5,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Bite",
+          "damage" : 6,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, {
+        "maxHP" : 35,
+        "currentHP" : 35,
+        "ad" : 6,
+        "name" : "Fox",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Scratch",
+          "damage" : 3,
+          "amountLeft" : 15,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Dash",
+          "damage" : 3,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Bite",
+          "damage" : 4,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
       }, null, null, null, null ]
     } ],
-    "climate" : "PLAINS"
+    "climate" : "TUNDRA",
+    "currentTrainer" : 0
+  },
+  "3" : {
+    "trainers" : [ {
+      "animals" : [ {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Snake",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bite",
+          "damage" : 4,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Venom Bite",
+          "damage" : 4,
+          "amountLeft" : 5,
+          "statusString" : "Poison",
+          "effect" : null
+        }, {
+          "title" : "Wrap",
+          "damage" : 2,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, {
+        "maxHP" : 25,
+        "currentHP" : 25,
+        "ad" : 4,
+        "name" : "Hawk",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Peck",
+          "damage" : 2,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Wing Attack",
+          "damage" : 4,
+          "amountLeft" : 12,
+          "statusString" : null,
+          "effect" : null
+        }, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, null, null, null, null ]
+    }, {
+      "animals" : [ {
+        "maxHP" : 40,
+        "currentHP" : 40,
+        "ad" : 8,
+        "name" : "Giant Scorpion",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Sting",
+          "damage" : 6,
+          "amountLeft" : 4,
+          "statusString" : "Poison",
+          "effect" : null
+        }, {
+          "title" : "Venom Bite",
+          "damage" : 4,
+          "amountLeft" : 10,
+          "statusString" : "Poison",
+          "effect" : null
+        }, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, {
+        "maxHP" : 25,
+        "currentHP" : 25,
+        "ad" : 4,
+        "name" : "Hawk",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Peck",
+          "damage" : 2,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Wing Attack",
+          "damage" : 4,
+          "amountLeft" : 12,
+          "statusString" : null,
+          "effect" : null
+        }, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, null, null, null, null ]
+    },{
+      "animals" : [ {
+        "maxHP" : 40,
+        "currentHP" : 40,
+        "ad" : 8,
+        "name" : "Giant Scorpion",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Sting",
+          "damage" : 6,
+          "amountLeft" : 4,
+          "statusString" : "Poison",
+          "effect" : null
+        }, {
+          "title" : "Venom Bite",
+          "damage" : 4,
+          "amountLeft" : 10,
+          "statusString" : "Poison",
+          "effect" : null
+        }, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, {
+        "maxHP" : 25,
+        "currentHP" : 25,
+        "ad" : 4,
+        "name" : "Hawk",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Peck",
+          "damage" : 2,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Wing Attack",
+          "damage" : 4,
+          "amountLeft" : 12,
+          "statusString" : null,
+          "effect" : null
+        }, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Snake",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bite",
+          "damage" : 4,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Venom Bite",
+          "damage" : 4,
+          "amountLeft" : 5,
+          "statusString" : "Poison",
+          "effect" : null
+        }, {
+          "title" : "Wrap",
+          "damage" : 2,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, null, null, null ]
+    } ],
+    "climate" : "DESERT",
+    "currentTrainer" : 0
+  },
+  "4" : {
+    "trainers" : [ {
+      "animals" : [ {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Snake",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bite",
+          "damage" : 4,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Venom Bite",
+          "damage" : 4,
+          "amountLeft" : 5,
+          "statusString" : "Poison",
+          "effect" : null
+        }, {
+          "title" : "Wrap",
+          "damage" : 2,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, null, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, {
+        "maxHP" : 45,
+        "currentHP" : 45,
+        "ad" : 7,
+        "name" : "Alligator",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bite",
+          "damage" : 6,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Big Chomp",
+          "damage" : 10,
+          "amountLeft" : 4,
+          "statusString" : "Bleed",
+          "effect" : null
+        }, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, null, null, null, null ]
+    },{
+      "animals" : [ {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Crane",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Peck",
+          "damage" : 4,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Wing Attack",
+          "damage" : 5,
+          "amountLeft" : 12,
+          "statusString" : null,
+          "effect" : null
+        }, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, {
+        "maxHP" : 45,
+        "currentHP" : 45,
+        "ad" : 7,
+        "name" : "Alligator",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bite",
+          "damage" : 6,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Big Chomp",
+          "damage" : 10,
+          "amountLeft" : 4,
+          "statusString" : "Bleed",
+          "effect" : null
+        }, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, null, null, null, null ]
+    },{
+      "animals" : [ {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Crane",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Peck",
+          "damage" : 4,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Wing Attack",
+          "damage" : 5,
+          "amountLeft" : 12,
+          "statusString" : null,
+          "effect" : null
+        }, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, {
+        "maxHP" : 45,
+        "currentHP" : 45,
+        "ad" : 7,
+        "name" : "Alligator",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bite",
+          "damage" : 6,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Big Chomp",
+          "damage" : 10,
+          "amountLeft" : 4,
+          "statusString" : "Bleed",
+          "effect" : null
+        }, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Snake",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Bite",
+          "damage" : 4,
+          "amountLeft" : 10,
+          "statusString" : null,
+          "effect" : null
+        }, {
+          "title" : "Venom Bite",
+          "damage" : 4,
+          "amountLeft" : 5,
+          "statusString" : "Poison",
+          "effect" : null
+        }, {
+          "title" : "Wrap",
+          "damage" : 2,
+          "amountLeft" : 20,
+          "statusString" : null,
+          "effect" : null
+        }, null, null, null ],
+        "learnableMoves" : { },
+        "currentEffect" : null
+      }, null, null, null ]
+    } ],
+    "climate" : "SWAMP",
+    "currentTrainer" : 0
   }
 }

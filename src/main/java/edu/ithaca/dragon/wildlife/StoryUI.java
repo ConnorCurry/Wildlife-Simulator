@@ -7,17 +7,17 @@ public class StoryUI {
     
     public void story() {
         Scanner reader = new Scanner(System.in);
-        //Hashmap <Integer, Area> areas = ... Load from Areas.csv
         Player neo = new Player();
-        WildlifeSimulator w = new WildlifeSimulator(areas, neo);
-        System.out.println("Welcome to WildLife Simulator. Your name is Neo. You have just finished the initial memory wipe necessary to proceed.");
+        WildlifeSimulator w = new WildlifeSimulator(neo);
+        w.initalLoad();
+        System.out.println("\nWelcome to WildLife Simulator. Your name is Neo. You have just finished the initial memory wipe necessary to proceed.");
         
 
         //Select starter animal
         int ans = -1;
         while(ans <= 0){ //Will run as long as ans != 1, 2, or 3
-            System.out.println("As you are a fresh spawn, we are blessing you with your choice of three different animals to start with.")
-            System.out.println("Input the number relative to your choice of the three.")
+            System.out.println("As you are a fresh spawn, we are blessing you with your choice of three different animals to start with.\n");
+            System.out.println("Input the number relative to your choice of the three.");
             System.out.println("1). Cat");
             System.out.println("2). Snake");
             System.out.println("3). Hawk");
@@ -25,21 +25,21 @@ public class StoryUI {
             ans = reader.nextInt();
             HashMap <String, Animal> starterAnimals = WildlifeSimulator.getAnimals();
             if(ans == 1) {
-                neo.addToParty(starterAnimals.get("cat"));
+                neo.addToParty(starterAnimals.get("Cat"));
             } else if(ans == 2) {
-                neo.addToParty(starterAnimals.get("snake"));
-            } else if ans == 3) {
-                neo.addToParty(starterAnimals.get("hawk"));
+                neo.addToParty(starterAnimals.get("Snake"));
+            } else if (ans == 3) {
+                neo.addToParty(starterAnimals.get("Hawk"));
             } else {
-                System.out.println("Invalid input. Please try again, this time either inputting 1, 2, or 3");
+                System.out.println("Invalid input. Please try again, this time either inputting 1, 2, 3");
             }
         }
-        System.out.println("That's all you'll be needing in the Wilderness, now get out.")
+        System.out.println("\nThat's all you'll be needing in the Wilderness, now get out.\n");
         
         //Quest Begins, split into 4 parts (Plains , Tundra , Desert (5 trainers, 4 wild animals), Swamp (6 trainers, 5 wild animals))
             //Plains-Area 1 ; (1 trainer, 2 wild animals)
         //First Animal Battle 1/2 w
-        System.out.println("You are stumbling around on the hills and run across a wild Animal!");
+        System.out.println("You are stumbling around on the hills and run across a wild Animal!\n");
         w.startWildBattle();
         //Dialague; then trainer battle 1/1 t
         System.out.println("You are suddenly roasted out of nowhere by Trainer Jeff Ross who pops out of the brush");
@@ -52,6 +52,7 @@ public class StoryUI {
         System.out.println("As you leave the viscinity of your prior opponent, you are hit in the head out of the blue by an Animal camoflauged by its surroundings");
         w.startWildBattle();
         System.out.println("You have successfully passed the Plains Area")
+
             //Tundra-Area 2; (2 trainers, 2 wild animals)
         //1/2 w
         System.out.println("All of a sudden, from out of the dirt, springs a wild animal!");
@@ -71,6 +72,7 @@ public class StoryUI {
             //for all neos animals, heal them; then...
             w.startBattle();
         }
+
             //Desert-Area 3; (3 trainers, 2 wild animals)
         System.out.println("You have reached the Hot Desert Biome, watch out!");
         //1/3 t

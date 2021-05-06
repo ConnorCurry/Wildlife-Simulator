@@ -33,7 +33,8 @@ public class Animal {
     @JsonProperty("ad") int ad, 
     @JsonProperty("name") String name, 
     @JsonProperty("level") int level,
-    @JsonProperty("exP") int exP) {
+    @JsonProperty("exP") int exP,
+    @JsonProperty("moves") Move[] moves) {
         this.maxHP = hp;
         this.currentHP = chp;
         this.ad = ad;
@@ -41,6 +42,7 @@ public class Animal {
         this.name = name;
         this.exP = 0;
         this.currentEffect = null;
+        this.moves = moves;
         this.learnableMoves = WildlifeSimulator.animalLearnSet(name);
     }
 
@@ -62,6 +64,19 @@ public class Animal {
         this.name = name;
         this.exP = 0;
         this.learnableMoves = possibleMoves;
+        for(int i = 0; i < possibleMoves.get(1).size(); i++){
+            this.learnMoveCon(possibleMoves.get(1).get(i));
+        }
+    }
+
+    public Animal(int hp, int chp, int ad, String name, int level, int exP) {
+        this.maxHP = hp;
+        this.currentHP = hp;
+        this.ad = ad;
+        this.name = name;
+        this.level = level;
+        this.exP = exP;
+        this.learnableMoves = WildlifeSimulator.animalLearnSet(name);
     }
 
     public void receiveDamage(int dmg) {
@@ -129,12 +144,12 @@ public class Animal {
         if(size < 4){
             HashMap<String, Move> exisistingMoves = WildlifeSimulator.getMoveList();
             if (exisistingMoves.containsKey(moveToLearn)){
-                for (int i = 0; i < this.level; i++){
+                for (int i = 1; i <= this.level; i++){
                     if(this.learnableMoves.containsKey(i)){
                         boolean ifEq = false;
                         for (int j = 0; j < this.learnableMoves.get(i).size(); j++){
                             if(learnableMoves.get(i).get(j).equals(moveToLearn)){
-                                moves[size + 1] = exisistingMoves.get(moveToLearn);
+                                moves[size] = exisistingMoves.get(moveToLearn);
                                 System.out.println(moveToLearn + " learned!");
                                 ifEq = true;
                                 return ifEq;
@@ -162,7 +177,51 @@ public class Animal {
         }
         return false;
     }
-    
+    /*
+        Removes print statement for initial setup (level 1 moves)
+    */
+    public boolean learnMoveCon(String moveToLearn){
+        int size =0;
+        for (int i=0; i < 4; i++){
+            if(moves[i] != null){
+                size++;
+            }
+        }
+        if(size < 4){
+            HashMap<String, Move> exisistingMoves = WildlifeSimulator.getMoveList();
+            if (exisistingMoves.containsKey(moveToLearn)){
+                for (int i = 1; i <= this.level; i++){
+                    if(this.learnableMoves.containsKey(i)){
+                        boolean ifEq = false;
+                        for (int j = 0; j < this.learnableMoves.get(i).size(); j++){
+                            if(learnableMoves.get(i).get(j).equals(moveToLearn)){
+                                moves[size] = exisistingMoves.get(moveToLearn);
+                                ifEq = true;
+                                return ifEq;
+                            }
+                        }
+                        if(!ifEq){
+                            System.out.println("Animal has not unlocked this move yet!");
+                            return false;
+                        }
+                    }
+                    else{
+                        System.out.println("Animal has not unlocked this move!");
+                        return false;
+                    }
+                }
+            }
+            else{
+                System.out.println("Move doesn't exist!");
+                return false;
+            }
+
+        } else{
+            System.out.println("Already know the maximum of 4 moves!");
+            return false;
+        }
+        return false;
+    }
     //getters
     public int getAD() {
         return(this.ad);

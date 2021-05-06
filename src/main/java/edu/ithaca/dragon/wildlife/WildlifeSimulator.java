@@ -30,6 +30,10 @@ public class WildlifeSimulator {
         this.currArea = this.areas.get(1);
     }
 
+    public WildlifeSimulator(Player player) {
+        this.player = player;
+    }
+
     public WildlifeSimulator() {}
 
     /**
@@ -50,8 +54,28 @@ public class WildlifeSimulator {
 
     }
 
+    public void saveAreas() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/save/areas.json"), areas);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to overwrite save file:\n" + e);
+
+        }
+    }
+
     public void loadFromSave() {
+        ObjectMapper mapper = new ObjectMapper();
+        TypeReference<HashMap<Integer, Area>> typeRef = new TypeReference<HashMap<Integer,Area>>(){};
         
+        try {
+            this.areas = mapper.readValue(new File("target/save/areas.json"), typeRef);
+            this.currArea = this.areas.get(1);
+        }
+        catch(Exception e) {
+            System.out.println("Error Loading previous save data:\n" + e);
+        }
     }
 
     public Trainer startBattle(){
@@ -106,7 +130,7 @@ public class WildlifeSimulator {
                 }
                 do {
                     swapString = scan.nextLine().toLowerCase();
-                } while (!namesList.contains(swapString)); // not sure contains will work here
+                } while (!namesList.contains(swapString)); 
 
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
                     if (animal != null && animal.getName().toLowerCase().equals(swapString)) {
@@ -117,6 +141,9 @@ public class WildlifeSimulator {
             if(currBattle.getWinner() == null){
                 currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
             }
+
+            currBattle.climateEffects();
+
         } while (currBattle.getWinner() == null);
         scan.close();
         if (currBattle.getWinner() == player) {
@@ -250,7 +277,6 @@ public class WildlifeSimulator {
                 int bAD = Integer.valueOf(strAD);
                 HashMap<Integer, ArrayList<String>> possibleMove = new HashMap<>();
                 while(i < attributes.length){
-                    i++;
                     String[] move = attributes[i].split(" ");
                     String strLvl = move[0];
                     int lvl = Integer.valueOf(strLvl);
@@ -262,7 +288,7 @@ public class WildlifeSimulator {
                         moveNames.add(move[1]);
                         possibleMove.put(lvl, moveNames); 
                     }
-
+                    i++;
                 }
                 Animal newAnimal = new Animal(bHP, bHP, bAD, aName, possibleMove);
                 animals.put(aName, newAnimal);
@@ -320,10 +346,8 @@ public class WildlifeSimulator {
 
     public static HashMap<String, Move> getMoveList(){
         HashMap<String, Move> moveList = new HashMap<>();
-        Path fPath2 = Paths.get("Moves.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
-        //try(BufferedReader br = Files.newBufferedReader(fPath2, StandardCharsets.US_ASCII)) {
-        try{
-            BufferedReader br = new BufferedReader(new FileReader("src/main/java/edu/ithaca/dragon/wildlife/Moves.csv"));
+        Path fPath2 = Paths.get("src/main/java/edu/ithaca/dragon/wildlife/Moves.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
+        try (BufferedReader br = Files.newBufferedReader(fPath2, StandardCharsets.US_ASCII)){
             String line = br.readLine();
             while (line != null) {
                 String[] attributes = line.split(",");
@@ -342,7 +366,6 @@ public class WildlifeSimulator {
                     String strEffect = attributes[i];
                     Move newMove = new Move(mName, dmg, amt, strEffect);
                     moveList.put(mName, newMove);
-
                 }
                 else{
                     Move newMove = new Move(mName, dmg, amt);
