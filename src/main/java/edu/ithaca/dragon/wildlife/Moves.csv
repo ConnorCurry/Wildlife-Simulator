@@ -1,16 +1,16 @@
-Bark,2,15
-Bear hug,6,5
-Bite,4,10
-Dash,3,20
-Dig,2,20
-Fetch,1,15
-Meow,1,25
-Peck,2,20
-Pounce,3,15
-Rollover,2,20
-Scratch,3,15
-Sit,2,20
-Tackle,3,12
-Venom Bite,4,5,Poison
-Wing Attack,4,12
-Wrap,2,20
+bark,2,15
+bearHug,6,5
+bite,4,10
+dash,3,20
+dig,2,20
+fetch,1,15
+meow,1,25
+peck,2,20
+pounce,3,15
+rollover,2,20
+scratch,3,15
+sit,2,20
+tackle,3,12
+venomBite,4,5,Poison
+wingAttack,4,12
+wrap,2,20

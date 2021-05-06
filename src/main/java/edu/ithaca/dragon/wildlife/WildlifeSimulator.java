@@ -346,10 +346,8 @@ public class WildlifeSimulator {
 
     public static HashMap<String, Move> getMoveList(){
         HashMap<String, Move> moveList = new HashMap<>();
-        Path fPath2 = Paths.get("Moves.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
-        //try(BufferedReader br = Files.newBufferedReader(fPath2, StandardCharsets.US_ASCII)) {
-        try{
-            BufferedReader br = new BufferedReader(new FileReader("src/main/java/edu/ithaca/dragon/wildlife/Moves.csv"));
+        Path fPath2 = Paths.get("src/main/java/edu/ithaca/dragon/wildlife/Moves.csv"); //Scanning CSV file function adapted from: https://www.java67.com/2015/08/how-to-load-data-from-csv-file-in-java.html
+        try (BufferedReader br = Files.newBufferedReader(fPath2, StandardCharsets.US_ASCII)){
             String line = br.readLine();
             while (line != null) {
                 String[] attributes = line.split(",");
@@ -368,7 +366,6 @@ public class WildlifeSimulator {
                     String strEffect = attributes[i];
                     Move newMove = new Move(mName, dmg, amt, strEffect);
                     moveList.put(mName, newMove);
-
                 }
                 else{
                     Move newMove = new Move(mName, dmg, amt);
