@@ -101,6 +101,7 @@ public class Trainer {
         }
     }
 
+
     public boolean partyIsEmpty(){
         boolean empty = true;
         for(int i = 0; i < animals.length; i++){
@@ -110,6 +111,14 @@ public class Trainer {
             }
         }
         return empty;
+    }
+
+    public void reviveParty() {
+        if(this.animals != null) {
+            for(int i = 0; i < animals.length; i++) {
+                this.animals[i].resetCurrentHP();
+            }
+        }
     }
 }
 
