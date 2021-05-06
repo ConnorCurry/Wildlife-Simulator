@@ -50,8 +50,28 @@ public class WildlifeSimulator {
 
     }
 
+    public void saveAreas() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("target/save/areas.json"), areas);
+        }
+        catch (Exception e) {
+            System.out.println("Failed to overwrite save file:\n" + e);
+
+        }
+    }
+
     public void loadFromSave() {
+        ObjectMapper mapper = new ObjectMapper();
+        TypeReference<HashMap<Integer, Area>> typeRef = new TypeReference<HashMap<Integer,Area>>(){};
         
+        try {
+            this.areas = mapper.readValue(new File("target/save/areas.json"), typeRef);
+            this.currArea = this.areas.get(1);
+        }
+        catch(Exception e) {
+            System.out.println("Error Loading previous save data:\n" + e);
+        }
     }
 
     public Trainer startBattle(){

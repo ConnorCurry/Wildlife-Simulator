@@ -33,7 +33,8 @@ public class Animal {
     @JsonProperty("ad") int ad, 
     @JsonProperty("name") String name, 
     @JsonProperty("level") int level,
-    @JsonProperty("exP") int exP) {
+    @JsonProperty("exP") int exP,
+    @JsonProperty("moves") Move[] moves) {
         this.maxHP = hp;
         this.currentHP = chp;
         this.ad = ad;
@@ -41,6 +42,7 @@ public class Animal {
         this.name = name;
         this.exP = 0;
         this.currentEffect = null;
+        this.moves = moves;
         this.learnableMoves = WildlifeSimulator.animalLearnSet(name);
     }
 
@@ -62,6 +64,16 @@ public class Animal {
         this.name = name;
         this.exP = 0;
         this.learnableMoves = possibleMoves;
+    }
+
+    public Animal(int hp, int chp, int ad, String name, int level, int exP) {
+        this.maxHP = hp;
+        this.currentHP = hp;
+        this.ad = ad;
+        this.name = name;
+        this.level = level;
+        this.exP = exP;
+        this.learnableMoves = WildlifeSimulator.animalLearnSet(name);
     }
 
     public void receiveDamage(int dmg) {
