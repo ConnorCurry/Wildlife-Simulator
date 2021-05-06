@@ -53,9 +53,13 @@ public class StoryUI {
         System.out.println("You have successfully passed the Plains Area")
             //Tundra-Area 2; (2 trainers, 2 wild animals)
         //1/2 w
+        System.out.println("All of a sudden, from out of the dirt, springs a wild animal!");
         //1/2 t
+        System.out.println("You hear from behind you the words, My name is Toyota and this is my Tundra");
         //2/2 w
+        System.out.println("You are running from a stampede when you suddenly stop hearing footsteps. As you look behind you to see no animals chasing you, you hear a deep roar from your front side");
         //2/2 t
+        System.out.println("You think you are clear of the tundra when a Trainer named The Gatekeeper steps in your way ")
             //Desert-Area 3; (3 trainers, 2 wild animals)
         //1/3 t
         //1/2 w
