@@ -51,7 +51,7 @@ public class StoryUI {
         //second animal battle 2/2w
         System.out.println("As you leave the viscinity of your prior opponent, you are hit in the head out of the blue by an Animal camoflauged by its surroundings");
         w.startWildBattle();
-        System.out.println("You have successfully passed the Plains Area")
+        System.out.println("You have successfully passed the Plains Area");
 
             //Tundra-Area 2; (2 trainers, 2 wild animals)
         //1/2 w
@@ -67,7 +67,7 @@ public class StoryUI {
         System.out.println("You are running from a stampede when you suddenly stop hearing footsteps. As you look behind you to see no animals chasing you, you hear a deep roar from your front side");
         w.startWildBattle();
         //2/2 t
-        System.out.println("You think you are clear of the tundra when a Trainer named The Gatekeeper steps in your way ")
+        System.out.println("You think you are clear of the tundra when a Trainer named The Gatekeeper steps in your way ");
         while(winner != neo){
             //for all neos animals, heal them; then...
             w.startBattle();
@@ -83,7 +83,7 @@ public class StoryUI {
         }
         //1/2 w
         System.out.println("As the sun blinds your vision, a nearby animal uses its opportunity to attack");
-        w.startWildBattle()
+        w.startWildBattle();
         //2/3 t
         System.out.println("You hear from across the terrain, a salty desert trainer");
         while(winner != neo){
@@ -99,7 +99,7 @@ public class StoryUI {
             //for all neos animals, heal them; then...
             w.startBattle();
         }
-        System.out.println("You successfully beat the Desert")
+        System.out.println("You successfully beat the Desert");
             //Swamp-Area 4; (3 trainers, 3 wild animals)
         //1/3 w 
         System.out.println("You suddenly hear a loud splash and see an animal pouncing at you");
