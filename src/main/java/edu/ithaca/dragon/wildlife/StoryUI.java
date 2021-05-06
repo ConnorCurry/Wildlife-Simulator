@@ -52,6 +52,23 @@ public class StoryUI {
         System.out.println("As you leave the viscinity of your prior opponent, you are hit in the head out of the blue by an Animal camoflauged by its surroundings");
         System.out.println("You have successfully passed the Plains Area")
             //Tundra-Area 2; (2 trainers, 2 wild animals)
+        //1/2 w
+        //1/2 t
+        //2/2 w
+        //2/2 t
+            //Desert-Area 3; (3 trainers, 2 wild animals)
+        //1/3 t
+        //1/2 w
+        //2/3 t
+        //2/2 w
+        //3/3 t
+            //Swamp-Area 4; (3 trainers, 3 wild animals)
+        //1/3 w
+        //1/3 t
+        //2/3 w
+        //2/3 t
+        //3/3 w
+        //3/3 t
     }
 
     
