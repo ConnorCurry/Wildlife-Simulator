@@ -70,7 +70,7 @@ git clone https://github.com/ConnorCurry/Wildlife-Simulator.git
 
 **Sprint Review Agenda:** https://docs.google.com/document/d/1wZrg2BYcR_x8CGRsYl7YdlaIjLl-HBQvIpWpY0PSQUA/edit?usp=sharing
 
-**Sprint Retrospective:**
+**Sprint Retrospective:** https://docs.google.com/document/d/1ETIe8AXNjD8n0NkLw1fIrknQ5C74vHMYclNpb2AnQWw/edit?usp=sharing
 
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/ConnorCurry/Wildlife-Simulator/graphs/contributors
