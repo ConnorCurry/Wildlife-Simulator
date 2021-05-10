@@ -91,6 +91,11 @@ public class Animal {
             currentHP+=healAmt;
         }
     }
+
+    public void healMax() {
+        currentHP = maxHP;
+    }
+    
     public void moveIs(String Move){
         /*
         This function will check what a move is from a string and print it out since the hashmap in these properties just have the move names and level requirements

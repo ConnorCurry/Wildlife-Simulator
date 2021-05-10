@@ -79,6 +79,11 @@ public class WildlifeSimulator {
     }
 
     public Trainer startBattle(){
+        for (Animal animal : player.getAnimals()) {
+            if (animal != null) {
+                animal.healMax();
+            }
+        }
         currBattle = new Battle(player, currArea.getTrainers()[0], currArea.getClimate());
         // while no winner exists, run turns
         // in future we need to add a speed stat to animals to check who goes first
@@ -145,7 +150,7 @@ public class WildlifeSimulator {
             currBattle.climateEffects();
 
         } while (currBattle.getWinner() == null);
-        scan.close();
+        // scan.close(); TODO uncomment
         if (currBattle.getWinner() == player) {
             System.out.println("You Win!");
         }
@@ -156,6 +161,11 @@ public class WildlifeSimulator {
 
 
     public Trainer startWildBattle(){
+        for (Animal animal : player.getAnimals()) {
+            if (animal != null) {
+                animal.healMax();
+            }
+        }
         currBattle = new WildBattle(player, currArea.getTrainers()[0], currArea.getClimate());
         // while no winner exists, run turns
         // in future we need to add a speed stat to animals to check who goes first
@@ -233,7 +243,7 @@ public class WildlifeSimulator {
                 currBattle.opponentAttack(); // Can we make this method print the text for what move was played and how much damage it did?
             } // Can we make this method print the text for what move was played and how much damage it did?
         } while (currBattle.getWinner() == null);
-        scan.close();
+        // scan.close();  TODO uncomment
         if (currBattle.getWinner() == player) {
             System.out.println("You Win!");
         }
@@ -336,7 +346,7 @@ public class WildlifeSimulator {
                 }
                 line = br.readLine();
             }
-            br.close();
+            // br.close();  TODO uncomment
         }
         catch (IOException ioe) {
             ioe.printStackTrace();
