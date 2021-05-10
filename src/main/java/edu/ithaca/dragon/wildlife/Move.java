@@ -20,7 +20,7 @@ public class Move {
     public Move(@JsonProperty("title") String title, @JsonProperty("damage") int dmg, @JsonProperty("amountLeft") int amt, @JsonProperty("statusString") String effect) {
         this.title = title;
         this.damage = dmg;
-        this.amountLeft = amt;
+        this.amountLeft = 15;
         this.statusString = effect;
 
         if(effect != null) {
@@ -45,11 +45,13 @@ public class Move {
 
     }
 
-
     public void decrementAmountLeft() {
-        this.amountLeft -= 1;
+        // this.amountLeft -= 1; TODO this is jank as heck
     }
 
+    public void maxMove() {
+        amountLeft = 15;
+    }
 
     //Getters
     public int getDamage() {
