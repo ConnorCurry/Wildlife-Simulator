@@ -19,8 +19,8 @@ public class Battle {
 		currPlayer = player;
 		currOpponent = trainer;
 		this.climate = climate;
-		playerAnimal = player.firstAnimal();
-		oppAnimal = trainer.firstAnimal();
+		playerAnimal = player.nextAnimal();
+		oppAnimal = trainer.nextAnimal();
 	}
 
 	/**
