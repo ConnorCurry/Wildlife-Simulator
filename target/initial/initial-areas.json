@@ -55,7 +55,39 @@
         }, null, null ]
       } ]
       } ],
-    "climate":"PLAINS"
+    "climate":"PLAINS",
+    "wildEncounters" : [ {
+      "animals" : [ {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Deer",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Dash",
+          "damage" : 3,
+          "amountLeft" : 20,
+          "statusString" : null
+        }, null, null, null ]
+        }, null, null, null, null, null]
+      }, {
+      "animals" : [ {
+        "maxHP" : 25,
+        "currentHP" : 25,
+        "ad" : 6,
+        "name" : "Cat",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Meow",
+          "damage" : 1,
+          "amountLeft" : 25,
+          "statusString" : null
+        }, null, null, null ]
+        }, null, null, null, null, null]
+      }
+    ]
   },
 
   "2" : {
@@ -171,7 +203,39 @@
       }, null, null, null, null ]
     } ],
     "climate" : "TUNDRA",
-    "currentTrainer" : 0
+    "currentTrainer" : 0,
+    "wildEncounters" : [ {
+      "animals" : [ {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Deer",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Dash",
+          "damage" : 3,
+          "amountLeft" : 20,
+          "statusString" : null
+        }, null, null, null ]
+        }, null, null, null, null, null]
+      }, {
+      "animals" : [ {
+        "maxHP" : 25,
+        "currentHP" : 25,
+        "ad" : 6,
+        "name" : "Cat",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Meow",
+          "damage" : 1,
+          "amountLeft" : 25,
+          "statusString" : null
+        }, null, null, null ]
+        }, null, null, null, null, null]
+      }
+    ]
   },
   "3" : {
     "trainers" : [ {
@@ -348,7 +412,39 @@
       }, null, null, null ]
     } ],
     "climate" : "DESERT",
-    "currentTrainer" : 0
+    "currentTrainer" : 0,
+    "wildEncounters" : [ {
+      "animals" : [ {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Deer",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Dash",
+          "damage" : 3,
+          "amountLeft" : 20,
+          "statusString" : null
+        }, null, null, null ]
+        }, null, null, null, null, null]
+      }, {
+      "animals" : [ {
+        "maxHP" : 25,
+        "currentHP" : 25,
+        "ad" : 6,
+        "name" : "Cat",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Meow",
+          "damage" : 1,
+          "amountLeft" : 25,
+          "statusString" : null
+        }, null, null, null ]
+        }, null, null, null, null, null]
+      }
+    ]
   },
   "4" : {
     "trainers" : [ {
@@ -525,6 +621,38 @@
       }, null, null, null ]
     } ],
     "climate" : "SWAMP",
-    "currentTrainer" : 0
+    "currentTrainer" : 0,
+    "wildEncounters" : [ {
+      "animals" : [ {
+        "maxHP" : 30,
+        "currentHP" : 30,
+        "ad" : 5,
+        "name" : "Deer",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Dash",
+          "damage" : 3,
+          "amountLeft" : 20,
+          "statusString" : null
+        }, null, null, null ]
+        }, null, null, null, null, null]
+      }, {
+      "animals" : [ {
+        "maxHP" : 25,
+        "currentHP" : 25,
+        "ad" : 6,
+        "name" : "Cat",
+        "level" : 1,
+        "exP" : 0,
+        "moves" : [ {
+          "title" : "Meow",
+          "damage" : 1,
+          "amountLeft" : 25,
+          "statusString" : null
+        }, null, null, null ]
+        }, null, null, null, null, null]
+      }
+    ]
   }
 }

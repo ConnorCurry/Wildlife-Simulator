@@ -42,12 +42,13 @@ public class StoryUI {
         System.out.println("You are stumbling around on the hills and run across a wild Animal!\n");
         w.startWildBattle();
         //Dialague; then trainer battle 1/1 t
-        Trainer winner = w.startBattle();
-        while(winner != neo){
+        Trainer winner;
+        do {
             System.out.println("You are suddenly roasted out of nowhere by Trainer Jeff Ross who pops out of the brush");
             //for all neos animals, heal them; then...
-            w.startBattle();
-        }
+            winner = w.startBattle();
+        } while(winner != neo);
+        winner = null;
         //second animal battle 2/2w
         System.out.println("As you leave the viscinity of your prior opponent, you are hit in the head out of the blue by an Animal camoflauged by its surroundings");
         w.startWildBattle();

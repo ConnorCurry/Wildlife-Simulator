@@ -166,7 +166,7 @@ public class WildlifeSimulator {
                 animal.healMax();
             }
         }
-        currBattle = new WildBattle(player, currArea.getTrainers()[0], currArea.getClimate());
+        currBattle = new WildBattle(player, currArea.startWildEncounter(), currArea.getClimate());
         // while no winner exists, run turns
         // in future we need to add a speed stat to animals to check who goes first
         Scanner scan = new Scanner(System.in);
