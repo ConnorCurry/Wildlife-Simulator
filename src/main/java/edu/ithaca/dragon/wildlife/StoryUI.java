@@ -42,9 +42,9 @@ public class StoryUI {
         System.out.println("You are stumbling around on the hills and run across a wild Animal!\n");
         w.startWildBattle();
         //Dialague; then trainer battle 1/1 t
-        System.out.println("You are suddenly roasted out of nowhere by Trainer Jeff Ross who pops out of the brush");
         Trainer winner = w.startBattle();
         while(winner != neo){
+            System.out.println("You are suddenly roasted out of nowhere by Trainer Jeff Ross who pops out of the brush");
             //for all neos animals, heal them; then...
             w.startBattle();
         }
@@ -58,8 +58,8 @@ public class StoryUI {
         System.out.println("All of a sudden, from out of the dirt, springs a wild animal!");
         w.startWildBattle();
         //1/2 t
-        System.out.println("You hear from behind you the words, My name is Toyota and this is my Tundra");
         while(winner != neo){
+            System.out.println("You hear from behind you the words, My name is Toyota and this is my Tundra");
             //for all neos animals, heal them; then...
             w.startBattle();
         }
@@ -67,8 +67,8 @@ public class StoryUI {
         System.out.println("You are running from a stampede when you suddenly stop hearing footsteps. As you look behind you to see no animals chasing you, you hear a deep roar from your front side");
         w.startWildBattle();
         //2/2 t
-        System.out.println("You think you are clear of the tundra when a Trainer named The Gatekeeper steps in your way ");
         while(winner != neo){
+            System.out.println("You think you are clear of the tundra when a Trainer named The Gatekeeper steps in your way ");
             //for all neos animals, heal them; then...
             w.startBattle();
         }
@@ -76,8 +76,8 @@ public class StoryUI {
             //Desert-Area 3; (3 trainers, 2 wild animals)
         System.out.println("You have reached the Hot Desert Biome, watch out!");
         //1/3 t
-        System.out.println("A Trainer camoflauged in clay jumps out of a sand hole");
         while(winner != neo){
+            System.out.println("A Trainer camoflauged in clay jumps out of a sand hole");
             //for all neos animals, heal them; then...
             w.startBattle();
         }
@@ -85,8 +85,8 @@ public class StoryUI {
         System.out.println("As the sun blinds your vision, a nearby animal uses its opportunity to attack");
         w.startWildBattle();
         //2/3 t
-        System.out.println("You hear from across the terrain, a salty desert trainer");
         while(winner != neo){
+            System.out.println("You hear from across the terrain, a salty desert trainer");
             //for all neos animals, heal them; then...
             w.startBattle();
         }
@@ -94,8 +94,8 @@ public class StoryUI {
         System.out.println("You feel an attack coming from underneath the sand...");
         w.startWildBattle();
         //3/3 t
-        System.out.println("The sand guru blocks your path to the final biome and must be defeated for passage.");
         while(winner != neo){
+            System.out.println("The sand guru blocks your path to the final biome and must be defeated for passage.");
             //for all neos animals, heal them; then...
             w.startBattle();
         }
@@ -105,8 +105,8 @@ public class StoryUI {
         System.out.println("You suddenly hear a loud splash and see an animal pouncing at you");
         w.startWildBattle();
         //1/3 t
-        System.out.println("A swampy monster walks out of the bog when you realize it is a trainer!");
         while(winner != neo){
+            System.out.println("A swampy monster walks out of the bog when you realize it is a trainer!");
             //for all neos animals, heal them; then...
             w.startBattle();
         }
@@ -114,8 +114,8 @@ public class StoryUI {
         System.out.println("Scary Animal Attack!");
         w.startWildBattle();
         //2/3 t
-        System.out.println("You hear a trainer nearby saying that there might be a nile crocodile in florida. You look and see it is the main character on Swamp People on the History channel");
         while(winner != neo){
+            System.out.println("You hear a trainer nearby saying that there might be a nile crocodile in florida. You look and see it is the main character on Swamp People on the History channel");
             //for all neos animals, heal them; then...
             w.startBattle();
         }
@@ -123,14 +123,12 @@ public class StoryUI {
         System.out.println("A cherubim asks you a riddle which you fail miserably");
         w.startWildBattle();
         //3/3 t
-        System.out.println("You approach the final trainer of the final area, The Demiurgus (Jehovah, Osiris, Uranus, Shiva)");
         while(winner != neo){
+            System.out.println("You approach the final trainer of the final area, The Demiurgus (Jehovah, Osiris, Uranus, Shiva)");
             //for all neos animals, heal them; then...
             w.startBattle();
         }
         System.out.println("As The Demiurgus falls, he smiles and whispers, I am the demiurgus of your mind, and am merely a reflection of your concept of the true ineffible Demiurge. As you have now overcome the gross, material image of god in which you held, you have in turn become the new Primordial Creator and Generator of all to come within your true self's dream called reality.");
         System.out.println("GAME OVER: YOU WIN!");
     }
-
-    
 }
