@@ -93,10 +93,19 @@ public class WildlifeSimulator {
             System.out.println("Opponent's " + currBattle.getOpponentAnimal().getName() + " health: " + currBattle.getOpponentAnimal().getCurrentHP());
 
             String selectedActionString;
-            do{
-                System.out.println("\nWill you: \nAttack\nSwap\n");
-                selectedActionString = scan.nextLine().toLowerCase();
-            } while (!selectedActionString.equals("attack") && !selectedActionString.equals("swap"));
+            if(currBattle.getPlayerAnimalsArray()[1] == null){
+                do{
+                    System.out.println("Note: you have no other animals in your party currently.\n");
+                    System.out.println("\nWill you: \nAttack\nSwap\n");
+                    selectedActionString = scan.nextLine().toLowerCase();
+                } while (!selectedActionString.equals("attack"));
+            }
+            else{
+                do{
+                    System.out.println("\nWill you: \nAttack\nSwap\n");
+                    selectedActionString = scan.nextLine().toLowerCase();
+                } while (!selectedActionString.equals("attack") && !selectedActionString.equals("swap"));
+            }            
 
             if (selectedActionString.equals("attack")){
                 String selectedMoveString;
@@ -120,6 +129,7 @@ public class WildlifeSimulator {
                 currBattle.playerAttack(selectedMove);
             }
             else if (selectedActionString.equals("swap")) {
+
                 System.out.println("\nWhich animal will you swap to?\n");
                 for (Animal animal : currBattle.getPlayerAnimalsArray()) {
                     if (animal != null && animal != currBattle.getPlayerAnimal()) {
@@ -176,11 +186,19 @@ public class WildlifeSimulator {
             System.out.println("Opponent's " + currBattle.oppAnimal.getName() + " health: " + currBattle.getOpponentAnimal().getCurrentHP()+"\n");
 
             String selectedActionString;
-            do {
-                System.out.println("Will you: \nAttack\nSwap\nRun\nCatch\n");
-                selectedActionString = scan.nextLine().toLowerCase();
-            } while (!selectedActionString.equals("attack") && !selectedActionString.equals("swap") && !selectedActionString.equals("run") && !selectedActionString.equals("catch"));
-
+            if(currBattle.getPlayerAnimalsArray()[1] == null){
+                do {
+                    System.out.println("Note: you have no other animals in your party currently.\n");
+                    System.out.println("Will you: \nAttack\nSwap\nRun\nCatch\n");
+                    selectedActionString = scan.nextLine().toLowerCase();
+                } while (!selectedActionString.equals("attack") && !selectedActionString.equals("run") && !selectedActionString.equals("catch"));
+            }
+            else{
+                do {
+                    System.out.println("Will you: \nAttack\nSwap\nRun\nCatch\n");
+                    selectedActionString = scan.nextLine().toLowerCase();
+                } while (!selectedActionString.equals("attack") && !selectedActionString.equals("swap") && !selectedActionString.equals("run") && !selectedActionString.equals("catch"));
+            }
             if (selectedActionString.equals("attack")){
                 String selectedMoveString;
                 Move selectedMove;
