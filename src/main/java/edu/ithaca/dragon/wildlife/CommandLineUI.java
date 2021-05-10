@@ -10,15 +10,16 @@ public class CommandLineUI {
         String in;
         // Create player and demo party
         do { //repeats until either "load" or "demo" is input (upper/lowercases covered)
-            System.out.println("Which player do you choose:\nload\nloadstory\nstory\ndemo (overwrites save)");
+            System.out.println("Which player do you choose:\nload\nstory\ndemo (overwrites save)");
             in = scan.nextLine().toLowerCase();
-        } while(!in.equals("load") && !in.equals("demo") && !in.equals("loadstory") && !in.equals("story"));
+        } while(!in.equals("load") && !in.equals("demo") && !in.equals("story"));
 
         Player player = null;
         if (in.equals("load")) {
+            WildlifeSimulator loadedSim = new WildlifeSimulator();
+            loadedSim.loadFromSave();
             player = Player.readPartyInfo();
-        } else if (in.equals("loadstory")){
-            //TODO: Load Story
+            loadedSim.setPlayer(player);
         } else if(in.equals("story")) {
             StoryUI story = new StoryUI();
             story.story();

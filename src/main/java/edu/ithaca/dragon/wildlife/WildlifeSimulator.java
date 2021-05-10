@@ -421,5 +421,9 @@ public class WildlifeSimulator {
     public void setCurrArea(Integer areaID) {
         currArea = areas.get(areaID);
     }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 }
 
