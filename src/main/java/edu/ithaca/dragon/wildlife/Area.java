@@ -29,7 +29,7 @@ public class Area {
         this.currentTrainer = 0;
     }
 
-    public Area(String data) {
+    public Area() {
         
     }
     
@@ -41,8 +41,16 @@ public class Area {
         return trainers;
     }
 
+    public void setTrainers(Trainer[] trainers) {
+        this.trainers = trainers;
+    }
+
     public Climate getClimate() {
         return climate;
+    }
+
+    public void setClimate(Climate climate) {
+        this.climate = climate;
     }
 
     public int getCurrentTrainer() {
