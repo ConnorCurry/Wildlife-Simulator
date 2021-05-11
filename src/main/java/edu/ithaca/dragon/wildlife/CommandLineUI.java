@@ -10,7 +10,7 @@ public class CommandLineUI {
         String in;
         // Create player and demo party
         do { //repeats until either "load" or "demo" is input (upper/lowercases covered)
-            System.out.println("Which player do you choose:\nload\nstory\ndemo\n");
+            System.out.println("\n---Menu---\nload\nstory\ndemo\n");
             in = scan.nextLine().toLowerCase();
             if (in.equals("load")){
                 System.out.println("This function is a work in progress.\nLoading the your story progress is not yet possible.\n");

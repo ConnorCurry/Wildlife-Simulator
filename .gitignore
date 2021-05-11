@@ -3,6 +3,9 @@
 /target/classes
 /target/test-classes
 
+#Player save state
+/src/main/java/edu/ithaca/dragon/wildlife/Player.csv
+
 # vscode
 /.classpath
 /.project
